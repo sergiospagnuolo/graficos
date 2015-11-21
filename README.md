@@ -1,5 +1,3 @@
-## Gráficos
-
 Gráficos, dados e experimentos do [Volt Data Lab](www.voltdata.info).
 
 Link fácil para bibliotecas de JS (todas open source):
@@ -68,9 +66,9 @@ Link fácil para bibliotecas de JS (todas open source):
 * [Vizsweet](http://www.vizsweet.com/) - ainda não saiu
 
 
-#### ref 1.: [TNW](http://thenextweb.com/dd/2015/06/12/20-best-javascript-chart-libraries/)
-#### ref 2.: [INN](http://nerds.inn.org/toolbox/)
-#### ref 4.: [Visual Cinnamon](http://www.visualcinnamon.com/)
+###### ref 1.: [TNW](http://thenextweb.com/dd/2015/06/12/20-best-javascript-chart-libraries/)
+###### ref 2.: [INN](http://nerds.inn.org/toolbox/)
+###### ref 4.: [Visual Cinnamon](http://www.visualcinnamon.com/)
 
 
 
