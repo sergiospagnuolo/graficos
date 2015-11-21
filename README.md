@@ -1,2 +1,3 @@
-# graficos
-Gráficos, dados e experimentos do Volt Data Lab
+## Gráficos
+
+Gráficos, dados e experimentos do [Volt Data Lab](www.voltdata.info).
