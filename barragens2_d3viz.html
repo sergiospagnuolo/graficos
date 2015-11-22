@@ -7,7 +7,7 @@
 
 
 <style>
-    body {
+      body {
   font-family: 'Oswald', sans-serif;
         background-color: #ededed;
 }
@@ -33,7 +33,7 @@ h4 {
 }
 
 #principal{
-  margin: 20px 20px;
+  margin: 20px 100px;
 }
 
 .conteudo{
@@ -113,7 +113,7 @@ li {
     display: inline-block;
     position: relative;
     width: 100%;
-    padding-bottom: 0px; /* aspect ratio */
+    padding-bottom: 1%; /* aspect ratio */
     vertical-align: top;
     overflow: hidden;
 }
@@ -152,7 +152,7 @@ li {
         <h4> Fonte: <a href="http://www.dnpm.gov.br/assuntos/barragens" target="_blank">Departamento Nacional de Produção Mineral/MME </a></h4>
         
         <script>
-            var legend_width = 120;
+           var legend_width = 120;
 var margin = {top: 20, right: 20, bottom: 30, left: 60},
     width = 860 - margin.left - margin.right+legend_width,
     height = 500 - margin.top - margin.bottom;
@@ -179,9 +179,9 @@ var yAxisAbsolute = d3.svg.axis()
 var svg = d3.select("#graph").append("svg")
       .classed("svg-container", true)
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 1200 400")
+      .attr("viewBox", "0 0 1100 400")
     .attr("width", width + margin.left + margin.right+legend_width)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("height", height + margin.top)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 .classed("svg-content-responsive", true); 
