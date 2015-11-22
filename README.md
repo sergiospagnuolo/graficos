@@ -52,7 +52,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Frictionless data](http://data.okfn.org/)
 * [Table Setter](http://propublica.github.io/table-setter/)
 * [RTG - Responsive Table Generator] (http://inn.github.io/responsive-tables/#)
-* [CSV to array](http://www.speqmath.com/tutorials/csv2array/)
+* [Convert CSV](http://www.convertcsv.com/)
 
 ### Outros
 
