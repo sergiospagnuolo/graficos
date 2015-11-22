@@ -65,7 +65,7 @@ var data = [trace1, trace2, trace3, trace4, trace5];
 
 var layout = {
   barmode: 'stack',
-  title: 'Quantidade de barragens no Brasil por Estado e classificação de risco',
+  title: '',
   font: {
       x: 0,
     y: 1,
@@ -77,23 +77,6 @@ var layout = {
     x: 0.75,
     y: 1
   },
-  
-  xaxis: {
-    title: 'Fonte: DNPM/MME',
-    titlefont: {
-      family: 'Oswald, monospace',
-      size: 11,
-      color: '#7f7f7f'
-    }
-  },
-  yaxis: {
-    title: '',
-    titlefont: {
-      family: 'Courier New, monospace',
-      size: 18,
-      color: '#7f7f7f'
-    }
-  }
              };
 
 Plotly.newPlot('myDiv', data, layout);
