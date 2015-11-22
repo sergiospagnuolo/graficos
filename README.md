@@ -71,6 +71,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 ####### ref 3.: [Visual Cinnamon](http://www.visualcinnamon.com/)
 ####### ref 4.: [Medium Volt](https://medium.com/volt-data-lab/26-ferramentas-para-visualiza%C3%A7%C3%A3o-de-dados-avaliadas-pelo-volt-654c5a590497#.7lof0g732)
 ####### ref 5.: [Medium Volt 2](https://medium.com/volt-data-lab/6-ferramentas-para-extrair-dados-da-internet-avaliadas-pelo-volt-586b6352fdd2#.jbd8yb9a2)
+####### ref 6.: [TNW](http://thenextweb.com/apps/2012/09/29/the-best-apps-communities-tools-writers-journalists/)
 
 
 
