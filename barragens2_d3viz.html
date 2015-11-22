@@ -1,22 +1,84 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Oswald:700,300,400' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
 <style>
-  body {
-  font-size: 12px;
+    body {
   font-family: 'Oswald', sans-serif;
+        background-color: #ededed;
 }
 
-h1{
+h1 {
   font-size: 20px;
+  font-weight: 700;
 }
 
 h2 {
   font-size: 16px;
+  font-weight: 400;
 }
 
 h3 {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+h4 {
   font-size: 12px;
+  font-weight: 300;
+}
+
+#principal{
+  margin: 20px 100px;
+}
+
+.conteudo{
+  margin: 0 auto;
+}
+
+.linha {
+  border-bottom: 3px #cbcbcb solid;
+  margin: 10px 0;
+}
+
+a {
+  color: #a7002c;
+}
+
+a:hover {
+  color: #cbcbcb;
+}
+
+a:visited {
+  color: #a7002c;
+}
+
+#header {
+  
+}
+
+ul {
+  list-style-type: none;
+  margin-left: -40px;
+}
+
+li {
+  display: inline-block;
+}
+
+.redes{
+   margin-left: 30px;
+  float:right;
+}
+
+#logo {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  width: 70px; 
 }
 
 .axis path,
@@ -36,16 +98,30 @@ h3 {
 
 .tooltip{
 	text-anchor: middle;
-	font-family: sans-serif;
-	font-size: 12px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 16px;
 	font-weight: bold;
-	fill:white;	
-  color:black;
+	fill:#a7002c;	
 }
 
 
 .node.active {
   fill: blue;
+}
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 0px; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
 }
   
 </style>
@@ -53,52 +129,62 @@ h3 {
 
 <body>
   
-  <h1> Porcentagem de barranges por classificação de risco, por Estado</h1>
-  <h2>Clique para interagir</h2>
+  <div id="principal">
+      <div id="header">
+      <ul>
+        <li> <img src="http://static1.squarespace.com/static/551da417e4b05f67005d6abe/t/551dadd4e4b095e92c168eba/1448199430467/?format=1500w" alt="logo" id="logo"> </li>
+         <li class="redes"><a href="http://twitter.com/voltmediabr" target="_blank"><i class="fa fa-twitter fa-lg" style="color:#000;"></i></a></li>
+         <li class="redes"><a href="https://www.facebook.com/voltdata" target="_blank"><i class="fa fa-facebook fa-lg" style="color:#000;"></i></a></li>
+        </ul>
+    
+    </div>
+      <div class="conteudo">
+        <h1> Porcentagem de barragens por classificação de risco, por Estado</h1>
+        <h2>Ao lado direito do gráfico, clique para ver o modo de visualização sobre o total nominal de barragens por Estado. <a href="http://www.voltdata.info/quemsomos/" target="_blank">Por Volt Data Lab</a> | Novembro/2015</h2>
+        <div class="linha"> </div>
+        
+            <div id="graph"> <div>
+      </div>
   
-  
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-  
-  <script>
-    var legend_width = 120;
-
+  </div>
+        <div class="linha"> </div>
+        <h3>Barragens recebem classificação de A até E pela relação entre combinação de risco de rompimento e dano potencial associado.<br> Isso significa que uma barragem com baixo risco e baixo dano associado recebe a nota E, enquanto que uma com alto risco e alto dano recebe A. </h3>
+        <h4> Fonte: <a href="http://www.dnpm.gov.br/assuntos/barragens" target="_blank">Departamento Nacional de Produção Mineral/MME </a></h4>
+        
+        <script>
+            var legend_width = 120;
 var margin = {top: 20, right: 20, bottom: 30, left: 60},
     width = 860 - margin.left - margin.right+legend_width,
     height = 500 - margin.top - margin.bottom;
-
 var x = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);
-
 var yAbsolute = d3.scale.linear() // for absolute scale
     .rangeRound([height, 0]);
-
 var yRelative = d3.scale.linear() // for absolute scale
 	    .rangeRound([height, 0]);
-
 var color = d3.scale.ordinal()
-    .range(["#CF4647", "#FDD06B", "#A2AA61", "#297034", "#000"]);
-
+    .range(["#BD2031", "#3f3f3f", "#696969", "#a8a8a8", "#d3d3d3"]);
 var xAxis = d3.svg.axis()
     .scale(x)
     .orient("bottom");
-
 var yAxisRelative = d3.svg.axis()
     .scale(yRelative)
     .orient("left")
     .tickFormat(d3.format(".1%"));
-
 var yAxisAbsolute = d3.svg.axis()
 	    .scale(yAbsolute)
 	    .orient("left")
 	    .tickFormat(d3.format(".2s"));
 
-
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#graph").append("svg")
+      .classed("svg-container", true)
+      .attr("preserveAspectRatio", "xMinYMin meet")
+      .attr("viewBox", "0 0 1200 400")
     .attr("width", width + margin.left + margin.right+legend_width)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+.classed("svg-content-responsive", true); 
 
 d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/dadosbarragensmineracao.tsv", function(error, data) {
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Estado"; }));
@@ -134,18 +220,14 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
 	
   });
   
-
-
   data.sort(function(a, b) { return b.total - a.total; });  
   
-
   x.domain(data.map(function(d) { return d.Estado; }));
   yAbsolute.domain([0, d3.max(data, function(d) { return d.total; })]);//Absolute View scale 
   yRelative.domain([0,1])// Relative View domain 
  
   var absoluteView = false // define a boolean variable, true is absolute view, false is relative view
   						  // Initial view is absolute 
-
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
@@ -153,8 +235,6 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
 	  
 		 
 //Define the rect of Relative 		
-
-
   var stateRelative = svg.selectAll(".relative")
       .data(data)
     .enter().append("g")
@@ -195,7 +275,7 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
 				var yPos = parseFloat(d3.select(this).attr("y"));
 				var height = parseFloat(d3.select(this).attr("height"))
 								
-				d3.select(this).attr("stroke","grey").attr("stroke-width",4);							
+				d3.select(this).attr("stroke","#grey").attr("stroke-width",4);							
 				
 				svg.append("text")
 					.attr("x",xPos)
@@ -217,7 +297,6 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
 		  
 		  
 // define rect for absolute 
-
 		  
 	var stateAbsolute= svg.selectAll(".absolute")
 						.data(data)
@@ -251,8 +330,6 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
 				.style("pointer-events","all")
 				.attr("opacity",0); // initially it is invisible, i.e. start with Absolute View 
 		  	  
-
-
 	//define two different scales, but one of them will always be hidden. 	  	
 	svg.append("g")
 		.attr("class", "y axis absolute")
@@ -286,13 +363,11 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
     	 			    .enter().append("g")
     				    	.attr("class", "legend")
     	 			    	.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-
  		 legend.append("rect")
    	   			.attr("x", width - 18+legend_width)
     			.attr("width", 18)
      	    	.attr("height", 18)
      	    	.attr("fill", color);
-
  		 legend.append("text")
       		.attr("x", width - 24+legend_width)
      	    .attr("y", 9)
@@ -312,19 +387,18 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
 		clickButton.append("text")
       		       .attr("x", width +legend_width)
      	 			.attr("y", 9)
-      	 			.attr("dy", ".35em")
+      	 			.attr("dy", "1em")
       	  			.style("text-anchor", "end")
      	    		.text("Mudar visualização")
 					.style("text-decoration", "underline") 
-					.style("font-size", "12px")
-					.attr("fill","blue")
+					.style("font-size", "15px")
+          .style("font-family", "Oswald")
+					.attr("fill","black")
 					.attr("id","clickChangeView") ;		   
 			
 	  
 	  // start with relative view
 	  Transition2Relative(); 
-
-
 	  // Switch view on click the clickButton 
 	  d3.selectAll("#"+ "clickChangeView")
 	  .on("click",function(){
@@ -337,7 +411,6 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
 		  absoluteView = !absoluteView // change the current view status 		
 	  });
 	  
-
 	  
 	  
 	  function Transition2Absolute(){		 
@@ -359,10 +432,5 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
 		
 	  }
 });
-
-    </script>
-  <h2>Barragens recebem classificação de A até E pela relação entre combinação de risco de rompimento e dano potencial associado. 
-  Isso significa que uma barragem com baixo risco e baixo dano associado recebe a nota E, 
-  enquanto que uma com alto risco e alto dano recebe A.</h2>
-  <h3><em>Fonte: DNPM/MME<em></h3>
+          </script>
 </body>
