@@ -1,6 +1,6 @@
-Gráficos, dados e experimentos do [Volt Data Lab](www.voltdata.info).
+Este é o repositório de gráficos, dados e experimentos com códigos do [Volt Data Lab](www.voltdata.info).
 
-Link fácil para bibliotecas de JS (todas open source):
+Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras ferramentas:
 
 ### Gráficos
 
@@ -68,7 +68,9 @@ Link fácil para bibliotecas de JS (todas open source):
 
 ####### ref 1.: [TNW](http://thenextweb.com/dd/2015/06/12/20-best-javascript-chart-libraries/)
 ####### ref 2.: [INN](http://nerds.inn.org/toolbox/)
-####### ref 4.: [Visual Cinnamon](http://www.visualcinnamon.com/)
+####### ref 3.: [Visual Cinnamon](http://www.visualcinnamon.com/)
+####### ref 4.: [Medium Volt](https://medium.com/volt-data-lab/26-ferramentas-para-visualiza%C3%A7%C3%A3o-de-dados-avaliadas-pelo-volt-654c5a590497#.7lof0g732)
+####### ref 5.: [Medium Volt 2](https://medium.com/volt-data-lab/6-ferramentas-para-extrair-dados-da-internet-avaliadas-pelo-volt-586b6352fdd2#.jbd8yb9a2)
 
 
 
