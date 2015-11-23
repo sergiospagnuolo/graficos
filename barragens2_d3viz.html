@@ -142,7 +142,7 @@ li {
     display: inline-block;
     position: relative;
     width: 100%;
-    padding-bottom: 5%; /* aspect ratio */
+    padding-bottom: 0; /* aspect ratio */
     vertical-align: top;
     overflow: hidden;
 }
@@ -211,7 +211,7 @@ var yAxisAbsolute = d3.svg.axis()
 var svg = d3.select("#graph").append("svg")
       .classed("svg-container", true)
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 1200 400")
+      .attr("viewBox", "0 0 1270 400")
     .attr("width", width + margin.left + margin.right+legend_width)
     .attr("height", height + margin.top)
   .append("g")
