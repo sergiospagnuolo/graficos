@@ -185,8 +185,8 @@ li {
         ou em TSV <a href="https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/dadosbarragensmineracao.tsv" target="_blank">aqui</a></h4>
         <script>
           var legend_width = 120;
-var margin = {top: 20, right: 20, bottom: 30, left: 60},
-    width = 860 - margin.left - margin.right+legend_width,
+var margin = {top: 20, right: 30, bottom: 0, left: 90},
+    width = 960 - margin.left - margin.right+legend_width,
     height = 500 - margin.top - margin.bottom;
 var x = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);
@@ -214,7 +214,7 @@ var yAxisAbsolute = d3.svg.axis()
 var svg = d3.select("#graph").append("svg")
       .classed("svg-container", true)
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 1200 700")
+      .attr("viewBox", "0 0 1200 550")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 .classed("svg-content-responsive", true); 
@@ -464,7 +464,6 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
   		svg.select(".y.axis.absolute").transition().duration(2000).style("opacity",0);// show absolute view axis	  	
 		
 	  }
-});
-          </script>
+});          </script>
 </body>
 </html>
