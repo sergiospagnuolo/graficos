@@ -198,10 +198,13 @@ var color = d3.scale.ordinal()
     .range(["#BD2031", "#3f3f3f", "#696969", "#a8a8a8", "#d3d3d3"]);
 var xAxis = d3.svg.axis()
     .scale(x)
-    .orient("bottom");
+    .orient("bottom")
+    ;
 var yAxisRelative = d3.svg.axis()
     .scale(yRelative)
     .orient("left")
+    .outerTickSize("1")
+    .innerTickSize("0")
     .tickFormat(d3.format(".1%"));
 var yAxisAbsolute = d3.svg.axis()
 	    .scale(yAbsolute)
@@ -211,9 +214,7 @@ var yAxisAbsolute = d3.svg.axis()
 var svg = d3.select("#graph").append("svg")
       .classed("svg-container", true)
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 1270 400")
-    .attr("width", width + margin.left + margin.right+legend_width)
-    .attr("height", height + margin.top)
+      .attr("viewBox", "0 0 1900 400")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 .classed("svg-content-responsive", true); 
@@ -307,7 +308,7 @@ d3.tsv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/da
 				var yPos = parseFloat(d3.select(this).attr("y"));
 				var height = parseFloat(d3.select(this).attr("height"))
 								
-				d3.select(this).attr("stroke","#grey").attr("stroke-width",4);							
+				d3.select(this).attr("stroke","black").attr("stroke-width",2);							
 				
 				svg.append("text")
 					.attr("x",xPos)
