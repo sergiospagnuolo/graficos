@@ -28,6 +28,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Infocaptor](https://my.infocaptor.com/free_data_visualization.php)
 * [Dimple js](http://dimplejs.org/index.html)
 * [Miso](http://misoproject.com/d3-chart/) - framework para gráficos reutilizáveis em D3
+* [Bokeh](http://bokeh.pydata.org/en/latest/index.html) - biblioteca para gráficos interativos em Python
 
 
 ### Mapas
