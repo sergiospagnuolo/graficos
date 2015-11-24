@@ -1,12 +1,12 @@
 id,order,score,weight,color,label
-SEN,1,3670,13.77%,#D90429,Senegal
-BAN,2,2888,10.84%,#ED6A5A,Bangladesh
-SIR,3,2431,9.12%,#E55934,Síria
-NIG,4,2416,9.07%,#FA7921,Nigéria
-GAN,5,1638,6.15%,#E8AA14,Gana
-RDC,6,1229,4.61%,#F0C808,Republica Democrática do Congo
-COL,7,1143,4.29%,#FFE066,Colômbia
-LIB,8,1106,4.15%,#FDE74C,Líbano
-PAQ,9,841,3.16%,#F8F991,Paquistão
-GBI,10,817,3.07%,#FFF1D0,Guiné-Bissau
-OUT,11,8466,31.77%,#ededed,Outros
+SEN,1,3670,13.77,#D90429,Senegal
+BAN,2,2888,10.84,#ED6A5A,Bangladesh
+SIR,3,2431,9.12,#E55934,Síria
+NIG,4,2416,9.07,#FA7921,Nigéria
+GAN,5,1638,6.15,#E8AA14,Gana
+RDC,6,1229,4.61,#F0C808,Republica Democrática do Congo
+COL,7,1143,4.29,#FFE066,Colômbia
+LIB,8,1106,4.15,#FDE74C,Líbano
+PAQ,9,841,3.16,#F8F991,Paquistão
+GBI,10,817,3.07,#FFF1D0,Guiné-Bissau
+OUT,11,8466,31.77,#ededed,Outros
