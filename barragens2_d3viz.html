@@ -184,7 +184,7 @@ li {
         <h4>Acesse os dados tabelados desse projeto <a href="https://docs.google.com/spreadsheets/d/11lkCxmYkE27wr_xhKg59G1jygBkmbadt9exHspGRuwo/edit?usp=sharing" target="_blank">aqui</a> 
         ou em TSV <a href="https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/dadosbarragensmineracao.tsv" target="_blank">aqui</a></h4>
         <script>
-           var legend_width = 120;
+          var legend_width = 120;
 var margin = {top: 20, right: 20, bottom: 30, left: 60},
     width = 860 - margin.left - margin.right+legend_width,
     height = 500 - margin.top - margin.bottom;
@@ -214,7 +214,7 @@ var yAxisAbsolute = d3.svg.axis()
 var svg = d3.select("#graph").append("svg")
       .classed("svg-container", true)
       .attr("preserveAspectRatio", "xMinYMin meet")
-      .attr("viewBox", "0 0 1900 400")
+      .attr("viewBox", "0 0 1200 700")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 .classed("svg-content-responsive", true); 
