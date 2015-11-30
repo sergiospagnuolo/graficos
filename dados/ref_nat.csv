@@ -1,12 +1,12 @@
 id,order,score,weight,color,label
-SEN,1.5,3670,13.77,#E88D67,Senegal
-BAN,2,2888,10.84,#BB999C,Bangladesh
-SIR,3,2431,9.12,#9999C3,Síria
-NIG,4,2416,9.07,#7B8CDE,Nigéria
-GAN,5,1638,6.15,#C0E6DE,Gana
-RDC,6,1229,4.61,#F0C808,Republica Democrática do Congo
-COL,7,1143,4.29,#E3BAC6,Colômbia
-LIB,8,1106,4.15,#BC9EC1,Líbano
-PAQ,9,841,3.16,#596475,Paquistão
-GBI,10,817,3.07,#1F2232,Guiné-Bissau
-OUT,1,8466,31.77,#FDE8E9,Outros
+SEN,1.5,3670,13.77,rgba(89, 100, 117, 1),Senegal
+BAN,2,2888,10.84,rgba(89, 100, 117, 0.9),Bangladesh
+SIR,3,2431,9.12,rgba(89, 100, 117, 0.8),Síria
+NIG,4,2416,9.07,rgba(89, 100, 117, 0.7),Nigéria
+GAN,5,1638,6.15,rgba(89, 100, 117, 0.6),Gana
+RDC,6,1229,4.61,rgba(89, 100, 117, 0.5),Republica Democrática do Congo
+COL,7,1143,4.29,rgba(89, 100, 117, 0.4),Colômbia
+LIB,8,1106,4.15,rgba(89, 100, 117, 0.3),Líbano
+PAQ,9,841,3.16,rgba(89, 100, 117, 0.2),Paquistão
+GBI,10,817,3.07,rgba(89, 100, 117, 0.1),Guiné-Bissau
+OUT,1,8466,31.77,#ededed,Outros
