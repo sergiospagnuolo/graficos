@@ -1,12 +1,12 @@
 id,order,score,weight,color,label
-SEN,1.5,3670,13.77,rgba(89, 100, 117, 1),Senegal
-BAN,2,2888,10.84,rgba(89, 100, 117, 0.9),Bangladesh
-SIR,3,2431,9.12,rgba(89, 100, 117, 0.8),Síria
-NIG,4,2416,9.07,rgba(89, 100, 117, 0.7),Nigéria
-GAN,5,1638,6.15,rgba(89, 100, 117, 0.6),Gana
-RDC,6,1229,4.61,rgba(89, 100, 117, 0.5),Republica Democrática do Congo
-COL,7,1143,4.29,rgba(89, 100, 117, 0.4),Colômbia
-LIB,8,1106,4.15,rgba(89, 100, 117, 0.3),Líbano
-PAQ,9,841,3.16,rgba(89, 100, 117, 0.2),Paquistão
-GBI,10,817,3.07,rgba(89, 100, 117, 0.1),Guiné-Bissau
+SEN,1.5,3670,13.77,#596475,Senegal
+BAN,2,2888,10.84,#596475,Bangladesh
+SIR,3,2431,9.12,#596475,Síria
+NIG,4,2416,9.07,#596475,Nigéria
+GAN,5,1638,6.15,#596475,Gana
+RDC,6,1229,4.61,#596475,Republica Democrática do Congo
+COL,7,1143,4.29,#596475,Colômbia
+LIB,8,1106,4.15,#596475,Líbano
+PAQ,9,841,3.16,#596475,Paquistão
+GBI,10,817,3.07,#596475,Guiné-Bissau
 OUT,1,8466,31.77,#ededed,Outros
