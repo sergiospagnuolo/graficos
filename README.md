@@ -61,6 +61,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [RTG - Responsive Table Generator] (http://inn.github.io/responsive-tables/#)
 * [Convert CSV](http://www.convertcsv.com/)
 * [Cube](http://square.github.io/cube/) 
+* [Quartz's guide about bada data](https://github.com/Quartz/bad-data-guide)
 
 ### Outros
 
