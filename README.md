@@ -49,6 +49,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Stamen](http://stamen.com/) - diversos recursos e basemaps
 * [Time Mapper](http://timemapper.okfnlabs.org/)
 * [Kartograph](http://kartograph.org/)
+* [Indie Mapper](http://indiemapper.com/app/)
 
 
 ### Data
