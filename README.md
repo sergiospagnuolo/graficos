@@ -50,6 +50,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Time Mapper](http://timemapper.okfnlabs.org/)
 * [Kartograph](http://kartograph.org/)
 * [Indie Mapper](http://indiemapper.com/app/)
+* [Basemap](http://matplotlib.org/basemap/)
 
 
 ### Data
