@@ -35,6 +35,8 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Arbor js](http://arborjs.org/) -  gráficos de conexão de rede
 * [Moebio Framework](http://moebiolabs.github.io/moebio_framework/) - framework em JS para gráficos de rede
 * [Quadrigram](http://www.quadrigram.com/)
+* [Tangle](http://worrydream.com/Tangle/) e [aqui](https://github.com/worrydream/Tangle) - desenhar visualizações dinâmicas
+* [Lyra](http://idl.cs.washington.edu/projects/lyra/app/) - desenhar visualizações dinâmicas
 
 
 ### Mapas
