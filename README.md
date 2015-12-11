@@ -42,6 +42,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 ### Mapas
 
 * [Leaflet](http://leafletjs.com/) - CDN
+* [OSM Boundaries](https://osm.wno-edv-service.de/boundaries/) - polígonos de regiões, países, subregiões, cidades
 * [Polygon Creator](http://polygons.openstreetmap.fr/index.py) - cria polígonos para mapas
 * [Mapbox](https://www.mapbox.com)
 * [CartoDB](http://www.cartodb.com/)
