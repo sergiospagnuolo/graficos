@@ -66,6 +66,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Convert CSV](http://www.convertcsv.com/)
 * [Cube](http://square.github.io/cube/) 
 * [Quartz's guide about bada data](https://github.com/Quartz/bad-data-guide)
+* [Parse Hub](https://www.parsehub.com/)
 
 ### Outros
 
