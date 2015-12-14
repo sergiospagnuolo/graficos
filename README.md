@@ -52,6 +52,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Kartograph](http://kartograph.org/)
 * [Indie Mapper](http://indiemapper.com/app/)
 * [Basemap](http://matplotlib.org/basemap/)
+* [Sao Paulo](https://github.com/okfn-brasil/gastos_abertos_dados/tree/master/GIS) - dados geográficos da cidade de São Paulo
 
 
 ### Data
