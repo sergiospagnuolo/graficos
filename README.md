@@ -72,6 +72,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 
 ### Outros
 
+* [Story Builder](http://storybuilder.jumpstart.ge/en) - engine para publicação de histórias, dá para baixar o código e publicar no seu servidor
 * [Stack Edit](https://stackedit.io/editor) - editor online de Markdown
 * [AWS S3](http://aws.amazon.com/s3/)
 * [Tributary.io](http://tributary.io/) - uma jóia para criar snippets de SVG 
