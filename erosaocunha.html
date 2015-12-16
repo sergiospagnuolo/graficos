@@ -78,6 +78,7 @@ h2 {
   font-family: 'Rubik';
   font-weight: 300;
   font-size: 18px;
+  line-height: 1.5em;
 }
 
 h3 {
@@ -104,8 +105,8 @@ span {
   font-size: 16px;
   font-family: 'Oswald';
   font-weight: 300;
-  float: right;
-  padding: 10px 0 0 20px;
+  float: ;
+  padding: 10px 20px 0 0px;
 }
 
 ul {
@@ -250,6 +251,39 @@ input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
   border-bottom: 1px #cbcbcb solid;
   margin-bottom: 30px;
 }
+
+[for="tabela"] {
+    position: absolute;
+    bottom: -4rem;
+    left: 0;
+    width: 170px;
+    text-align: left;
+    padding: .3rem;
+    background-color:;
+   
+
+}
+
+[for="tabela"]:hover {
+    background: rgba(0,0,0,.1);
+    color: rgba(255,255,255);
+}
+
+[for="tabela"] span:last-of-type {
+    display: none;
+    visibility: hidden;
+}
+
+input[type=checkbox]:checked ~ [for="tabela"] span:first-of-type {
+    display: none;
+    visibility: hidden;
+}
+
+input[type=checkbox]:checked ~ [for="tabela"] span:last-of-type {
+    display: block;
+    visibility: visible;
+}
+
 
 </style>
 
