@@ -37,6 +37,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Quadrigram](http://www.quadrigram.com/)
 * [Tangle](http://worrydream.com/Tangle/) e [aqui](https://github.com/worrydream/Tangle) - desenhar visualizações dinâmicas
 * [Lyra](http://idl.cs.washington.edu/projects/lyra/app/) - desenhar visualizações dinâmicas
+* [Tau Charts](http://taucharts.com/) - library nova e interessante para gráficos
 
 
 ### Mapas
@@ -69,6 +70,8 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Cube](http://square.github.io/cube/) 
 * [Quartz's guide about bada data](https://github.com/Quartz/bad-data-guide)
 * [Parse Hub](https://www.parsehub.com/)
+* [Table Generator](http://www.tablesgenerator.com/) - belo gerador de tabelas em HTML. Economiza muita dor de cabeça
+* [SQL Pad](http://rickbergfalk.github.io/sqlpad/) - roda SQL no browser
 
 ### Outros
 
