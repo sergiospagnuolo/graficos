@@ -85,7 +85,8 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [React](http://facebook.github.io/react/) - biblioteca do Facebook para construção de UI
 * [Paper](http://paperjs.org/about/)
 * [Vizsweet](http://www.vizsweet.com/) - ainda não saiu
-* [Pym js](http://blog.apps.npr.org/pym.js/)
+* [Pym js](http://blog.apps.npr.org/pym.js/) - responsive iframes
+* [Inkscape](https://inkscape.org/pt/) - vector graphics designer
 
 
 ####### ref 1.: [TNW](http://thenextweb.com/dd/2015/06/12/20-best-javascript-chart-libraries/)
