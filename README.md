@@ -38,11 +38,13 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Tangle](http://worrydream.com/Tangle/) e [aqui](https://github.com/worrydream/Tangle) - desenhar visualizações dinâmicas
 * [Lyra](http://idl.cs.washington.edu/projects/lyra/app/) - desenhar visualizações dinâmicas
 * [Tau Charts](http://taucharts.com/) - library nova e interessante para gráficos
+* [Processing js](http://processingjs.org/)
 
 
 ### Mapas
 
 * [Leaflet](http://leafletjs.com/) - CDN
+* [Polymap](http://polymaps.org/)
 * [OSM Boundaries](https://osm.wno-edv-service.de/boundaries/) - polígonos de regiões, países, subregiões, cidades
 * [Polygon Creator](http://polygons.openstreetmap.fr/index.py) - cria polígonos para mapas
 * [Mapbox](https://www.mapbox.com)
