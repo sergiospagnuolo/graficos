@@ -57,6 +57,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 
 
 ### Data
+* [R](https://www.r-project.org/)
 * [Google Sheets to Json](http://blog.pamelafox.org/2013/06/exporting-google-spreadsheet-as-json.html)
 * [CSV to GeoJson](https://github.com/mapbox/geo-googledocs/)
 * [JsonLint](http://jsonlint.com/#) - validador de JSON
