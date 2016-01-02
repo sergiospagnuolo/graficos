@@ -39,6 +39,7 @@ Link fácil para bibliotecas de JS (todas open source ou gratuitas) e outras fer
 * [Lyra](http://idl.cs.washington.edu/projects/lyra/app/) - desenhar visualizações dinâmicas
 * [Tau Charts](http://taucharts.com/) - library nova e interessante para gráficos
 * [Processing js](http://processingjs.org/)
+* [Chris Manning LFC Notation](http://christophermanning.org/projects/building-cubic-hamiltonian-graphs-from-lcf-notation) - gráficos de pontos com marcação LFC
 
 
 ### Mapas
