@@ -88,24 +88,19 @@ span {
   padding: 10px 20px 0 0px;
 }
 
-/*
+
 ul {
-  margin: 0 0 0 -40px;
+    color: #fff;
+  margin: 0 -40px;
 }
 
- 
 li {
-  font-size: 16px;
-  list-style-type: none;
   display: inline-block;
-  margin: 3px;
-  padding: 10px;
-  width: 100px;
+  width: 50px;
+  padding: 5px;
   text-align:center;
-  color: #fff;
-  mix-blend-mode: ;
 }
-*/
+
 .conteudo{
   margin: 0 5%;
 }
@@ -184,6 +179,13 @@ li {
 
 <div class="linha"></div>
 <h5>Passe o mouse sobre os elementos do círculo abaixo para navegar pelas praças por regiões e bairros.</h5>
+    <ul>
+  <li class="legenda" style="background-color:#44633F">Oeste</li>
+<li class="legenda" style="background-color:#611C35">Norte </li> 
+  <li class="legenda" style="background-color:#B2BCAA">Centro </li>
+<li class="legenda" style="background-color:#2C365E">Sul </li>
+<li class="legenda" style="background-color:#FFA630">Leste </li>
+</ul>
 <div id="main">
       <div id="sequence"></div>
       <div id="chart">
@@ -201,6 +203,7 @@ li {
 --> 
 
   </div>
+  </body>
   
   <script>
   // Dimensions of sunburst.
