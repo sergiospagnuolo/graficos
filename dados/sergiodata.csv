@@ -1,4 +1,3 @@
-hobbies,1
 hobbies-sports,1
 hobbies-sports-basketball,1
 hobbies-sports-soccer,1
@@ -13,7 +12,6 @@ hobbies-craftsmanship-wood work,1
 hobbies-craftsmanship-installing curtains,1
 hobbies-cooking,1
 hobbies-cooking-conserves,1
-media preferences,1
 media preferences-digital media,1
 media preferences-digital media-entertaiment,1
 media preferences-digital media-entertaiment-BoJack Horseman,1
@@ -50,7 +48,6 @@ media preferences-print-magazine-Economist,1
 media preferences-print-magazine-Veja,1
 media preferences-print-magazine-Wired,1
 media preferences-print-magazine-NYT Magazine,1
-tastes,1
 tastes-food,1
 tastes-food-steak,1
 tastes-food-steak-barbecue,1
@@ -97,7 +94,6 @@ tastes-music-samba-Samba de raiz,1
 tastes-music-samba-Samba de raiz-Paulo Vanzolini,1
 tastes-music-samba-Pagode,1
 tastes-music-electronic,1
-travel,1
 travel-country,1
 travel-country-Brazil,1
 travel-country-US,1
@@ -119,7 +115,6 @@ travel-city-Santiago,1
 travel-city-Lima,1
 travel-city-Montevideo,1
 travel-city-Ciudad de Leste,1
-work,1
 work-staff,1
 work-staff-Reuters,1
 work-staff-Reuters-Sao Paulo,1
@@ -135,7 +130,6 @@ work-internship-United Nations,1
 work-freelancer,1
 work-entrepreneur,1
 work-entrepreneur-Volt,1
-studies,1
 studies-higher education,1
 studies-higher education-bachelor-Mackenzie University,1
 studies-higher education-extention-PUC/SP,1
