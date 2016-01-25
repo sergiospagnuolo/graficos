@@ -28,7 +28,6 @@ tastes-drink-other-whisky,2
 tastes-drink-other-soda,2
 tastes-drink-other-gin,3
 tastes-drink-other-fruit juice,5
-tastes-drink-other,12
 tastes-drink-beer-Wheat,1
 tastes-drink-beer-Red Ale,5
 tastes-drink-beer-Porter,2
@@ -59,13 +58,11 @@ media preferences-digital media-journalism-Guardian,4
 media preferences-digital media-journalism-Folha de S. Paulo,2
 media preferences-digital media-journalism-FiveThirthyEight,4
 media preferences-digital media-journalism-Estado de S. Paulo,3
-media preferences-digital media-journalism,36
 media preferences-digital media-entertaiment-Reality TV,1
 media preferences-digital media-entertaiment-Last Week Tonight,4
 media preferences-digital media-entertaiment-Brazilian movies,4
 media preferences-digital media-entertaiment-BoJack Horseman,5
 media preferences-digital media-entertaiment-All from Tarantino,5
-media preferences-digital media-entertaiment,19
 hobbies-sports-soccer,2
 hobbies-sports-running,3
 hobbies-sports-boxing,3
