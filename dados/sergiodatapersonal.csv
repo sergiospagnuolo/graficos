@@ -31,7 +31,7 @@ tastes-drink-other-fruit juice,5
 tastes-drink-beer-Wheat,1
 tastes-drink-beer-Red Ale,5
 tastes-drink-beer-Porter,2
-tastes-drink-beer-Lager-Favorie Brand: Brooklyn Lager-Second favorite: Sam Adams,4
+tastes-drink-beer-Lager-Brooklyn Lager
 tastes-drink-beer-IPA-Favorite Brand: Coruja,5
 tastes-drink-beer-APA,4
 media preferences-print-newspaper-The New York Times,4
@@ -42,16 +42,16 @@ media preferences-print-magazine-Veja,1
 media preferences-print-magazine-NYT Magazine,5
 media preferences-print-magazine-New Yorker,4
 media preferences-print-magazine-Economist,4
-media preferences-print-book-Soldier's Pay (Faulkner),4
-media preferences-print-book-Pedro Paramo (by Juan Rulfo),5
-media preferences-print-book-On Revolution (Hanna Arendt),5
-media preferences-print-book-Dom Casmurro (by Machado de Assis),4
-media preferences-print-book-Crime and Punishment (by Dostoievski),4
-media preferences-print-book-A Song of Fire and Ice (George RR Marting),4
+media preferences-print-book-Soldier's Pay,4
+media preferences-print-book-Pedro Paramo,5
+media preferences-print-book-On Revolution,5
+media preferences-print-book-Dom Casmurro,4
+media preferences-print-book-Crime and Punishment,4
+media preferences-print-book-A Song of Fire and Ice,4
 media preferences-digital media-journalism-Vox,3
 media preferences-digital media-journalism-Volt Data Lab,2
 media preferences-digital media-journalism-Vice,3
-media preferences-digital media-journalism-The New York Times,5
+media preferences-digital media-journalism-NYT,5
 media preferences-digital media-journalism-ProPublica,5
 media preferences-digital media-journalism-Marshall Project,5
 media preferences-digital media-journalism-Guardian,4
@@ -62,7 +62,13 @@ media preferences-digital media-entertaiment-Reality TV,1
 media preferences-digital media-entertaiment-Last Week Tonight,4
 media preferences-digital media-entertaiment-Brazilian movies,4
 media preferences-digital media-entertaiment-BoJack Horseman,5
-media preferences-digital media-entertaiment-All from Tarantino,5
+media preferences-digital media-apps-Pocket,5
+media preferences-digital media-apps-NYT Now,5
+media preferences-digital media-apps-Facebook,2
+media preferences-digital media-apps-Twitter, 3
+media preferences-digital media-apps-Kindle,4
+media preferences-digital media-apps-Crossy Road,3
+media preferences-digital media-apps-Telegram,4
 hobbies-sports-soccer,2
 hobbies-sports-running,3
 hobbies-sports-boxing,3
