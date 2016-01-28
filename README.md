@@ -1,10 +1,10 @@
 ## Data journalism tools reference list  
 
-This a quick reference guide compiling numerous tools that can be used for journalistic purposes or other data/map-related approaches and projects.
+This is a quick reference guide compiling numerous tools that can be used for journalistic purposes or other data/map-related approaches and projects.
 
 The great majority of tools and libraries shown here are free to use and or open-source. 
 
-_Compiled by [Sergio Spagnuolo](https://twitter.com/ProjetoStock)- if you have any suggestions or tips for this list, reach me through [Twitter - @ProjetoStock](https://twitter.com/ProjetoStock). I plan to update this regularly, but with no timeframe._
+_Compiled by [Sergio Spagnuolo](https://twitter.com/ProjetoStock). If you have any suggestions or tips for this list, reach me through [Twitter - @ProjetoStock](https://twitter.com/ProjetoStock)._
 
 ### Graphs
 
@@ -118,4 +118,4 @@ _Compiled by [Sergio Spagnuolo](https://twitter.com/ProjetoStock)- if you have a
 ####### ref 11.: [GitHub](https://github.com/prose/starter)
 ####### ref 12.: [GitHub](https://github.com/jueyang/know-your-tools)
 
-_####### I sometimes try to name the tool's creators, but I don't put much effort in finding their name, it as their work speaks for itself. If you want attribution, reach me through Twitter._
+_I sometimes try to name the tool's creators, but I don't put much effort in finding their name, it as their work speaks for itself. If you want attribution, reach me through Twitter._
