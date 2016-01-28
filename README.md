@@ -31,7 +31,7 @@ _Compiled by [Sergio Spagnuolo](https://twitter.com/ProjetoStock). If you have a
 * [Chart Generator](http://charts.livegap.com/) - name is clear enough. Cool and simple tool. 
 * [Circos](http://mkweb.bcgsc.ca/tableviewer/) - complex circular graphs, like chord diagrams. Pretty fucking cool. 
 * [Recline js](http://okfnlabs.org/recline/) - library for building data applications in pure Javascript and HTML
-* [Infocaptor](https://my.infocaptor.com/free_data_visualization.php) - Make some strange visualizations come true. Can't say I like this tool very much, as their exporting options are somewhat limited. There are better options around.
+* [Infocaptor](https://my.infocaptor.com/free_data_visualization.php) - Can't say I like this tool very much, as their exporting options are somewhat limited - there are better options
 * [Dimple js](http://dimplejs.org/index.html) - object-oriented API for business analytics powered by d3
 * [Miso](http://misoproject.com/d3-chart/) - framework for reusable graphs using D3
 * [Bokeh](http://bokeh.pydata.org/en/latest/index.html) - interactive graphs using Python
@@ -42,7 +42,7 @@ _Compiled by [Sergio Spagnuolo](https://twitter.com/ProjetoStock). If you have a
 * [Tangle](http://worrydream.com/Tangle/) e [aqui](https://github.com/worrydream/Tangle) - draw dinamic data viz
 * [Lyra](http://idl.cs.washington.edu/projects/lyra/app/) - draw dinamic data viz
 * [Tau Charts](http://taucharts.com/) - cool library for data viz
-* [Processing js](http://processingjs.org/) - makes your data visualizationsa and interactive animations using web standards and without any plug-ins
+* [Processing js](http://processingjs.org/) - data visualizations and interactive animations using web standards and without any plug-ins
 * [Chris Manning LFC Notation](http://christophermanning.org/projects/building-cubic-hamiltonian-graphs-from-lcf-notation) - LCF notation parser for graphs using d3.js - random, but addictive and cool
 
 
