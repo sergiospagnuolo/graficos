@@ -118,4 +118,4 @@ _Compiled by [Sergio Spagnuolo](https://twitter.com/ProjetoStock). If you have a
 ####### ref 11.: [GitHub](https://github.com/prose/starter)
 ####### ref 12.: [GitHub](https://github.com/jueyang/know-your-tools)
 
-_I sometimes try to name the tool's creators, but I don't put much effort in finding their name, it as their work speaks for itself. If you want attribution, reach me through Twitter._
+_I sometimes try to name the tool's creators, but I don't put much effort into finding their name. If you want attribution, reach me through Twitter._
