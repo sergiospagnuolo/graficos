@@ -35,11 +35,11 @@
 
 
 <style>
-  body {
+    body {
   font-family: 'Oswald', sans-serif;
-        background-color: ;
+        background-color: #ededed;
     -webkit-font-smoothing:antialiased;
-    -webkit-text-size-adjust:100%
+    -webkit-text-size-adjust:100%;
 }
 
 h1 {
@@ -63,10 +63,14 @@ h4 {
 }
 
 #principal{
-  /*margin: 20px 5%;*/
+  margin: 20px 5%;
 }
 
 .conteudo{
+  margin: 0 auto;
+}
+
+#graph {
   margin: 0 auto;
 }
 
@@ -85,10 +89,6 @@ a:hover {
 
 a:visited {
   color: #a7002c;
-}
-
-#header {
-  
 }
 
 ul {
@@ -143,7 +143,7 @@ li {
     display: inline-block;
     position: relative;
     width: 100%;
-    padding-bottom: 0; /* aspect ratio */
+    padding-bottom: 3%; /* aspect ratio */
     vertical-align: top;
     overflow: hidden;
 }
@@ -159,20 +159,12 @@ li {
 
 <body>
   
+         
   <div id="principal">
-      <div id="header">
-      <ul>
-        <li> <img src="http://static1.squarespace.com/static/551da417e4b05f67005d6abe/t/551dadd4e4b095e92c168eba/1448199430467/?format=1500w" alt="logo" id="logo"> </li>
-        
-         <li class="redes"><a href="http://twitter.com/share?text=As barragens de mineração no Brasil @voltmediabr&url=http://especiais.voltdata.info/barragens-parte2&#mariana" target="_blank"><i class="fa fa-twitter fa-lg" style="color:#000;"></i></a></li>
-         <li class="redes"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//especiais.voltdata.info/barragens-parte2" target="_blank"><i class="fa fa-facebook fa-lg" style="color:#000;"></a></i></a></li>
-          <li class="redes">Compartilhe </li>
-        </ul>
-    
-    </div>
+
       <div class="conteudo">
         <h1> Porcentagem de barragens por classificação de risco, por Estado</h1>
-        <h2>Ao lado direito do gráfico, clique para alterar o modo de visualização do gráfico e ver total de barragens por Estado. <a href="http://www.voltdata.info/quemsomos/" target="_blank">Por Volt Data Lab</a> | Novembro/2015</h2>
+        <h2>Ao lado direito do gráfico, clique para alterar o modo de visualização do gráfico e ver total de barragens por Estado. </h2>
         <div class="linha"> </div>
         
             <div id="graph"> <div>
