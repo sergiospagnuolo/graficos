@@ -50,6 +50,7 @@ h3 {
 }
 
 h4 {
+  top: 30px;
   margin-bottom: 5px;
   font-family: 'Inconsolata', sans-serif;
 }
@@ -188,6 +189,7 @@ strong{
 /* Ordem dos cards */
 
 #proxy{
+  margin-top: -20px;
 }
 
 .primeiro {
@@ -265,10 +267,12 @@ strong{
 
 .segundo.right {
   float: right;
+  margin-bottom: 70px;
 }
 
 .segundo.left {
   float: left;
+  margin-bottom: 70px;
 }
 .segundo.left:before {
   left: auto;
@@ -283,7 +287,7 @@ strong{
 
 .ano {
   position: absolute;
-  top: -6em;
+  top: -5.5em;
   width: 100%;
 }
 
@@ -326,7 +330,7 @@ strong{
   }
 
   .segundo {
-    margin: 1.563em 0 1.563em 1.875em;
+    margin: 1.5em 0 1.5em 1.9em;
     width: 95%;
     -webkit-transition: 0.75s cubic-bezier(0.43, -0.57, 0.17, 1.11);
     transition: 0.75s cubic-bezier(0.43, -0.57, 0.17, 1.11);
