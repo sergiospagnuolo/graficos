@@ -49,11 +49,16 @@ h3 {
   font-weight: 300;
 }
 
+h4 {
+  margin-bottom: 5px;
+  font-family: 'Inconsolata', sans-serif;
+}
+
 h5 {
   font-size: 1.3em;
   text-transform: uppercase;
   padding: 0rem;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 h6 {
@@ -70,9 +75,26 @@ h6 {
   padding: 10px;
 }
 
+#estadonovo{
+  background-color: #939393;
+}
+
+#ditadura{
+  background-color: #696969;
+}
+
+#novarep{
+  background-color: #545454;
+}
+
 #cred {
   color: #faa61a;
   font-weight: 400;
+}
+
+img {
+  width: 400px;
+  overflow: hidden;
 }
 
 .linha {
@@ -80,6 +102,10 @@ h6 {
   width: 50px;
   margin: 0 auto;
   padding: 5px;
+}
+
+ul {
+  padding-right: 10px;
 }
 
 li {
@@ -91,7 +117,18 @@ span{
   font-weight: 700;
   font-family: 'Inconsolata';
   text-transform: uppercase;
-  font-size: .9em;
+  font-size: 1em;
+}
+
+.chapeu {
+  border-bottom: 0;
+}
+
+.datas{
+  font-size: 1.5em;
+  float: right;
+  margin-bottom: 2px;
+  border-bottom: 0;
 }
 
 body .mandatos, html .mandatos {
@@ -150,8 +187,7 @@ strong{
 
 /* Ordem dos cards */
 
-.proxy{
-  background-color: #fafafa;
+#proxy{
 }
 
 .primeiro {
@@ -247,7 +283,7 @@ strong{
 
 .ano {
   position: absolute;
-  top: -4.375em;
+  top: -6em;
   width: 100%;
 }
 
@@ -299,6 +335,7 @@ strong{
   .segundo.left,
   .segundo.right {
     float: left;
+    background-color: ;
   }
 
   .segundo.left .ano {
@@ -326,7 +363,7 @@ strong{
 /* REFERENCIAS - PANORAMA */
 
 .panorama {
-  padding: 50px;
+  padding: 50px 5%;
   margin: 0;
   width: 100%;
 }
