@@ -366,6 +366,10 @@ strong{
 
 /* REFERENCIAS - PANORAMA */
 
+#voltlytics{
+    visibility: hidden;
+}
+
 .panorama {
   padding: 50px 5%;
   margin: 0;
