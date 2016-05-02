@@ -1,11 +1,13 @@
 id,value
-US President Barack Obama,0.3
-German Chancellor Angela Merkel,0.13
-British Prime Minister David Cameron,0.1
-French President Francois Hollande,0.06
-Russian President Vladimir Putin,-10
-Chinese President Xi Jinping,-3
-Indian Prime Minister Narendra Modi,0.04
-Brazilian President Dilma Rousseff,1
-Saudi Arabia King Salman bin Abdulaziz al Saud,-11
-Iranian President Hassan Rouhani,-13
+Barack Obama (EUA),0.3
+Angela Merkel (Alemanha),0.13
+David Cameron (Reino Unido),0.1
+François Hollande (França),0.06
+Vladimir Putin (Rússia),-10
+Xi Jinping (China),-3
+Narendra Modi (Índia),0.04
+Dilma Rousseff (Brasil),1
+Rei Salman bin Abdulaziz al Saud (Arábia Saudita),-11
+Hassan Rouhani (Irã),-13
+MEDIANA,0.05
+MÉDIA,-3.54
