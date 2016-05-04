@@ -1,0 +1,100 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inconsolata', sans serif;
+  color: #000;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+svg {
+  position: absolute;
+  top: 50%;
+  height: 5em;
+  width: 5em;
+  margin-top: -2.5em;
+  cursor: pointer;
+}
+
+svg#next {
+  right: 1em;
+}
+
+svg#previous {
+  display: none;
+  left: 1em;
+}
+
+.slides {
+  display: flex;
+  -webkit-display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+}
+
+.slides h1 {
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+  margin: 1em;
+  text-transform: uppercase;
+  line-height: 1.3em;
+}
+
+.slides h2 {
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+  text-transform: none;
+  margin: 1em;
+  line-height: 1.3em;
+}
+
+byline {
+  font-size: 1em;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #faa61a;
+}
+
+
+.zoomout {
+  transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  -webkit-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+}
+
+.one {
+  background-color: #fff;
+}
+
+.two {
+  background-color: #fff;
+}
+
+.three {
+  background-color: #fff;
+}
+
+.four {
+  background-color: #fff;
+}
+
+.five {
+  background-color: #fff;
+}

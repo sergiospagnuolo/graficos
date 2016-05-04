@@ -1,0 +1,141 @@
+<!DOCTYPE>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+  <title>Aos Fatos | Brasil, fora da curva? Sobre o crescimento do PIB</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="css/estilos.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71324943-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<meta name='keywords' content='política, Brasil, política brasileira, jornalismo de dados, aos fatos, volt data lab, impeachment'>
+<meta name='description' content='Força Ocultas: A Presidência da República Nova à Nova República - 1945-2015 '>
+<meta name='subject' content='jornalismo de dados'>
+<meta name='copyright' content='Aos Fatos'>
+<meta name='language' content='PT'>
+<meta name='robots' content='index,follow'>
+<meta name='revised' content='Abril de 2016'>
+<meta name='author' content='Sérgio Spagnuolo'>
+<meta name='designer' content='@ProjetoStock'>
+<meta name='reply-to' content='info@voltdata.info'>
+<meta name='owner' content='Aos Fatos'>
+<meta name='url' content='http://graficos.voltdata.info/posts/esp-econ/graph1.html'>
+<meta name='identifier-URL' content=''>
+<meta name='coverage' content='Brasil'>
+<meta name='distribution' content='Global'>
+<meta name='rating' content='General'>
+<meta name='subtitle' content='A Presidência da República Nova à Nova República - 1945-2015'>
+<meta name='target' content='all'>
+<meta name='HandheldFriendly' content='True'>
+<meta name='MobileOptimized' content='320'>
+<meta property="og:image" content="https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/posts/timeline_impeach/fb_img.png" />
+<meta property="og:url" content="http://graficos.voltdata.info/posts/esp-econ/graph1.html">
+<meta property="og:title" content="Brasil, fora da curva?">
+<meta property="og:description" content="Desemprego no Brasil frente ao mundo">
+
+</head>
+
+<body>
+
+  <div class="paragrafs">
+    <div id="header">
+        <ul class="header" >
+          <li id="logo"><a href="http://aosfatos.org"><img src="http://aosfatos.org/static/images/logo/aosfatos_cores-06.5e00a0b1e24e.svg" alt="logo Aos Fatos" id="logoaf"></a></li>
+           <li class="redes"><a href="http://twitter.com/share?text=O impeachment e todos os mandatos da Nova República @aosfatos @voltmediabr&url=http://aosfatos.org/timeline_presidentes" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true" style="color:#faa61a"></i></a></li>
+           <li class="redes"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//aosfatos.org/timeline_presidentes " target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true" style="color:#faa61a"></i></a></li>
+           <li class="redes"> Compartilhe o gráfico </li>
+          </ul>
+
+        <h4>Percepções sobre corrupção em 20 países com imprensa "parcialmente livre" medidas no relatório <strong>Global States of Mind 2013</strong>, da Gallup, dados mais recentes onde consta o Brasil, em escala linear com base inicial a 25%. </h4>
+
+<svg viewBox="0 0 500 250"></svg>
+<script src="https://d3js.org/d3.v4.0.0-alpha.33.min.js"></script>
+
+<h4>Fonte: <a href="http://www.meridian.org/wp-content/uploads/2015/08/2013_GlobalStateMind_Report_10-13_mh.pdf" target="_blank">Global States of Mind 2013/Gallup</a> <span>Referência 2013 </span> </h4>
+</div>
+
+      </div>
+
+      <script>
+      var svg = d3.select("svg"),
+    margin = {top: 0, right: 10, bottom: 0, left: 10},
+    width = 450,
+    height = 150;
+
+var formatValue = d3.format(",d");
+
+var x = d3.scaleLinear()
+    .rangeRound([0, width])
+    ;
+
+var g = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/percepcorrupmundo.csv", type, function(error, data) {
+  if (error) throw error;
+
+  x.domain(d3.extent(data, function(d) { return d.value; }));
+
+  var simulation = d3.forceSimulation(data)
+      .force("x", d3.forceX(function(d) { return x(d.value); }).strength(1))
+      .force("y", d3.forceY(height / 2))
+      .force("collide", d3.forceCollide(6))
+      .stop();
+
+  for (var i = 0; i < 120; ++i) simulation.tick();
+
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x).ticks(9, ".0f"))
+  ;
+
+  svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", 60)
+    .attr("y", 169)
+    .text("%");
+
+  var cell = g.append("g")
+      .attr("class", "cells")
+    .selectAll("g").data(d3.voronoi()
+        .extent([[-margin.left, -margin.top], [width + margin.right, height + margin.top]])
+        .x(function(d) { return d.x; })
+        .y(function(d) { return d.y; })
+      .polygons(data)).enter().append("g");
+
+  cell.append("circle")
+      .attr("r", 4)
+      .attr("cx", function(d) { return d.data.x; })
+      .attr("cy", function(d) { return d.data.y; })
+  .attr("fill",function(d) { if(d.data.id === "Brasil")return "#000"; if(d.data.id === "MEDIANA")return "#a7002c"; if(d.data.id === "MÉDIA")return "#05668D" })
+      ;
+
+  cell.append("path")
+      .attr("d", function(d) { return "M" + d.join("L") + "Z"; });
+
+  cell.append("title")
+      .text(function(d) { return d.data.id + "\n" + d.data.value + "%"; });
+});
+
+
+
+function type(d) {
+  if (!d.value) return;
+  d.value = +d.value;
+  return d;
+}
+
+      </script>
+
+    </body>
