@@ -101,6 +101,12 @@ h6 {
   color: #faa61a;
 }
 
+h7{
+  font-size: .7em;
+  padding: 5px;
+  float: right;
+}
+
 .epoca {
   background-color: #cbcbcb;
   color: #000;
