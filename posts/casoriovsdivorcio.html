@@ -3,12 +3,13 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
 
 <head>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700,300,400' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Rubik:400,300,500' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  
+  <meta charset="utf-8" />
+
   <title>Volt Data Lab | Gráfico sobre divórcios e casamentos no Brasil </title>
-  
+
   <meta name='keywords' content='sociedade, volt data lab, jornalismo de dados, jornalismo, ddj, d3js, casamento, divórcio, divorcio, estatisticas
   IBGE, instituto brasileiro de geografia e estatística, registro civil no Brasil, cenem'>
             <meta name='subject' content='jornalismo de dados'>
@@ -28,11 +29,11 @@
             <meta name='rating' content='General'>
             <meta name='target' content='all'>
             <meta name='HandheldFriendly' content='True'>
-            <meta name='MobileOptimized' content='320'>    
+            <meta name='MobileOptimized' content='320'>
             <meta property="og:image" content="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTpLck3cAj1JaAfZOovVADboyTHyMzxmT5GKrpiKC-fpsAKUFTziw" />
             <meta property="og:url" content="http://graficos.voltdata.info/casorio">
             <meta property="og:title" content="Gráfico sobre divórcios e casamentos no Brasil">
-            <meta property="og:description" content="Correlação de casamentos e crescimento dos divórcios no Brasil">  
+            <meta property="og:description" content="Correlação de casamentos e crescimento dos divórcios no Brasil">
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -52,7 +53,7 @@
 #logop {
   padding-top: 0px;
   position: absolute;
-  
+
 }
 
 p {
@@ -69,9 +70,10 @@ a:hover{
 }
 
 h1 {
-  font-family: 'Oswald'; 
+  font-family: 'Inconsolata';
   font-size: 30px;
   border-bottom: 1px #cbcbcb solid;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -96,13 +98,13 @@ h5 {
 }
 
 span {
-  font-family: 'Oswald';
+  font-family: 'Inconsolata';
   font-size: 12px;
 }
 
 .redes {
   font-size: 16px;
-  font-family: 'Oswald';
+  font-family: 'Inconsolata';
   font-weight: 300;
   float: right;
   padding: 10px 0 0 20px;
@@ -159,7 +161,7 @@ article:before, article:after {
     display: table;
 }
 
-article:after { 
+article:after {
     clear: both;
 }
 
@@ -191,7 +193,7 @@ input[type=checkbox] {
     overflow: hidden;
     padding: 0;
     position: absolute;
-    
+
 }
 
 [for="read_more"] {
@@ -202,7 +204,7 @@ input[type=checkbox] {
     text-align: left;
     padding: .3rem;
     background-color:;
-   
+
 
 }
 
@@ -239,31 +241,31 @@ input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
 
 <body>
 
-<script src="//d3js.org/d3.v3.min.js"></script>
-  
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
   <div class="conteudo">
   <h1>Crescimento do divórcio no Brasil <span class="redes"> <a href="http://twitter.com/share?text=As barragens de mineração no Brasil @voltmediabr&url=http://especiais.voltdata.info/casorio" target="_blank"><i class="fa fa-twitter fa-lg" style="color:#000;"></i></a></span>
         <span class="redes"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//especiais.voltdata.info/casorio" target="_blank"><i class="fa fa-facebook fa-lg" style="color:#000;"></a></i></a></span></h1>
   <h2>Legalizado oficialmente <a href="http://bit.ly/1I10cZd" target="_blank"> em 1977</a>, o divórcio no Brasil ganhou espaço em relação ao total de casamentos, mas não tanto assim. </h2>
       <article>
     <input type="checkbox" id="read_more" role="button">
-    <label for="read_more" onclick=""><span>Clique aqui para entender o gráfico</span><span>Esconder explicação</span></label>     
+    <label for="read_more" onclick=""><span>Clique aqui para entender o gráfico</span><span>Esconder explicação</span></label>
 
     <section>
       <h3> Entenda o gráfico</h3>
      <p>Cada barra horizontal representa a soma de todos os casamentos e divórcios nos períodos indicados.
-       <p>A partir de 1977, com a legalização do divórcio, começou-se a registrar oficialmente esses dados - não apenas casamentos. 
-       <p> A proporção de divórcios <strong style="color:#534768">(parte roxa)</strong>, então, passou a crescer em relação ao total de casamentos <strong style="color:#6C8351">(parte verde)</strong>. 
-       <p>Essa comparação mostra que, em um dado ano a partir da década de 1980, os divórcios passaram a ter maior representatividade nas estatísticas de estado civil no Brasil.  
+       <p>A partir de 1977, com a legalização do divórcio, começou-se a registrar oficialmente esses dados - não apenas casamentos.
+       <p> A proporção de divórcios <strong style="color:#534768">(parte roxa)</strong>, então, passou a crescer em relação ao total de casamentos <strong style="color:#6C8351">(parte verde)</strong>.
+       <p>Essa comparação mostra que, em um dado ano a partir da década de 1980, os divórcios passaram a ter maior representatividade nas estatísticas de estado civil no Brasil.
         <p>Do lado direito do gráfico, é possível ver que o tamanho da barra dos divórcios é o pedaço que falta (em cinza) no final da barra de casamentos
 </section>
 
 </article>
-   
+
     <div id="figure"></div>
-   
-    
-    
+
+
+
     <h4>Fonte: IBGE, Estatísticas de Registro Civil | Acesse os dados <a href="https://docs.google.com/spreadsheets/d/1J21Vf03BPlyTEC_7LBscckpr5RGuiXi7V8tdrrOwBHM/edit?usp=sharing" target="_blank">tabelados aqui</a> e os <a href="http://biblioteca.ibge.gov.br/biblioteca-catalogo?view=detalhes&id=7135" target="_blank"> dados brutos aqui</a> |&nbsp; <a href="http://voltdata.info" target="_blank"> <img src="http://static1.squarespace.com/static/551da417e4b05f67005d6abe/t/552dc57ee4b0c02076dba9a7/1429222648123/icone_volt_alta_transparente_crop_square.png?format=750w" alt="logo Volt" id="logop" width="13px;"></a></h4>
   </div>
 
@@ -398,17 +400,9 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/ca
 
 });
 
-    
-    
+
+
   </script>
-  
-  
+
+
 </body>
-  
-  
-
-
-
-
-
-

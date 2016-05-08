@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
-
 <head>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700,300,400' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Rubik:400,300,500' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  
+  <meta charset="utf-8" />
+
   <title>Volt Data Lab | Gráfico interativo sobre união civil no Brasil </title>
-  
+
   <meta name='keywords' content='sociedade, volt data lab, jornalismo de dados, jornalismo, ddj, d3js, casamento, divórcio, divorcio, estatisticas
   IBGE, instituto brasileiro de geografia e estatística, registro civil no Brasil, cenem'>
             <meta name='subject' content='jornalismo de dados'>
@@ -27,11 +27,11 @@
             <meta name='rating' content='General'>
             <meta name='target' content='all'>
             <meta name='HandheldFriendly' content='True'>
-            <meta name='MobileOptimized' content='320'>    
+            <meta name='MobileOptimized' content='320'>
             <meta property="og:image" content="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTpLck3cAj1JaAfZOovVADboyTHyMzxmT5GKrpiKC-fpsAKUFTziw" />
             <meta property="og:url" content="http://graficos.voltdata.info/casorio">
             <meta property="og:title" content="Gráfico interativo sobre união civil no Brasil">
-            <meta property="og:description" content="Correlação de casamentos entre faixas etárias tanto para homens quanto para mulheres no Brasil, segundo dados de 2014 do IBGE">  
+            <meta property="og:description" content="Correlação de casamentos entre faixas etárias tanto para homens quanto para mulheres no Brasil, segundo dados de 2014 do IBGE">
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -42,7 +42,7 @@
   ga('send', 'pageview');
 
 </script>
-  
+
 </head>
 <style>
 body {
@@ -71,9 +71,10 @@ a:hover{
 
 
 h1 {
-  font-family: 'Oswald';
+  font-family: 'Inconsolata';
   font-size: 30px;
   border-bottom: 1px #cbcbcb solid;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -97,7 +98,7 @@ h5 {
 }
 
 span {
-  font-family: 'Oswald';
+  font-family: 'Inconsolata';
   font-size: 12px;
 }
 
@@ -135,7 +136,7 @@ li {
 
 .redes {
   font-size: 16px;
-  font-family: 'Oswald';
+  font-family: 'Inconsolata';
   font-weight: 300;
   float: right;
   padding: 10px 0 0 20px;
@@ -221,14 +222,14 @@ input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
 </style>
 
 <body>
-  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
 
   <div class="conteudo">
     <h1>Casamentos entre faixas de idade no Brasil <span class="redes"> <a href="http://twitter.com/share?text=As barragens de mineração no Brasil @voltmediabr&url=http://especiais.voltdata.info/casorio" target="_blank"><i class="fa fa-twitter fa-lg" style="color:#000;"></i></a></span>
         <span class="redes"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//especiais.voltdata.info/casorio" target="_blank"><i class="fa fa-facebook fa-lg" style="color:#000;"></a></i></a></span></h1>
     <h2>Correlação de casamentos entre faixas etárias tanto para homens quanto para mulheres no Brasil, segundo dados de 2014 do IBGE </h2>
-     
-   
+
+
       <ul>
         <li id="um" style="background-color:#EDDEA4" class="legenda"> Até 19 anos* </li>
         <li id="dois" style="background-color:#534768" class="legenda"> 20 a 29 </li>
@@ -260,7 +261,7 @@ input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
 
     <h4>Fonte: IBGE, Estatísticas de Registro Civil | Acesse os dados <a href="https://docs.google.com/spreadsheets/d/1J21Vf03BPlyTEC_7LBscckpr5RGuiXi7V8tdrrOwBHM/edit?usp=sharing" target="_blank">tabelados aqui</a> e os <a href="http://biblioteca.ibge.gov.br/biblioteca-catalogo?view=detalhes&id=7135" target="_blank"> dados brutos aqui</a> |&nbsp; <a href="http://voltdata.info" target="_blank"> <img src="http://static1.squarespace.com/static/551da417e4b05f67005d6abe/t/552dc57ee4b0c02076dba9a7/1429222648123/icone_volt_alta_transparente_crop_square.png?format=750w" alt="logo Volt" id="logop" width="13px;"></a></h4>
   </div>
-  
+
   <script>
   var matrix = [
 [21621,	94559, 10683,	1056,	255],
