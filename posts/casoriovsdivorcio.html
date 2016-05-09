@@ -3,8 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
 
 <head>
-  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Rubik:400,300,500' rel='stylesheet' type='text/css'>
+  <link type="text/css" href="graficos.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <meta charset="utf-8" />
 
@@ -44,92 +43,6 @@
 </script>
 
 <style>
- body {
-  font: 10px sans-serif;
-  font-family: 'Rubik';
-  background-color: #ededed;
-  margin: 0 5%;
-}
-
-#logop {
-  padding-top: 0px;
-  position: absolute;
-
-}
-
-p {
-  font-size: 14px;
-  line-height: 1.5em;
-}
-
-a {
-  color: #a7002c;
-}
-
-a:hover{
-  color: #cbcbcb;
-}
-
-h1 {
-  font-family: 'Inconsolata';
-  font-size: 30px;
-  border-bottom: 1px #cbcbcb solid;
-  text-transform: uppercase;
-}
-
-h2 {
-  font-family: 'Rubik';
-  font-weight: 300;
-  font-size: 18px;
-}
-
-h3 {
-  font-size: 16px;
-}
-
-h4 {
-  font-size: 11px;
-  border-top: 1px #cbcbcb solid;
-  padding-top: 5px;
-  font-weight: 400;
-}
-
-h5 {
-  font-size: 11px;
-}
-
-span {
-  font-family: 'Inconsolata';
-  font-size: 12px;
-}
-
-.redes {
-  font-size: 16px;
-  font-family: 'Inconsolata';
-  font-weight: 300;
-  float: right;
-  padding: 10px 0 0 20px;
-}
-
-ul {
-  margin: 0 0 0 -40px;
-}
-
-li {
-  font-size: 16px;
-  list-style-type: none;
-  display: inline-block;
-  margin: 3px;
-  padding: 10px;
-  width: 100px;
-  text-align:center;
-  color: #fff;
-  mix-blend-mode: ;
-}
-
-.conteudo{
-  margin: 0 auto;
-}
 
 /*Gráfico */
 .axis path,
@@ -245,8 +158,7 @@ input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
   <div class="conteudo">
-  <h1>Crescimento do divórcio no Brasil <span class="redes"> <a href="http://twitter.com/share?text=As barragens de mineração no Brasil @voltmediabr&url=http://especiais.voltdata.info/casorio" target="_blank"><i class="fa fa-twitter fa-lg" style="color:#000;"></i></a></span>
-        <span class="redes"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//especiais.voltdata.info/casorio" target="_blank"><i class="fa fa-facebook fa-lg" style="color:#000;"></a></i></a></span></h1>
+  <h1>Crescimento do divórcio no Brasil </h1>
   <h2>Legalizado oficialmente <a href="http://bit.ly/1I10cZd" target="_blank"> em 1977</a>, o divórcio no Brasil ganhou espaço em relação ao total de casamentos, mas não tanto assim. </h2>
       <article>
     <input type="checkbox" id="read_more" role="button">
@@ -265,9 +177,18 @@ input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
 
     <div id="figure"></div>
 
+    <footer>
 
+      <ul id="ref">
 
-    <h4>Fonte: IBGE, Estatísticas de Registro Civil | Acesse os dados <a href="https://docs.google.com/spreadsheets/d/1J21Vf03BPlyTEC_7LBscckpr5RGuiXi7V8tdrrOwBHM/edit?usp=sharing" target="_blank">tabelados aqui</a> e os <a href="http://biblioteca.ibge.gov.br/biblioteca-catalogo?view=detalhes&id=7135" target="_blank"> dados brutos aqui</a> |&nbsp; <a href="http://voltdata.info" target="_blank"> <img src="http://static1.squarespace.com/static/551da417e4b05f67005d6abe/t/552dc57ee4b0c02076dba9a7/1429222648123/icone_volt_alta_transparente_crop_square.png?format=750w" alt="logo Volt" id="logop" width="13px;"></a></h4>
+        <li><a href="http://voltdata.info" target="_blank">
+        <img src="http://static1.squarespace.com/static/551da417e4b05f67005d6abe/t/552dc57ee4b0c02076dba9a7/1429222648123/icone_volt_alta_transparente_crop_square.png?format=750w" alt="logo Volt" id="logop">
+      </a>  <span id="volt"> VOLT DATA LAB </span></li>
+        <li id="fonte">Fonte: IBGE, Estatísticas de Registro Civil</li>
+
+      </ul>
+
+    </footer>
   </div>
 
   <script>
@@ -382,7 +303,7 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/ca
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "begin")
-      .style("font" ,"13px 'Rubik'")
+      .style("font" ,"13px 'Inconsolata'")
       .text(function(d) { return d; });
 
   d3.selectAll(".axis path")

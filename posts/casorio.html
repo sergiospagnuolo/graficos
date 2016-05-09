@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
 <head>
-  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Rubik:400,300,500' rel='stylesheet' type='text/css'>
+  <link type="text/css" href="graficos.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <meta charset="utf-8" />
 
@@ -45,102 +44,18 @@
 
 </head>
 <style>
-body {
-  font: 10px sans-serif;
-  font-family: 'Rubik';
-  background-color: #ededed;
-  margin: 0 5%;
-}
 
-#logop {
-  padding-top: 0px;
-  position: absolute;
-}
-
-p {
-  font-size: 14px;
-  line-height: 1.5em;
-}
-
-a {
-  color: #a7002c;
-}
-
-a:hover{
-  color: #cbcbcb;
-}
-
-
-h1 {
-  font-family: 'Inconsolata';
-  font-size: 30px;
-  border-bottom: 1px #cbcbcb solid;
-  text-transform: uppercase;
-}
-
-h2 {
-  font-family: 'Rubik';
-  font-weight: 300;
-  font-size: 18px;
-}
-
-h3 {
-  font-size: 16px;
-}
-
-h4 {
-  font-size: 11px;
-  border-top: 1px #cbcbcb solid;
-  padding-top: 5px;
-}
-
-h5 {
-  font-size: 11px;
-}
-
-span {
-  font-family: 'Inconsolata';
-  font-size: 12px;
-}
-
-.chord path {
-  fill-opacity: 1;
-  stroke: #fff;
-  stroke-width: .3px;
-}
-
+/* grafico */
 #chord {
   max-width: 500px;
   margin: -60px 0 25px 0;
   width: 100%;
 }
 
-ul {
-  margin: 0 0 0 -40px;
-}
-
-li {
-  font-size: 16px;
-  list-style-type: none;
-  display: inline-block;
-  margin: 3px;
-  padding: 10px;
-  width: 100px;
-  text-align: center;
-  color: #fff;
-  mix-blend-mode: ;
-}
-
-.conteudo {
-  margin: 0 auto;
-}
-
-.redes {
-  font-size: 16px;
-  font-family: 'Inconsolata';
-  font-weight: 300;
-  float: right;
-  padding: 10px 0 0 20px;
+.chord path {
+  fill-opacity: 1;
+  stroke: #fff;
+  stroke-width: .3px;
 }
 
 /*Botão para hide/show explicação */
@@ -226,12 +141,11 @@ input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
   <script src="http://d3js.org/d3.v3.min.js"></script>
 
   <div class="conteudo">
-    <h1>Casamentos entre faixas de idade no Brasil <span class="redes"> <a href="http://twitter.com/share?text=As barragens de mineração no Brasil @voltmediabr&url=http://especiais.voltdata.info/casorio" target="_blank"><i class="fa fa-twitter fa-lg" style="color:#000;"></i></a></span>
-        <span class="redes"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//especiais.voltdata.info/casorio" target="_blank"><i class="fa fa-facebook fa-lg" style="color:#000;"></a></i></a></span></h1>
+    <h1>Casamentos entre faixas de idade no Brasil</h1>
     <h2>Correlação de casamentos entre faixas etárias tanto para homens quanto para mulheres no Brasil, segundo dados de 2014 do IBGE </h2>
 
 
-      <ul>
+      <ul class="legenda">
         <li id="um" style="background-color:#EDDEA4" class="legenda"> Até 19 anos* </li>
         <li id="dois" style="background-color:#534768" class="legenda"> 20 a 29 </li>
         <li id="tres" style="background-color:#6C8351" class="legenda"> 30-39 </li>
@@ -259,9 +173,19 @@ input[type=checkbox]:checked ~ [for="read_more"] span:last-of-type {
 
       <h5>* Inclui menores de 15 anos </h5>
 
+      <footer>
 
-    <h4>Fonte: IBGE, Estatísticas de Registro Civil | Acesse os dados <a href="https://docs.google.com/spreadsheets/d/1J21Vf03BPlyTEC_7LBscckpr5RGuiXi7V8tdrrOwBHM/edit?usp=sharing" target="_blank">tabelados aqui</a> e os <a href="http://biblioteca.ibge.gov.br/biblioteca-catalogo?view=detalhes&id=7135" target="_blank"> dados brutos aqui</a> |&nbsp; <a href="http://voltdata.info" target="_blank"> <img src="http://static1.squarespace.com/static/551da417e4b05f67005d6abe/t/552dc57ee4b0c02076dba9a7/1429222648123/icone_volt_alta_transparente_crop_square.png?format=750w" alt="logo Volt" id="logop" width="13px;"></a></h4>
-  </div>
+        <ul id="ref">
+
+          <li><a href="http://voltdata.info" target="_blank">
+          <img src="http://static1.squarespace.com/static/551da417e4b05f67005d6abe/t/552dc57ee4b0c02076dba9a7/1429222648123/icone_volt_alta_transparente_crop_square.png?format=750w" alt="logo Volt" id="logop">
+        <span id="volt"> VOLT DATA LAB </span></a> </li>
+          <li id="fonte">Fonte: IBGE, Estatísticas de Registro Civil</li>
+
+        </ul>
+
+      </footer>
+    </div>
 
   <script>
   var matrix = [
