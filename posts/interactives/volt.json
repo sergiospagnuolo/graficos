@@ -1,114 +1,16 @@
 [
-  {
-    "name": "Reportagens",
-    "size": 5,
-    "imports/0": "Inteligência",
-    "imports/1": "Histórias",
-    "imports/2": "Sob demanda",
-    "imports/3": "Exclusividade"
-  },
-  {
-    "name": "Investigações",
-    "size": 5,
-    "imports/0": "Inteligência",
-    "imports/1": "Histórias",
-    "imports/2": "Sob demanda",
-    "imports/3": "Exclusividade"
-  },
-  {
-    "name": "Relatórios",
-    "size": 4,
-    "imports/0": "Inteligência",
-    "imports/1": "Serviços",
-    "imports/2": "Sob demanda",
-    "imports/3": "Exclusividade"
-  },
-  {
-    "name": "Cursos",
-    "size": 5,
-    "imports/0": "Inteligência",
-    "imports/1": "Serviços",
-    "imports/2": "Educação",
-    "imports/3": "Conhecimento"
-  },
-  {
-    "name": "Treinamentos",
-    "size": 4,
-    "imports/0": "Inteligência",
-    "imports/1": "Serviços",
-    "imports/2": "Educação",
-    "imports/3": "Conhecimento"
-  },
-  {
-    "name": "Consultoria",
-    "size": 2,
-    "imports/0": "Inteligência",
-    "imports/1": "Serviços",
-    "imports/2": "Expertise",
-    "imports/3": "Novas idéias"
-  },
-  {
-    "name": "Textos",
-    "size": 5,
-    "imports/0": "Recursos",
-    "imports/1": "Histórias",
-    "imports/2": "Newswire",
-    "imports/3": "Rapidez e qualidade"
-  },
-  {
-    "name": "Bancos de Dados",
-    "size": 3,
-    "imports/0": "Recursos",
-    "imports/1": "Formatos",
-    "imports/2": "Sob demanda",
-    "imports/3": "Método"
-  },
-  {
-    "name": "Curadoria",
-    "size": 3,
-    "imports/0": "Recursos",
-    "imports/1": "Serviços",
-    "imports/2": "Sob demanda",
-    "imports/3": "Método"
-  },
-  {
-    "name": "Levantamentos",
-    "size": 4,
-    "imports/0": "Recursos",
-    "imports/1": "Formatos",
-    "imports/2": "Sob demanda",
-    "imports/3": "Método"
-  },
-  {
-    "name": "Mapas",
-    "size": 2,
-    "imports/0": "Recursos",
-    "imports/1": "Formatos",
-    "imports/2": "Newswire",
-    "imports/3": "Visual"
-  },
-  {
-    "name": "Gráficos",
-    "size": 2,
-    "imports/0": "Recursos",
-    "imports/1": "Formatos",
-    "imports/2": "Newswire",
-    "imports/3": "Visual"
-  },
-  {
-    "name": "Interativos",
-    "size": 5,
-    "imports/0": "Recursos",
-    "imports/1": "Formatos",
-    "imports/2": "Newswire",
-    "imports/3": "Visual"
-  },
-  {
-    "name": "Timelines",
-    "size": 2,
-    "imports/0": "Recursos",
-    "imports/1": "Formatos",
-    "imports/2": "Newswire",
-    "imports/3": "Visual"
-  }
+{"name":"Reportagens","size":3938,"imports":["Inteligência", "Histórias",	"Sob demanda","Exclusividade"]},
+{"name":"Investigações","size":16540,"imports":["Inteligência",	"Histórias",	"Sob demanda",	"Exclusividade", "Relatórios"]}
+{"name":"Relatórios","size":3938,"imports":["Inteligência", "Serviços",	"Sob demanda","Exclusividade"]},
+{"name":"Cursos","size":3938,"imports":["Inteligência", "Serviços",	"Educação","Conhecimento"]},
+{"name":"Treinamentos","size":3938,"imports":["Inteligência", "Serviços",	"Educação","Conhecimento"]},
+{"name":"Consultoria","size":3938,"imports":["Inteligência", "Serviços",	"Expertise","Novas idéias"]},
+{"name":"Textos","size":3938,"imports":["Recursos", "Histórias",	"Newswire", "Concisão"]},
+{"name":"Bancos de Dados","size":3938,"imports":["Recursos", "Formatos",	"Sob demanda", "Método"]},
+{"name":"Curadoria","size":3938,"imports":["Recursos", "Serviços",	"Sob demanda", "Método"]},
+{"name":"Levantamentos","size":3938,"imports":["Recursos", "Formatos",	"Sob demanda", "Método"]},
+{"name":"Mapas","size":3938,"imports":["Recursos", "Formatos",	"Newswire", "Visual"]},
+{"name":"Gráficos","size":3938,"imports":["Recursos", "Formatos",	"Newswire", "Visual"]},
+{"name":"Interativos","size":3938,"imports":["Recursos", "Formatos",	"Newswire", "Visual"]},
+{"name":"Timelines","size":3938,"imports":["Recursos", "Formatos",	"Newswire", "Visual"]},
 ]
