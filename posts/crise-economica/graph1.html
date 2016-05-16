@@ -4,7 +4,7 @@
   <title>Aos Fatos | Brasil, fora da curva? Sobre desemprego</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link type="text/css" rel="stylesheet" href="css/estilos.css" />
+<link type="text/css" rel="stylesheet" href="css/graficos.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 <script>
@@ -46,23 +46,38 @@
 
 <body>
   <div class="paragrafs">
-    <div id="header">
-        <ul class="header" >
-          <li><a href="http://aosfatos.org"><img src="http://aosfatos.org/static/images/logo/aosfatos_cores-06.5e00a0b1e24e.svg" alt="logo Aos Fatos" id="logoaf"></a></li>
-           <li class="redes"><a href="http://twitter.com/share?text=O impeachment e todos os mandatos da Nova República @aosfatos @voltmediabr&url=http://aosfatos.org/timeline_presidentes" target="_blank"><i class="fa fa-twitter-square fa-2x" aria-hidden="true" style="color:#faa61a"></i></a></li>
-           <li class="redes"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//aosfatos.org/timeline_presidentes " target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true" style="color:#faa61a"></i></a></li>
-           <li class="redes"> Compartilhe o gráfico </li>
-          </ul>
+    <h1>Desemprego</h1>
 
-      </div>
-
-  <h4>Percentual de pessoas desempregadas em mais de 180 países de todas as regiões, em escala linear, baseados em dados mais recentes.</h4>
+  <p>Taxa de desemprego em mais de 180 países de todas as regiões. Dados de abril/2016</p>
+  <p>
+    Cada cor representa países do mesmo continente, e o Brasil é o ponto <strong>preto</strong>.
+    O ponto vermelho representa a <strong>mediana</strong>.
+  </p>
+  <ul class="legenda">
+    <li id="brasil"> Brasil  </li>
+    <li id="americas"> Américas  </li>
+    <li id="europa"> Europa  </li>
+    <li id="asia"> Ásia  </li>
+    <li id="oceania"> Oceania  </li>
+    <li id="africa"> África  </li>
+  </ul>
 
   <svg viewBox="0 0 575 250" ></svg>
   <script src="https://d3js.org/d3.v4.0.0-alpha.33.min.js"></script>
 
-  <h4>Fonte: <a href="http://www.tradingeconomics.com/country-list/unemployment-rate" target="_blank">Trending Economics</a> <span>Ref. Maio/2016 </span></h4>
+  <h4>Fonte: <a href="http://www.tradingeconomics.com/country-list/unemployment-rate" target="_blank">Trending Economics</a></h4>
   </div>
+
+
+  <style>
+    .legend {
+      font-size: 12px;
+    }
+    rect {
+      stroke-width: 2;
+    }
+  </style>
+
 
 <script>
 var svg = d3.select("svg"),
@@ -99,10 +114,25 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/de
   svg.append("text")
     .attr("class", "x label")
     .attr("text-anchor", "end")
-    .attr("x", 117)
-    .attr("y", 230)
+    .attr("x", 118)
+    .attr("y", 229)
+    .style("font-size", "10px")
     .text("%");
 
+  svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", 130)
+    .attr("y", 30)
+    .style("font-size", "10px")
+    .text("Mediana");
+
+  svg.append("rect")
+    .attr("x", 83.7)
+    .attr("y", 10)
+    .attr("width", 1)
+    .style("fill", "#ababab")
+    .attr("height", 200);
 
   var cell = g.append("g")
       .attr("class", "cells")
@@ -113,11 +143,12 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/de
       .polygons(data)).enter().append("g");
 
   cell.append("circle")
-      .attr("r", 5)
+      .attr("r", 4)
       .attr("cx", function(d) { return d.data.x; })
       .attr("cy", function(d) { return d.data.y; })
-  .attr("fill",function(d) { if(d.data.id === "Brasil")return "#000"; if(d.data.id === "MEDIANA")return "#a7002c"; if(d.data.id === "MÉDIA")return "#05668D" })
-      ;
+  .attr("fill",function(d) { if(d.data.id === "Brasil")return "#000"; if(d.data.region === "África")return "rgba(255, 224, 102, 0.4)"; if(d.data.region === "Americas")return "rgba(112, 193, 179, 0.4)"; if(d.data.region === "Europa")return "rgba(36, 123, 160, 0.4)";
+  if(d.data.region === "Ásia")return "rgba(250, 166, 26, .4)";if(d.data.region === "Oceânia")return "rgba(141, 153, 174, 0.4)"})
+  ;
 
   cell.append("path")
       .attr("d", function(d) { return "M" + d.join("L") + "Z"; });
@@ -126,13 +157,12 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/de
       .text(function(d) { return d.data.id + "\n" + d.data.value + "%"; });
 });
 
-
-
 function type(d) {
   if (!d.value) return;
   d.value = +d.value;
   return d;
 }
+
 
 </script>
 

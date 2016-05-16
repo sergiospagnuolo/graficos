@@ -1,0 +1,141 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700);
+
+body {
+  font-family: 'Merriweather Sans', sans-serif;
+  margin: 0;
+  font-weight: 400;
+  -webkit-font-smoothing:antialiased;
+  line-height: 1.3em;
+}
+
+.paragrafs{
+  width: 100%;
+  min-width: 300px;
+  margin: 0 auto;
+}
+
+/* Texto */
+
+h1 {
+  line-height: 1.3em;
+  font-family: 'Inconsolata';
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1em;
+  max-width: 70%;
+}
+
+a {
+  color: #000;
+}
+
+em {
+  font-weight: 700;
+}
+
+h4 {
+  font-size: .8em;
+}
+
+span {
+  float: right;
+}
+
+/* HEADER */
+
+.header {
+  margin-left: -50px;
+}
+
+.header li{
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 10px;
+  padding-top: 20px;
+}
+
+.header a{
+    border-bottom: 0px;
+}
+
+.redes{
+    float: right;
+}
+
+#logoaf {
+  width: 40px;
+}
+
+#logo {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+/* Graficos */
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 11px 'Merriweather Sans';
+}
+
+.cells path {
+  fill: none;
+  pointer-events: all;
+}
+
+.cells{
+  fill:rgba(167, 0, 44, .4);
+}
+
+.cells :hover circle {
+  fill: #000;
+}
+
+/* legenda */
+
+ul {
+  padding: 0;
+}
+
+.legenda li {
+  margin: 0;
+  padding: 2px 5px;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 300;
+  font-family: 'Inconsolata';
+}
+
+#brasil {
+  color: #fff;
+  background-color: #000
+}
+
+#americas {
+  background-color: rgba(112, 193, 179, 0.4)
+}
+
+#europa {
+  background-color: rgba(36, 123, 160, 0.4)
+}
+
+#asia {
+  background-color: rgba(250, 166, 26, .4)
+}
+
+#oceania {
+  background-color:rgba(141, 153, 174, 0.4)
+}
+
+#africa {
+  background-color: rgba(255, 224, 102, 0.4)
+}
