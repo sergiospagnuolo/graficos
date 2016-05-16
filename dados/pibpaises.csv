@@ -1,6 +1,6 @@
 id,value,region
 Etiópia,10.2,África
-Palau,9.4,Oceania
+Palau,9.4,Oceânia
 Papua Nova Guiné,9,Oceânia
 Costa do Marfim,8.6,África
 Uzbequistão,8,Ásia
@@ -48,7 +48,7 @@ Fiji,4.3,Oceânia
 República Centro Africana,4.3,África
 Timor-Leste,4.3,Ásia
 Egito,4.2,África
-Kiribati,4.2,Oceania
+Kiribati,4.2,Oceânia
 Paquistão,4.2,Ásia
 República Checa,4.2,Europa
 Montenegro,4.1,Europa
@@ -78,7 +78,7 @@ Mauritius,3.4,África
 Nepal,3.4,Ásia
 Nova Zelândia,3.4,Oceânia
 Catar,3.3,Ásia
-Ilhas Salomão,3.3,Oceania
+Ilhas Salomão,3.3,Oceânia
 Kosovo,3.3,Europa
 Peru,3.3,Americas
 Bahrain,3.2,Ásia
@@ -102,8 +102,8 @@ Nigéria,2.7,África
 Albânia,2.6,Europa
 Coréia do Sul,2.6,Ásia
 Israel,2.6,Ásia
-Tonga,2.6,Oceania
-Tuvalu,2.6,Oceania
+Tonga,2.6,Oceânia
+Tuvalu,2.6,Oceânia
 Austrália,2.5,Oceânia
 Congo,2.5,África
 Jordânia,2.5,Ásia
@@ -123,11 +123,11 @@ Maldivas,1.9,Ásia
 Mauritânia,1.9,África
 Cabo Verde,1.8,África
 Chade,1.8,África
-Samoa,1.7,Oceania
+Samoa,1.7,Oceânia
 Suazilândia,1.7,África
 Chipre,1.6,Ásia
 Croácia,1.6,Europa
-Ilhas Marshall,1.6,Oceania
+Ilhas Marshall,1.6,Oceânia
 Lituânia,1.6,Europa
 Noruega,1.6,Europa
 Santa Lúcia,1.6,Americas
@@ -170,10 +170,10 @@ Irã,0,Ásia
 Libéria,0,África
 Brunei Darussalam,-0.2,Ásia
 Grécia,-0.2,Europa
-Micronésia,-0.2,Oceania
+Micronésia,-0.2,Oceânia
 Sudão do Sul,-0.2,África
 Botswana,-0.3,África
-Vanuatu,-0.8,Oceania
+Vanuatu,-0.8,Oceânia
 Moldova,-1.1,Europa
 Porto Rico,-1.3,Americas
 Trinidad e Tobago,-1.8,Americas
