@@ -1,186 +1,185 @@
-id,value
-Zimbábue,11.3
-Zâmbia,13.3
-Vietnã,2.31
-Venezuela,6
-Uzbequistão,10.7
-Uruguai,8
-União Européia,8.8
-Uganda,3.8
-Ucrânia,9.9
-Turquemenistão,10.5
-Tunísia,15.4
-Trinidad e Tobago,3.4
-Togo,6.9
-Timor Leste,11
-Tanzânia,10.3
-Tajiquistão,2.4
-Taiwan,3.92
-Tailândia,1.04
-Suriname,8.9
-Suíça,3.6
-Suécia,7.7
-Sudão do Sul,12
-Sudão,19.5
-Suazilândia,28.5
-Sri Lanka,4.3
-Síria,14.9
-Seychelles,4.7
-Sérvia,17.9
-Serra Leoa,3.3
-Senegal,13.4
-São Tomé e Príncipe,13.6
-Rússia,6
-Ruanda,3.4
-Romênia,6.4
-República Dominicana,14
-República do Congo,26.6
-República Checa,6.1
-Reino Unido,5.1
-Quirguistão,2.2
-Quênia,40
-Portugal,12.2
-Porto Rico,11.8
-Polônia,10
-Peru,11.1
-Peru,7.2
-Paraguai,5.8
-Paquistão,5.9
-Papua Nova Guiné,2.5
-Panamá,2.5
-Palestina,25.8
-Omã,15
-Nova Zelândia,5.3
-Nova Caledônia,13.8
-Noruega,4.6
-Nigéria,10.4
-Níger,2.25
-Nicarágua,6.8
-Nepal,2.7
-Namíbia,28.1
-Myanmar,4.02
-Montenegro,18.28
-Mongólia,8.3
-Moldova,4.2
-Moçambique,17
-México,3.7
-Mauritius,7.9
-Mauritânia,12.85
-Marrocos,9.5
-Malta,5.2
-Mali,8.2
-Maldivas,11.6
-Malavi,6.6
-Malásia,3.4
-Madagáscar,1.2
-Macedónia,24.62
-Macau,1.9
-Luxemburgo,6.5
-Lituânia,8.9
-Liechtenstein,2.4
-Líbia,19.5
-Libéria,3.8
-Líbano,6.4
-Letônia,9.8
-Lesoto,25.3
-Laos,1.4
-Kuweit,3.5
-Kosovo,35.3
-Jordânia,13.6
-Japão,3.2
-Jamaica,13.1
-Itália,11.4
-Israel,5.3
-Islândia,3.3
-Irlanda,8.6
-Iraque,16.4
-Irã,11.8
-Indonésia,6.18
-Índia,4.9
-Ilhas Cayman,5.6
-Iémen,29
-Hungria,6
-Hong Kong,3.4
-Honduras,4.3
-Holanda,6.4
-Haiti,40.6
-Guiné-Bissau,1.8
-Guiné Equatorial,22.3
-Guiné,3.8
-Guiana,21
-Guatemala,2.9
-Grécia,24.4
-Georgia,12.4
-Gana,5.2
-Gâmbia,22
-Gabão,16
-França,10.3
-Finlândia,10.1
-Filipinas,5.8
-Fiji,7.9
-Etiópia,16.8
-Estônia,6.4
-Estados Unidos,5
-Espanha,21
-Eslovenia,12.6
-Eslováquia,9.9
-Eritrea,14.5
-Equador,5.65
-Emirados Árabes Unidos,4.2
-El Salvador,7
-Egito,12.77
-Djibouti,54
-Dinamarca,4.2
-Cuba,2.7
-Croácia,17.2
-Costa Rica,9.6
-Costa do Marfim,5.3
-Coreia do Sul,3.8
-Coreia do Norte,4.1
-Congo,46.1
-Comores,7
-Colômbia,10.1
-Cingapura,1.9
-Chipre,12.1
-China,4.05
-Chile,6.3
-Chade,7.8
-Central Africano República,7.6
-Cazaquistão,5.1
-Catar,0.2
-Canadá,7.1
-Camboja,0.3
-Camarões,4
-Cabo Verde,15.8
-Butão,2.6
-Burundi,7.7
-Burkina Faso,6.6
-Bulgária,9.88
-Brunei,6.9
-Brasil,10.9
-Botswana,20
-Bósnia e Herzegovina,42.76
-Bolívia,7.4
-Benin,1
-Belize,11.1
-Bélgica,8.5
-Belarus,1
-Barbados,11.3
-Bangladesh,4.3
-Bahrain,3.7
-Bahamas,15.7
-Azerbaijão,5
-Áustria,9.4
-Austrália,5.7
-Armênia,19.6
-Argentina,5.9
-Argélia,11.2
-Área euro,10.2
-Arábia Saudita,5.6
-Angola,26
-Alemanha,4.2
-Albânia,17.7
-África do Sul,24.5
-Afeganistão,40
-MEDIANA,7.7
-MÉDIA,10.51
+id,value,region
+Afeganistão,40,Ásia
+África do Sul,24.5,África
+Albânia,17.7,Europa
+Alemanha,4.2,Europa
+Angola,26,África
+Arábia Saudita,5.6,Ásia
+Área euro,10.2,Europa
+Argélia,11.2,África
+Argentina,5.9,Americas
+Armênia,19.6,Ásia
+Austrália,5.7,Oceânia
+Áustria,9.4,Europa
+Azerbaijão,5,Ásia
+Bahamas,15.7,Americas
+Bahrain,3.7,Ásia
+Bangladesh,4.3,Ásia
+Barbados,11.3,Americas
+Belarus,1,Europa
+Bélgica,8.5,Europa
+Belize,11.1,Americas
+Benin,1,África
+Bolívia,7.4,Americas
+Bósnia e Herzegovina,42.76,Europa
+Botswana,20,África
+Brasil,10.9,Americas
+Brunei,6.9,Ásia
+Bulgária,9.88,Europa
+Burkina Faso,6.6,África
+Burundi,7.7,África
+Butão,2.6,Ásia
+Cabo Verde,15.8,África
+Camarões,4,África
+Camboja,0.3,Ásia
+Canadá,7.1,Americas
+Catar,0.2,Ásia
+Cazaquistão,5.1,Ásia
+República Centro-Africana,7.6,África
+Chade,7.8,África
+Chile,6.3,Americas
+China,4.05,Ásia
+Chipre,12.1,Ásia
+Cingapura,1.9,Ásia
+Colômbia,10.1,Americas
+Comores,7,África
+Congo,46.1,África
+Coreia do Norte,4.1,Ásia
+Coreia do Sul,3.8,Ásia
+Costa do Marfim,5.3,África
+Costa Rica,9.6,Americas
+Croácia,17.2,Europa
+Cuba,2.7,Americas
+Dinamarca,4.2,Europa
+Djibouti,54,África
+Egito,12.77,África
+El Salvador,7,Americas
+Emirados Árabes Unidos,4.2,Ásia
+Equador,5.65,Americas
+Eritrea,14.5,África
+Eslováquia,9.9,Europa
+Eslovenia,12.6,Europa
+Espanha,21,Europa
+Estados Unidos,5,Americas
+Estônia,6.4,Europa
+Etiópia,16.8,África
+Fiji,7.9,Oceânia
+Filipinas,5.8,Ásia
+Finlândia,10.1,Europa
+França,10.3,Europa
+Gabão,16,África
+Gâmbia,22,África
+Gana,5.2,África
+Georgia,12.4,Ásia
+Grécia,24.4,Europa
+Guatemala,2.9,Americas
+Guiana,21,Americas
+Guiné,3.8,África
+Guiné Equatorial,22.3,África
+Guiné-Bissau,1.8,África
+Haiti,40.6,Americas
+Holanda,6.4,Europa
+Honduras,4.3,Americas
+Hong Kong,3.4,Ásia
+Hungria,6,Europa
+Iémen,29,Ásia
+Ilhas Cayman,5.6,Americas
+Índia,4.9,Ásia
+Indonésia,6.18,Ásia
+Irã,11.8,Ásia
+Iraque,16.4,Ásia
+Irlanda,8.6,Europa
+Islândia,3.3,Europa
+Israel,5.3,Ásia
+Itália,11.4,Europa
+Jamaica,13.1,Americas
+Japão,3.2,Ásia
+Jordânia,13.6,Ásia
+Kosovo,35.3,Europa
+Kuweit,3.5,Ásia
+Laos,1.4,Ásia
+Lesoto,25.3,África
+Letônia,9.8,Europa
+Líbano,6.4,Ásia
+Libéria,3.8,África
+Líbia,19.5,África
+Liechtenstein,2.4,Europa
+Lituânia,8.9,Europa
+Luxemburgo,6.5,Europa
+Macau,1.9,Ásia
+Macedónia,24.62,Europa
+Madagáscar,1.2,África
+Malásia,3.4,Ásia
+Malawi,6.6,África
+Maldivas,11.6,Ásia
+Mali,8.2,África
+Malta,5.2,Europa
+Marrocos,9.5,África
+Mauritânia,12.85,África
+Mauritius,7.9,África
+México,3.7,Americas
+Moçambique,17,África
+Moldova,4.2,Europa
+Mongólia,8.3,Ásia
+Montenegro,18.28,Europa
+Myanmar,4.02,Ásia
+Namíbia,28.1,África
+Nepal,2.7,Ásia
+Nicarágua,6.8,Americas
+Níger,2.25,África
+Nigéria,10.4,África
+Noruega,4.6,Europa
+Nova Caledônia,13.8,Oceânia
+Nova Zelândia,5.3,Ásia
+Omã,15,Ásia
+Palestina,25.8,Ásia
+Panamá,2.5,Americas
+Papua Nova Guiné,2.5,Oceânia
+Paquistão,5.9,Ásia
+Paraguai,5.8,Americas
+Turquia,11.1,Europa
+Peru,7.2,Americas
+Polônia,10,Europa
+Porto Rico,11.8,Americas
+Portugal,12.2,Europa
+Quênia,40,África
+Quirguistão,2.2,Ásia
+Reino Unido,5.1,Europa
+República Checa,6.1,Europa
+República do Congo,26.6,África
+República Dominicana,14,Americas
+Romênia,6.4,Europa
+Ruanda,3.4,África
+Rússia,6,Europa
+São Tomé e Príncipe,13.6,África
+Senegal,13.4,África
+Serra Leoa,3.3,África
+Sérvia,17.9,Europa
+Seychelles,4.7,África
+Síria,14.9,Ásia
+Sri Lanka,4.3,Ásia
+Suazilândia,28.5,África
+Sudão,19.5,África
+Sudão do Sul,12,África
+Suécia,7.7,Europa
+Suíça,3.6,Europa
+Suriname,8.9,Americas
+Tailândia,1.04,Ásia
+Taiwan,3.92,Ásia
+Tajiquistão,2.4,Ásia
+Tanzânia,10.3,África
+Timor Leste,11,Ásia
+Togo,6.9,África
+Trinidad e Tobago,3.4,Americas
+Tunísia,15.4,África
+Turcomenistão,10.5,Ásia
+Ucrânia,9.9,Europa
+Uganda,3.8,África
+União Européia,8.8,Europa
+Uruguai,8,Ásia
+Uzbequistão,10.7,Ásia
+Venezuela,6,Americas
+Vietnã,2.31,Ásia
+Zâmbia,13.3,África
+Zimbábue,11.3,África
+MEDIANA,7.7,Comparativo
