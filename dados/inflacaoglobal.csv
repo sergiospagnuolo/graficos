@@ -1,141 +1,140 @@
-id,value
-Zâmbia,21.8
-Vietnã,1.89
-Venezuela,180.9
-Uzbequistão,5.6
-Uruguai,10.6
-Uganda,5.1
-Ucrânia,20.9
-Turquemenistão,7
-Tunísia,3.3
-Trinidad e Tobago,3.4
-Togo,1.1
-Tanzânia,5.4
-Tajiquistão,5.6
-Taiwan,2
-Tailândia,0.07
-Suriname,31.88
-Suécia,0.8
-Sudão do Sul,245.2
-Sudão,12.94
-Suazilândia,4.9
-Sri Lanka,3.1
-Síria,43.02
-Sérvia,0.6
-Serra Leoa,8.85
-Senegal,1.3
-São Tomé e Príncipe,4.3
-Rússia,7.3
-Ruanda,5.8
-República Dominicana,1.59
-República do Congo,3.7
-República Checa,0.3
-Reino Unido,0.5
-Quirguistão,0.5
-Quênia,5.27
-Portugal,0.4
-Porto Rico,0.5
-Peru,7.46
-Peru,3.91
-Paraguai,4.7
-Paquistão,4.17
-Papua Nova Guiné,6.4
-Panamá,0.6
-Palestina,0.32
-Omã,0.1
-Nova Zelândia,0.4
-Nova Caledônia,0.9
-Noruega,3.3
-Nigéria,12.8
-Níger,1.1
-Nicarágua,3.7
-Nepal,11.3
-Namíbia,6.5
-Myanmar,15.19
-Mongólia,1.7
-Moldova,9.4
-Moçambique,13.61
-México,2.6
-Mauritius,0.9
-Marrocos,1.8
-Malta,1
-Maldivas,1.3
-Malavi,22.1
-Malásia,2.6
-Madagáscar,7.2
-Macau,3.31
-Luxemburgo,0.05
-Lituânia,1.2
-Líbia,10.1
-Libéria,8
-Lesoto,6.6
-Laos,1.13
-Kuweit,3.1
-Kosovo,0.1
-Jamaica,3
-Islândia,1.6
-Iraque,1.5
-Irã,8.9
-Indonésia,3.6
-Índia,4.83
-Iémen,9.49
-Hong Kong,3
-Honduras,2.48
-Holanda,0.6
-Haiti,14.8
-Guiné-Bissau,3.1
-Guiné Equatorial,3.9
-Guiné,7.7
-Guatemala,4.3
-Georgia,4.1
-Gana,19.2
-Gâmbia,6.57
-Filipinas,1.1
-Fiji,0.8
-Etiópia,7.5
-Estados Unidos,0.9
-Eritrea,11.4
-Equador,2.32
-Emirados Árabes Unidos,1.43
-El Salvador,1.12
-Egito,9
-Djibouti,2.6
-Cuba,5.3
-Costa do Marfim,0.9
-Coreia do Sul,1
-Coreia do Norte,55
-Congo,2.04
-Comores,1.4
-Colômbia,7.98
-China,2.3
-Chile,4.5
-Central Africano República,25.58
-Cazaquistão,15.7
-Catar,3.3
-Canadá,1.3
-Camboja,2.31
-Camarões,1.47
-Butão,3.53
-Burundi,4.3
-Brasil,9.39
-Botswana,3
-Bolívia,3.28
-Belize,0.3
-Bélgica,2.04
-Belarus,12.8
-Bangladesh,5.65
-Bahrain,3.3
-Bahamas,2
-Azerbaijão,11.7
-Áustria,0.7
-Austrália,1.3
-Argentina,32.9
-Argélia,3.04
-Arábia Saudita,4.3
-Angola,23.6
-Alemanha,0.1
-Albânia,0.3
-África do Sul,6.3
-Afeganistão,3.85
-MEDIANA,3.355
-MÉDIA,8.99
+id,value,region
+Afeganistão,3.85,Ásia
+África do Sul,6.3,África
+Albânia,0.3,Europa
+Alemanha,0.1,Europa
+Angola,23.6,África
+Arábia Saudita,4.3,Ásia
+Argélia,3.04,África
+Argentina,32.9,Americas
+Austrália,1.3,Oceânia
+Áustria,0.7,Europa
+Azerbaijão,11.7,Ásia
+Bahamas,2,Americas
+Bahrain,3.3,Ásia
+Bangladesh,5.65,Ásia
+Belarus,12.8,Europa
+Bélgica,2.04,Europa
+Belize,0.3,Americas
+Bolívia,3.28,Americas
+Botswana,3,África
+Brasil,9.39,Americas
+Burundi,4.3,África
+Butão,3.53,Ásia
+Camarões,1.47,África
+Camboja,2.31,Ásia
+Canadá,1.3,Americas
+Catar,3.3,Ásia
+Cazaquistão,15.7,Ásia
+Chile,4.5,Americas
+China,2.3,Ásia
+Colômbia,7.98,Americas
+Comores,1.4,África
+Congo,2.04,África
+Coreia do Norte,55,Ásia
+Coreia do Sul,1,Ásia
+Costa do Marfim,0.9,África
+Cuba,5.3,Americas
+Djibouti,2.6,África
+Egito,9,África
+El Salvador,1.12,Americas
+Emirados Árabes Unidos,1.43,Ásia
+Equador,2.32,Americas
+Eritreia,11.4,África
+Estados Unidos,0.9,Americas
+Etiópia,7.5,Europa
+Fiji,0.8,Oceânia
+Filipinas,1.1,Ásia
+Gâmbia,6.57,África
+Gana,19.2,África
+Georgia,4.1,Ásia
+Guatemala,4.3,Americas
+Guiné,7.7,África
+Guiné Equatorial,3.9,África
+Guiné-Bissau,3.1,África
+Haiti,14.8,Americas
+Holanda,0.6,Europa
+Honduras,2.48,Americas
+Hong Kong,3,Ásia
+Iémen,9.49,Ásia
+Índia,4.83,Ásia
+Indonésia,3.6,Ásia
+Irã,8.9,Ásia
+Iraque,1.5,Ásia
+Islândia,1.6,Europa
+Jamaica,3,Americas
+Kosovo,0.1,Europa
+Kuweit,3.1,Ásia
+Laos,1.13,Ásia
+Lesoto,6.6,África
+Libéria,8,África
+Líbia,10.1,África
+Lituânia,1.2,Europa
+Luxemburgo,0.05,Europa
+Macau,3.31,Ásia
+Madagáscar,7.2,África
+Malásia,2.6,Ásia
+Malawi,22.1,África
+Maldivas,1.3,Ásia
+Malta,1,Europa
+Marrocos,1.8,África
+Mauritius,0.9,África
+México,2.6,Americas
+Moçambique,13.61,África
+Moldova,9.4,Europa
+Mongólia,1.7,Ásia
+Myanmar,15.19,Ásia
+Namíbia,6.5,África
+Nepal,11.3,Ásia
+Nicarágua,3.7,Americas
+Níger,1.1,África
+Nigéria,12.8,África
+Noruega,3.3,Europa
+Nova Caledônia,0.9,Oceânia
+Nova Zelândia,0.4,Oceânia
+Omã,0.1,Ásia
+Palestina,0.32,Ásia
+Panamá,0.6,Americas
+Papua Nova Guiné,6.4,Oceânia
+Paquistão,4.17,Ásia
+Paraguai,4.7,Americas
+Peru,7.46,Europa
+Peru,3.91,Americas
+Porto Rico,0.5,Europa
+Portugal,0.4,Americas
+Quênia,5.27,Europa
+Quirguistão,0.5,África
+Reino Unido,0.5,Europa
+República Centro-Africana,25.58,África
+República Checa,0.3,Europa
+República do Congo,3.7,África
+República Dominicana,1.59,Americas
+Ruanda,5.8,África
+Rússia,7.3,Europa
+São Tomé e Príncipe,4.3,África
+Senegal,1.3,África
+Serra Leoa,8.85,África
+Sérvia,0.6,Europa
+Síria,43.02,Ásia
+Sri Lanka,3.1,Ásia
+Suazilândia,4.9,África
+Sudão,12.94,África
+Sudão do Sul,245.2,África
+Suécia,0.8,Europa
+Suriname,31.88,Americas
+Tailândia,0.07,Ásia
+Taiwan,2,Ásia
+Tajiquistão,5.6,Ásia
+Tanzânia,5.4,África
+Togo,1.1,África
+Trinidad e Tobago,3.4,Americas
+Tunísia,3.3,África
+Turcomenistão,7,Ásia
+Ucrânia,20.9,Europa
+Uganda,5.1,África
+Uruguai,10.6,Ásia
+Uzbequistão,5.6,Ásia
+Venezuela,180.9,Americas
+Vietnã,1.89,Ásia
+Zâmbia,21.8,África
+MEDIANA,3.36,Comparativo
