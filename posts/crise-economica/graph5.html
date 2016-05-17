@@ -47,90 +47,300 @@
 <body>
 
   <div class="paragrafs">
-        <h1>Popularidade em tempos de crise</h1>
-        <p>Percepções sobre corrupção em 20 países com imprensa "parcialmente livre"
-          medidas no relatório <strong>Global States of Mind 2013</strong>, da Gallup,
-          dados mais recentes onde consta o Brasil, com base inicial a 25%. </p>
+    <link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
-<svg viewBox="0 0 500 200"></svg>
-<script src="https://d3js.org/d3.v4.0.0-alpha.33.min.js"></script>
+<h1>Vagaroso</h1>
 
-<h4>Fonte: <a href="http://www.meridian.org/wp-content/uploads/2015/08/2013_GlobalStateMind_Report_10-13_mh.pdf" target="_blank">
-  Global States of Mind 2013/Gallup</a> </h4>
+<p> Crescimento econômico do Brasil desde 1980 e previsão do FMI até 2021</p>
+
+<div id="pais" style="height: 450px;"></div>
+
+<h4>Fonte: <a href="http://www.imf.org/external/datamapper/index.php" target="_blank">
+  FMI</a> </h4>
       </div>
 
       <script>
-      var svg = d3.select("svg"),
-    margin = {top: 0, right: 10, bottom: 0, left: 10},
-    width = 450,
-    height = 150;
-
-var formatValue = d3.format(",d");
-
-var x = d3.scaleLinear()
-    .rangeRound([0, width])
-    ;
-
-var g = svg.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/percepcorrupmundo.csv", type, function(error, data) {
-  if (error) throw error;
-
-  x.domain(d3.extent(data, function(d) { return d.value; }));
-
-  var simulation = d3.forceSimulation(data)
-      .force("x", d3.forceX(function(d) { return x(d.value); }).strength(1))
-      .force("y", d3.forceY(height / 2))
-      .force("collide", d3.forceCollide(6))
-      .stop();
-
-  for (var i = 0; i < 120; ++i) simulation.tick();
-
-  g.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).ticks(9, ".0f"))
-  ;
-
-  svg.append("text")
-    .attr("class", "x label")
-    .attr("text-anchor", "end")
-    .attr("x", 60)
-    .attr("y", 168)
-    .text("%")
-    .style("font-size", "10px" );
-
-  var cell = g.append("g")
-      .attr("class", "cells")
-    .selectAll("g").data(d3.voronoi()
-        .extent([[-margin.left, -margin.top], [width + margin.right, height + margin.top]])
-        .x(function(d) { return d.x; })
-        .y(function(d) { return d.y; })
-      .polygons(data)).enter().append("g");
-
-  cell.append("circle")
-      .attr("r", 4)
-      .attr("cx", function(d) { return d.data.x; })
-      .attr("cy", function(d) { return d.data.y; })
-  .attr("fill",function(d) { if(d.data.id === "Brasil")return "#000"; if(d.data.id === "MEDIANA")return "#a7002c"; if(d.data.id === "MÉDIA")return "#05668D" })
-      ;
-
-  cell.append("path")
-      .attr("d", function(d) { return "M" + d.join("L") + "Z"; });
-
-  cell.append("title")
-      .text(function(d) { return d.data.id + "\n" + d.data.value + "%"; });
+      new Morris.Line({
+  element: 'pais',
+  xkey: 'data',
+  ykeys: ['crescimento'],
+  labels: ['crescimento'],
+  xLabels: ['data'],
+  lineColors: ['#faa61a'],
+  postUnits: [' %'],
+  hoverCallback: function (index, options, content, row) {
+  return row.ano + " = " + row.crescimento + "%" ;
+},
+  lineWidth: ['3'],
+  smooth: 'false',
+  goals: [0],
+  goalStrokeWidth: ['2'],
+  gridTextFamily: ['Rubik'],
+  pointSize: ['0'],
+  gridTextSize: ['12px'],
+  gridTextColor: ['#000'],
+  hideHover: ['auto'],
+  resize: ['true'],
+  data: [
+  {
+    "pais": "Brasil",
+    "data": "1980-12",
+    "crescimento": 9.2,
+    "ano": 1980
+  },
+  {
+    "pais": "Brasil",
+    "data": "1981-12",
+    "crescimento": -4.4,
+    "ano": 1981
+  },
+  {
+    "pais": "Brasil",
+    "data": "1982-12",
+    "crescimento": 0.6,
+    "ano": 1982
+  },
+  {
+    "pais": "Brasil",
+    "data": "1983-12",
+    "crescimento": -3.4,
+    "ano": 1983
+  },
+  {
+    "pais": "Brasil",
+    "data": "1984-12",
+    "crescimento": 5.3,
+    "ano": 1984
+  },
+  {
+    "pais": "Brasil",
+    "data": "1985-12",
+    "crescimento": 7.9,
+    "ano": 1985
+  },
+  {
+    "pais": "Brasil",
+    "data": "1986-12",
+    "crescimento": 7.5,
+    "ano": 1986
+  },
+  {
+    "pais": "Brasil",
+    "data": "1987-12",
+    "crescimento": 3.6,
+    "ano": 1987
+  },
+  {
+    "pais": "Brasil",
+    "data": "1988-12",
+    "crescimento": 0.3,
+    "ano": 1988
+  },
+  {
+    "pais": "Brasil",
+    "data": "1989-12",
+    "crescimento": 3.2,
+    "ano": 1989
+  },
+  {
+    "pais": "Brasil",
+    "data": "1990-12",
+    "crescimento": -4.2,
+    "ano": 1990
+  },
+  {
+    "pais": "Brasil",
+    "data": "1991-12",
+    "crescimento": 1,
+    "ano": 1991
+  },
+  {
+    "pais": "Brasil",
+    "data": "1992-12",
+    "crescimento": -0.5,
+    "ano": 1992
+  },
+  {
+    "pais": "Brasil",
+    "data": "1993-12",
+    "crescimento": 4.7,
+    "ano": 1993
+  },
+  {
+    "pais": "Brasil",
+    "data": "1994-12",
+    "crescimento": 5.3,
+    "ano": 1994
+  },
+  {
+    "pais": "Brasil",
+    "data": "1995-12",
+    "crescimento": 4.4,
+    "ano": 1995
+  },
+  {
+    "pais": "Brasil",
+    "data": "1996-12",
+    "crescimento": 2.2,
+    "ano": 1996
+  },
+  {
+    "pais": "Brasil",
+    "data": "1997-12",
+    "crescimento": 3.4,
+    "ano": 1997
+  },
+  {
+    "pais": "Brasil",
+    "data": "1998-12",
+    "crescimento": 0.3,
+    "ano": 1998
+  },
+  {
+    "pais": "Brasil",
+    "data": "1999-12",
+    "crescimento": 0.5,
+    "ano": 1999
+  },
+  {
+    "pais": "Brasil",
+    "data": "2000-12",
+    "crescimento": 4.4,
+    "ano": 2000
+  },
+  {
+    "pais": "Brasil",
+    "data": "2001-12",
+    "crescimento": 1.4,
+    "ano": 2001
+  },
+  {
+    "pais": "Brasil",
+    "data": "2002-12",
+    "crescimento": 3.1,
+    "ano": 2002
+  },
+  {
+    "pais": "Brasil",
+    "data": "2003-12",
+    "crescimento": 1.1,
+    "ano": 2003
+  },
+  {
+    "pais": "Brasil",
+    "data": "2004-12",
+    "crescimento": 5.8,
+    "ano": 2004
+  },
+  {
+    "pais": "Brasil",
+    "data": "2005-12",
+    "crescimento": 3.2,
+    "ano": 2005
+  },
+  {
+    "pais": "Brasil",
+    "data": "2006-12",
+    "crescimento": 4,
+    "ano": 2006
+  },
+  {
+    "pais": "Brasil",
+    "data": "2007-12",
+    "crescimento": 6.1,
+    "ano": 2007
+  },
+  {
+    "pais": "Brasil",
+    "data": "2008-12",
+    "crescimento": 5.1,
+    "ano": 2008
+  },
+  {
+    "pais": "Brasil",
+    "data": "2009-12",
+    "crescimento": -0.1,
+    "ano": 2009
+  },
+  {
+    "pais": "Brasil",
+    "data": "2010-12",
+    "crescimento": 7.5,
+    "ano": 2010
+  },
+  {
+    "pais": "Brasil",
+    "data": "2011-12",
+    "crescimento": 3.9,
+    "ano": 2011
+  },
+  {
+    "pais": "Brasil",
+    "data": "2012-12",
+    "crescimento": 1.9,
+    "ano": 2012
+  },
+  {
+    "pais": "Brasil",
+    "data": "2013-12",
+    "crescimento": 3,
+    "ano": 2013
+  },
+  {
+    "pais": "Brasil",
+    "data": "2014-12",
+    "crescimento": 0.1,
+    "ano": 2014
+  },
+  {
+    "pais": "Brasil",
+    "data": "2015-12",
+    "crescimento": -3.8,
+    "ano": 2015
+  },
+  {
+    "pais": "Brasil",
+    "data": "2016-12",
+    "crescimento": -3.8,
+    "ano": 2016
+  },
+  {
+    "pais": "Brasil",
+    "data": "2017-12",
+    "crescimento": 0,
+    "ano": 2017
+  },
+  {
+    "pais": "Brasil",
+    "data": "2018-12",
+    "crescimento": 1,
+    "ano": 2018
+  },
+  {
+    "pais": "Brasil",
+    "data": "2019-12",
+    "crescimento": 2,
+    "ano": 2019
+  },
+  {
+    "pais": "Brasil",
+    "data": "2020-12",
+    "crescimento": 2,
+    "ano": 2020
+  },
+  {
+    "pais": "Brasil",
+    "data": "2021-12",
+    "crescimento": 2,
+    "ano": 2021
+  }
+]
 });
-
-
-
-function type(d) {
-  if (!d.value) return;
-  d.value = +d.value;
-  return d;
-}
-
       </script>
 
     </body>

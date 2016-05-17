@@ -1,8 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
-@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Rubik:400,300,700);
+
 
 body {
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Rubik', sans-serif;
   margin: 0;
   font-weight: 400;
   -webkit-font-smoothing:antialiased;
@@ -84,7 +85,7 @@ span {
 }
 
 .axis text {
-  font: 11px 'Merriweather Sans';
+  font: 11px 'Rubik';
 }
 
 .cells path {
@@ -93,7 +94,7 @@ span {
 }
 
 .cells{
-  fill:rgba(167, 0, 44, .4);
+  fill:#007EA7;
 }
 
 .cells :hover circle {
@@ -125,7 +126,7 @@ ul {
 }
 
 #europa {
-  background-color: rgba(36, 123, 160, 0.4)
+  background-color: rgba(29, 53, 87, .4)
 }
 
 #asia {
@@ -133,7 +134,7 @@ ul {
 }
 
 #oceania {
-  background-color:rgba(141, 153, 174, 0.4)
+  background-color:rgba(167, 0, 44, .4)
 }
 
 #africa {
