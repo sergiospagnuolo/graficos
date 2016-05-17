@@ -47,12 +47,13 @@
 <body>
 
   <div class="paragrafs">
-    <h1>Dívida</h1>
+    <br />
+    <h1>Dívida pública</h1>
 
-  <p>Percentual da dívida de países em relação ao Produto Interno Bruto (PIB). Dados de abril/2016</p>
-  <p>
+  <p>Percentual da dívida de países em relação ao Produto Interno Bruto (PIB).
     Cada cor representa países do mesmo continente, e o Brasil é o ponto <strong>preto</strong>.
-    O ponto azul escuro representa a <strong>mediana</strong>.
+    O ponto azul escuro representa a <strong>mediana</strong>. Dados referentes a dezembro/2015
+    ou dezembro/2014, dependendo do país (Brasil é dezembro 2015).
   </p>
   <ul class="legenda">
     <li id="brasil"> Brasil  </li>
@@ -74,7 +75,7 @@
       var svg = d3.select("svg"),
     margin = {top: 0, right: 40, bottom: 40, left: 10},
     width = 450,
-    height = 250 - margin.top - margin.bottom;
+    height = 240 - margin.top - margin.bottom;
 
 var formatValue = d3.format(",d");
 
@@ -106,24 +107,32 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/di
         .attr("class", "x label")
         .attr("text-anchor", "end")
         .attr("x", 123)
-        .attr("y", 228)
+        .attr("y", 218)
         .style("font-size", "10px")
         .text("%");
 
       svg.append("text")
         .attr("class", "x label")
         .attr("text-anchor", "end")
-        .attr("x", 133)
+        .attr("x", 166)
         .attr("y", 30)
         .style("font-size", "10px")
-        .text("Mediana");
+        .text("Mediana = 40,6%");
+
+      svg.append("text")
+          .attr("class", "x label")
+          .attr("text-anchor", "end")
+          .attr("x", 216)
+          .attr("y", 140)
+          .style("font-size", "10px")
+          .text("Brasil = 66,2%");
 
       svg.append("rect")
         .attr("x", 88)
         .attr("y", 10)
         .attr("width", 1)
         .style("fill", "#ababab")
-        .attr("height", 200);
+        .attr("height", 190);
 
   var cell = g.append("g")
       .attr("class", "cells")

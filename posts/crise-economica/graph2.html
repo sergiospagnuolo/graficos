@@ -47,10 +47,10 @@
 <body>
 
   <div class="paragrafs">
+    <br />
     <h1>Crescimento do PIB</h1>
 
-  <p>Taxa de crescimento anual do PIB em mais de 190 países de todas as regiões para o fechado de 2015.</p>
-  <p>
+  <p>Taxa de crescimento anual do PIB em mais de 190 países de todas as regiões para o fechado de 2015.
     Cada cor representa países do mesmo continente, e o Brasil é o ponto <strong>preto</strong>.
     O ponto azul escuro representa a <strong>mediana</strong>.
   </p>
@@ -113,10 +113,18 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/pi
     svg.append("text")
       .attr("class", "x label")
       .attr("text-anchor", "end")
-      .attr("x", 417)
+      .attr("x", 410)
       .attr("y", 30)
       .style("font-size", "10px")
-      .text("Mediana");
+      .text("Mediana = 2,85%");
+
+      svg.append("text")
+          .attr("class", "x label")
+          .attr("text-anchor", "end")
+          .attr("x", 330)
+          .attr("y", 130)
+          .style("font-size", "10px")
+          .text("Brasil = -3,8%");
 
     svg.append("rect")
       .attr("x", 422.3)

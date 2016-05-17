@@ -46,12 +46,11 @@
 
 <body>
 
-  <div class="paragrafs">
+  <div class="paragrafs"><br />
     <h1>Inflação</h1>
 
-  <p>Taxa de inflação em mais de 130 países,
-    excluindo países e regiões em deflação ou taxa zero, como a zona do Euro (-0,2% a.a.). Dados de abril/2016</p>
-    <p>
+  <p>Taxas de inflação em mais de 130 países relativas a 2015,
+    excluindo países e regiões em deflação ou taxa zero.
       Cada cor representa países do mesmo continente, e o Brasil é o ponto <strong>preto</strong>.
       O ponto azul escuro representa a <strong>mediana</strong>.
     </p>
@@ -67,7 +66,7 @@
       <svg viewBox="0 0 575 250"></svg>
       <script src="https://d3js.org/d3.v4.0.0-alpha.33.min.js"></script>
 
-      <h4>Fonte: <a href="http://www.tradingeconomics.com/country-list/inflation-rate" target="_blank">Trending Economics</a></h4>
+      <h4>Fonte: <a href="http://www.imf.org/external/datamapper/index.php" target="_blank">FMI</a></h4>
 
       </div>
 <script>
@@ -105,7 +104,7 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/in
   svg.append("text")
     .attr("class", "x label")
     .attr("text-anchor", "end")
-    .attr("x", 198)
+    .attr("x", 181)
     .attr("y", 228)
     .text("%")
     .style("font-size", "10px" );
@@ -113,13 +112,21 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/in
     svg.append("text")
       .attr("class", "x label")
       .attr("text-anchor", "end")
-      .attr("x", 305)
+      .attr("x", 320)
       .attr("y", 30)
       .style("font-size", "10px")
-      .text("Mediana");
+      .text("Mediana = 3,1");
+
+      svg.append("text")
+          .attr("class", "x label")
+          .attr("text-anchor", "end")
+          .attr("x", 390)
+          .attr("y", 80)
+          .style("font-size", "10px")
+          .text("Brasil = 9%");
 
     svg.append("rect")
-      .attr("x", 257.4)
+      .attr("x", 249.5)
       .attr("y", 10)
       .attr("width", 1)
       .style("fill", "#ababab")

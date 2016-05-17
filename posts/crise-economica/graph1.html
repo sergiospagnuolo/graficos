@@ -46,12 +46,12 @@
 
 <body>
   <div class="paragrafs">
+    <br />
     <h1>Desemprego</h1>
 
-  <p>Taxa de desemprego em mais de 180 países de todas as regiões. Dados de abril/2016</p>
-  <p>
+  <p>Taxa de desemprego em mais de 180 países de todas as regiões.
     Cada cor representa países do mesmo continente, e o Brasil é o ponto <strong>preto</strong>.
-    O ponto azul escuro representa a <strong>mediana</strong>.
+    O ponto azul escuro representa a <strong>mediana</strong>. Dados compilados em maio/2016.
   </p>
   <ul class="legenda">
     <li id="brasil" class="legenda"> Brasil  </li>
@@ -122,13 +122,21 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/de
   svg.append("text")
     .attr("class", "x label")
     .attr("text-anchor", "end")
-    .attr("x", 130)
+    .attr("x", 160)
     .attr("y", 30)
     .style("font-size", "10px")
-    .text("Mediana");
+    .text("Mediana = 7,7%");
+
+    svg.append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "end")
+        .attr("x", 200)
+        .attr("y", 150)
+        .style("font-size", "10px")
+        .text("Brasil = 9%");
 
   svg.append("rect")
-    .attr("x", 83.7)
+    .attr("x", 83.4)
     .attr("y", 10)
     .attr("width", 1)
     .style("fill", "#ababab")

@@ -56,9 +56,10 @@
 
 <h1>Vagaroso</h1>
 
-<p> Crescimento econômico do Brasil desde 1980 e previsão do FMI até 2021</p>
+<p> Crescimento econômico do <span><strong>BRASIL</strong></span> e do <span style="color: #faa61a;">MUNDO</span>
+  desde 1980, e previsões do FMI até 2021</p>
 
-<div id="pais" style="height: 450px;"></div>
+<div id="pais" style="height: 80vh;"></div>
 
 <h4>Fonte: <a href="http://www.imf.org/external/datamapper/index.php" target="_blank">
   FMI</a> </h4>
@@ -68,13 +69,13 @@
       new Morris.Line({
   element: 'pais',
   xkey: 'data',
-  ykeys: ['crescimento'],
-  labels: ['crescimento'],
+  ykeys: ['Brasil', 'Mundo'],
+  labels: ['inflacao'],
   xLabels: ['data'],
-  lineColors: ['#faa61a'],
+  lineColors: ['#000', '#faa61a'],
   postUnits: [' %'],
   hoverCallback: function (index, options, content, row) {
-  return row.ano + " = " + row.crescimento + "%" ;
+  return row.ano;
 },
   lineWidth: ['3'],
   smooth: 'false',
@@ -88,256 +89,424 @@
   resize: ['true'],
   data: [
   {
-    "pais": "Brasil",
     "data": "1980-12",
-    "crescimento": 9.2,
-    "ano": 1980
+    "ano": 1980,
+    "Brasil": 9.2,
+    "China": 7.9,
+    "Índia": 5.3,
+    "Rússia": 0,
+    "EUA": -0.2,
+    "Mundo": 2.1
   },
   {
-    "pais": "Brasil",
     "data": "1981-12",
-    "crescimento": -4.4,
-    "ano": 1981
+    "ano": 1981,
+    "Brasil": -4.4,
+    "China": 5.1,
+    "Índia": 6,
+    "Rússia": 0,
+    "EUA": 2.6,
+    "Mundo": 1.9
   },
   {
-    "pais": "Brasil",
     "data": "1982-12",
-    "crescimento": 0.6,
-    "ano": 1982
+    "ano": 1982,
+    "Brasil": 0.6,
+    "China": 9,
+    "Índia": 3.5,
+    "Rússia": 0,
+    "EUA": -1.9,
+    "Mundo": 0.7
   },
   {
-    "pais": "Brasil",
     "data": "1983-12",
-    "crescimento": -3.4,
-    "ano": 1983
+    "ano": 1983,
+    "Brasil": -3.4,
+    "China": 10.8,
+    "Índia": 7.3,
+    "Rússia": 0,
+    "EUA": 4.6,
+    "Mundo": 2.7
   },
   {
-    "pais": "Brasil",
     "data": "1984-12",
-    "crescimento": 5.3,
-    "ano": 1984
+    "ano": 1984,
+    "Brasil": 5.3,
+    "China": 15.2,
+    "Índia": 3.8,
+    "Rússia": 0,
+    "EUA": 7.3,
+    "Mundo": 4.7
   },
   {
-    "pais": "Brasil",
     "data": "1985-12",
-    "crescimento": 7.9,
-    "ano": 1985
+    "ano": 1985,
+    "Brasil": 7.9,
+    "China": 13.5,
+    "Índia": 5.3,
+    "Rússia": 0,
+    "EUA": 4.2,
+    "Mundo": 3.8
   },
   {
-    "pais": "Brasil",
     "data": "1986-12",
-    "crescimento": 7.5,
-    "ano": 1986
+    "ano": 1986,
+    "Brasil": 7.5,
+    "China": 8.9,
+    "Índia": 4.8,
+    "Rússia": 0,
+    "EUA": 3.5,
+    "Mundo": 3.7
   },
   {
-    "pais": "Brasil",
     "data": "1987-12",
-    "crescimento": 3.6,
-    "ano": 1987
+    "ano": 1987,
+    "Brasil": 3.6,
+    "China": 11.7,
+    "Índia": 4,
+    "Rússia": 0,
+    "EUA": 3.5,
+    "Mundo": 3.9
   },
   {
-    "pais": "Brasil",
     "data": "1988-12",
-    "crescimento": 0.3,
-    "ano": 1988
+    "ano": 1988,
+    "Brasil": 0.3,
+    "China": 11.3,
+    "Índia": 9.6,
+    "Rússia": 0,
+    "EUA": 4.2,
+    "Mundo": 4.7
   },
   {
-    "pais": "Brasil",
     "data": "1989-12",
-    "crescimento": 3.2,
-    "ano": 1989
+    "ano": 1989,
+    "Brasil": 3.2,
+    "China": 4.2,
+    "Índia": 5.9,
+    "Rússia": 0,
+    "EUA": 3.7,
+    "Mundo": 3.8
   },
   {
-    "pais": "Brasil",
     "data": "1990-12",
-    "crescimento": -4.2,
-    "ano": 1990
+    "ano": 1990,
+    "Brasil": -4.2,
+    "China": 3.9,
+    "Índia": 5.5,
+    "Rússia": 0,
+    "EUA": 1.9,
+    "Mundo": 3.4
   },
   {
-    "pais": "Brasil",
     "data": "1991-12",
-    "crescimento": 1,
-    "ano": 1991
+    "ano": 1991,
+    "Brasil": 1,
+    "China": 9.2,
+    "Índia": 1.1,
+    "Rússia": -5,
+    "EUA": -0.1,
+    "Mundo": 2.6
   },
   {
-    "pais": "Brasil",
     "data": "1992-12",
-    "crescimento": -0.5,
-    "ano": 1992
+    "ano": 1992,
+    "Brasil": -0.5,
+    "China": 14.3,
+    "Índia": 5.5,
+    "Rússia": -14.5,
+    "EUA": 3.6,
+    "Mundo": 2.3
   },
   {
-    "pais": "Brasil",
     "data": "1993-12",
-    "crescimento": 4.7,
-    "ano": 1993
+    "ano": 1993,
+    "Brasil": 4.7,
+    "China": 13.9,
+    "Índia": 4.8,
+    "Rússia": -8.7,
+    "EUA": 2.7,
+    "Mundo": 2.1
   },
   {
-    "pais": "Brasil",
     "data": "1994-12",
-    "crescimento": 5.3,
-    "ano": 1994
+    "ano": 1994,
+    "Brasil": 5.3,
+    "China": 13.1,
+    "Índia": 6.7,
+    "Rússia": -12.7,
+    "EUA": 4,
+    "Mundo": 3.3
   },
   {
-    "pais": "Brasil",
     "data": "1995-12",
-    "crescimento": 4.4,
-    "ano": 1995
+    "ano": 1995,
+    "Brasil": 4.4,
+    "China": 11,
+    "Índia": 7.6,
+    "Rússia": -4.1,
+    "EUA": 2.7,
+    "Mundo": 3.3
   },
   {
-    "pais": "Brasil",
     "data": "1996-12",
-    "crescimento": 2.2,
-    "ano": 1996
+    "ano": 1996,
+    "Brasil": 2.2,
+    "China": 9.9,
+    "Índia": 7.5,
+    "Rússia": -3.6,
+    "EUA": 3.8,
+    "Mundo": 3.9
   },
   {
-    "pais": "Brasil",
     "data": "1997-12",
-    "crescimento": 3.4,
-    "ano": 1997
+    "ano": 1997,
+    "Brasil": 3.4,
+    "China": 9.2,
+    "Índia": 4,
+    "Rússia": 1.4,
+    "EUA": 4.5,
+    "Mundo": 4.1
   },
   {
-    "pais": "Brasil",
     "data": "1998-12",
-    "crescimento": 0.3,
-    "ano": 1998
+    "ano": 1998,
+    "Brasil": 0.3,
+    "China": 7.8,
+    "Índia": 6.2,
+    "Rússia": -5.3,
+    "EUA": 4.4,
+    "Mundo": 2.5
   },
   {
-    "pais": "Brasil",
     "data": "1999-12",
-    "crescimento": 0.5,
-    "ano": 1999
+    "ano": 1999,
+    "Brasil": 0.5,
+    "China": 7.6,
+    "Índia": 8.5,
+    "Rússia": 6.4,
+    "EUA": 4.7,
+    "Mundo": 3.6
   },
   {
-    "pais": "Brasil",
     "data": "2000-12",
-    "crescimento": 4.4,
-    "ano": 2000
+    "ano": 2000,
+    "Brasil": 4.4,
+    "China": 8.4,
+    "Índia": 4,
+    "Rússia": 10,
+    "EUA": 4.1,
+    "Mundo": 4.8
   },
   {
-    "pais": "Brasil",
     "data": "2001-12",
-    "crescimento": 1.4,
-    "ano": 2001
+    "ano": 2001,
+    "Brasil": 1.4,
+    "China": 8.3,
+    "Índia": 4.9,
+    "Rússia": 5.1,
+    "EUA": 1,
+    "Mundo": 2.5
   },
   {
-    "pais": "Brasil",
     "data": "2002-12",
-    "crescimento": 3.1,
-    "ano": 2002
+    "ano": 2002,
+    "Brasil": 3.1,
+    "China": 9.1,
+    "Índia": 3.9,
+    "Rússia": 4.8,
+    "EUA": 1.8,
+    "Mundo": 2.9
   },
   {
-    "pais": "Brasil",
     "data": "2003-12",
-    "crescimento": 1.1,
-    "ano": 2003
+    "ano": 2003,
+    "Brasil": 1.1,
+    "China": 10,
+    "Índia": 7.9,
+    "Rússia": 7.3,
+    "EUA": 2.8,
+    "Mundo": 4.3
   },
   {
-    "pais": "Brasil",
     "data": "2004-12",
-    "crescimento": 5.8,
-    "ano": 2004
+    "ano": 2004,
+    "Brasil": 5.8,
+    "China": 10.1,
+    "Índia": 7.8,
+    "Rússia": 7.2,
+    "EUA": 3.8,
+    "Mundo": 5.4
   },
   {
-    "pais": "Brasil",
     "data": "2005-12",
-    "crescimento": 3.2,
-    "ano": 2005
+    "ano": 2005,
+    "Brasil": 3.2,
+    "China": 11.3,
+    "Índia": 9.3,
+    "Rússia": 6.4,
+    "EUA": 3.3,
+    "Mundo": 4.9
   },
   {
-    "pais": "Brasil",
     "data": "2006-12",
-    "crescimento": 4,
-    "ano": 2006
+    "ano": 2006,
+    "Brasil": 4,
+    "China": 12.7,
+    "Índia": 9.3,
+    "Rússia": 8.2,
+    "EUA": 2.7,
+    "Mundo": 5.5
   },
   {
-    "pais": "Brasil",
     "data": "2007-12",
-    "crescimento": 6.1,
-    "ano": 2007
+    "ano": 2007,
+    "Brasil": 6.1,
+    "China": 14.2,
+    "Índia": 9.8,
+    "Rússia": 8.5,
+    "EUA": 1.8,
+    "Mundo": 5.6
   },
   {
-    "pais": "Brasil",
     "data": "2008-12",
-    "crescimento": 5.1,
-    "ano": 2008
+    "ano": 2008,
+    "Brasil": 5.1,
+    "China": 9.6,
+    "Índia": 3.9,
+    "Rússia": 5.2,
+    "EUA": -0.3,
+    "Mundo": 3
   },
   {
-    "pais": "Brasil",
     "data": "2009-12",
-    "crescimento": -0.1,
-    "ano": 2009
+    "ano": 2009,
+    "Brasil": -0.1,
+    "China": 9.2,
+    "Índia": 8.5,
+    "Rússia": -7.8,
+    "EUA": -2.8,
+    "Mundo": -0.1
   },
   {
-    "pais": "Brasil",
     "data": "2010-12",
-    "crescimento": 7.5,
-    "ano": 2010
+    "ano": 2010,
+    "Brasil": 7.5,
+    "China": 10.6,
+    "Índia": 10.3,
+    "Rússia": 4.5,
+    "EUA": 2.5,
+    "Mundo": 5.4
   },
   {
-    "pais": "Brasil",
     "data": "2011-12",
-    "crescimento": 3.9,
-    "ano": 2011
+    "ano": 2011,
+    "Brasil": 3.9,
+    "China": 9.5,
+    "Índia": 6.6,
+    "Rússia": 4.3,
+    "EUA": 1.6,
+    "Mundo": 4.2
   },
   {
-    "pais": "Brasil",
     "data": "2012-12",
-    "crescimento": 1.9,
-    "ano": 2012
+    "ano": 2012,
+    "Brasil": 1.9,
+    "China": 7.7,
+    "Índia": 5.6,
+    "Rússia": 3.5,
+    "EUA": 2.2,
+    "Mundo": 3.5
   },
   {
-    "pais": "Brasil",
     "data": "2013-12",
-    "crescimento": 3,
-    "ano": 2013
+    "ano": 2013,
+    "Brasil": 3,
+    "China": 7.7,
+    "Índia": 6.6,
+    "Rússia": 1.3,
+    "EUA": 1.5,
+    "Mundo": 3.3
   },
   {
-    "pais": "Brasil",
     "data": "2014-12",
-    "crescimento": 0.1,
-    "ano": 2014
+    "ano": 2014,
+    "Brasil": 0.1,
+    "China": 7.3,
+    "Índia": 7.2,
+    "Rússia": 0.7,
+    "EUA": 2.4,
+    "Mundo": 3.4
   },
   {
-    "pais": "Brasil",
     "data": "2015-12",
-    "crescimento": -3.8,
-    "ano": 2015
+    "ano": 2015,
+    "Brasil": -3.8,
+    "China": 6.9,
+    "Índia": 7.3,
+    "Rússia": -3.7,
+    "EUA": 2.4,
+    "Mundo": 3.1
   },
   {
-    "pais": "Brasil",
     "data": "2016-12",
-    "crescimento": -3.8,
-    "ano": 2016
+    "ano": 2016,
+    "Brasil": -3.8,
+    "China": 6.5,
+    "Índia": 7.5,
+    "Rússia": -1.8,
+    "EUA": 2.4,
+    "Mundo": 3.2
   },
   {
-    "pais": "Brasil",
     "data": "2017-12",
-    "crescimento": 0,
-    "ano": 2017
+    "ano": 2017,
+    "Brasil": 0,
+    "China": 6.2,
+    "Índia": 7.5,
+    "Rússia": 0.8,
+    "EUA": 2.5,
+    "Mundo": 3.5
   },
   {
-    "pais": "Brasil",
     "data": "2018-12",
-    "crescimento": 1,
-    "ano": 2018
+    "ano": 2018,
+    "Brasil": 1,
+    "China": 6,
+    "Índia": 7.6,
+    "Rússia": 1,
+    "EUA": 2.4,
+    "Mundo": 3.6
   },
   {
-    "pais": "Brasil",
     "data": "2019-12",
-    "crescimento": 2,
-    "ano": 2019
+    "ano": 2019,
+    "Brasil": 2,
+    "China": 6,
+    "Índia": 7.7,
+    "Rússia": 1.5,
+    "EUA": 2.1,
+    "Mundo": 3.8
   },
   {
-    "pais": "Brasil",
     "data": "2020-12",
-    "crescimento": 2,
-    "ano": 2020
+    "ano": 2020,
+    "Brasil": 2,
+    "China": 6,
+    "Índia": 7.7,
+    "Rússia": 1.5,
+    "EUA": 2,
+    "Mundo": 3.8
   },
   {
-    "pais": "Brasil",
     "data": "2021-12",
-    "crescimento": 2,
-    "ano": 2021
+    "ano": 2021,
+    "Brasil": 2,
+    "China": 6,
+    "Índia": 7.8,
+    "Rússia": 1.5,
+    "EUA": 2,
+    "Mundo": 3.9
   }
 ]
 });
