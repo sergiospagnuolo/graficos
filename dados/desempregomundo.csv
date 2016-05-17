@@ -5,7 +5,6 @@ Albânia,17.7,Europa
 Alemanha,4.2,Europa
 Angola,26,África
 Arábia Saudita,5.6,Ásia
-Área euro,10.2,Europa
 Argélia,11.2,África
 Argentina,5.9,Americas
 Armênia,19.6,Ásia
@@ -23,7 +22,7 @@ Benin,1,África
 Bolívia,7.4,Americas
 Bósnia e Herzegovina,42.76,Europa
 Botswana,20,África
-Brasil,10.9,Americas
+Brasil,10.9,Comparativo
 Brunei,6.9,Ásia
 Bulgária,9.88,Europa
 Burkina Faso,6.6,África
@@ -35,7 +34,6 @@ Camboja,0.3,Ásia
 Canadá,7.1,Americas
 Catar,0.2,Ásia
 Cazaquistão,5.1,Ásia
-República Centro-Africana,7.6,África
 Chade,7.8,África
 Chile,6.3,Americas
 China,4.05,Ásia
@@ -56,9 +54,9 @@ Egito,12.77,África
 El Salvador,7,Americas
 Emirados Árabes Unidos,4.2,Ásia
 Equador,5.65,Americas
-Eritrea,14.5,África
+Eritreia,14.5,África
 Eslováquia,9.9,Europa
-Eslovenia,12.6,Europa
+Eslovênia,12.6,Europa
 Espanha,21,Europa
 Estados Unidos,5,Americas
 Estônia,6.4,Europa
@@ -130,14 +128,13 @@ Níger,2.25,África
 Nigéria,10.4,África
 Noruega,4.6,Europa
 Nova Caledônia,13.8,Oceânia
-Nova Zelândia,5.3,Ásia
+Nova Zelândia,5.3,Oceânia
 Omã,15,Ásia
 Palestina,25.8,Ásia
 Panamá,2.5,Americas
 Papua Nova Guiné,2.5,Oceânia
 Paquistão,5.9,Ásia
 Paraguai,5.8,Americas
-Turquia,11.1,Europa
 Peru,7.2,Americas
 Polônia,10,Europa
 Porto Rico,11.8,Americas
@@ -145,6 +142,7 @@ Portugal,12.2,Europa
 Quênia,40,África
 Quirguistão,2.2,Ásia
 Reino Unido,5.1,Europa
+República Centro-Africana,7.6,África
 República Checa,6.1,Europa
 República do Congo,26.6,África
 República Dominicana,14,Americas
@@ -173,13 +171,15 @@ Togo,6.9,África
 Trinidad e Tobago,3.4,Americas
 Tunísia,15.4,África
 Turcomenistão,10.5,Ásia
+Turquia,11.1,Europa
 Ucrânia,9.9,Europa
 Uganda,3.8,África
 União Européia,8.8,Europa
-Uruguai,8,Ásia
+Uruguai,8,Americas
 Uzbequistão,10.7,Ásia
 Venezuela,6,Americas
 Vietnã,2.31,Ásia
 Zâmbia,13.3,África
 Zimbábue,11.3,África
+Zona do Euro,10.2,Europa
 MEDIANA,7.7,Comparativo
