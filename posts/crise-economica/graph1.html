@@ -54,12 +54,12 @@
     O ponto azul escuro representa a <strong>mediana</strong>. Dados compilados em maio/2016.
   </p>
   <ul class="legenda">
-    <li id="Comparativo" class="legenda"> Brasil  </li>
-    <li id="Americas" class="legenda"> Américas  </li>
-    <li id="Europa" class="legenda"> Europa  </li>
-    <li id="Asia" class="legenda"> Ásia  </li>
-    <li id="Oceania" class="legenda"> Oceania  </li>
-    <li id="Africa" class="legenda"> África  </li>
+    <li id="Comparativo" class="legendas"> Brasil  </li>
+    <li id="Americas" class="legendas"> Américas  </li>
+    <li id="Europa" class="legendas"> Europa  </li>
+    <li id="Asia" class="legendas"> Ásia  </li>
+    <li id="Oceania" class="legendas"> Oceania  </li>
+    <li id="Africa" class="legendas"> África  </li>
   </ul>
 
   <svg viewBox="0 0 575 250" ></svg>
@@ -122,13 +122,21 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/de
   svg.append("text")
     .attr("class", "x label")
     .attr("text-anchor", "end")
-    .attr("x", 130)
+    .attr("x", 160)
     .attr("y", 30)
     .style("font-size", "10px")
-    .text("Mediana");
+    .text("Mediana = 7,7%");
+
+    svg.append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "end")
+        .attr("x", 220)
+        .attr("y", 135)
+        .style("font-size", "10px")
+        .text("Brasil = 10,9%");
 
   svg.append("rect")
-    .attr("x", 83.7)
+    .attr("x", 81.5)
     .attr("y", 10)
     .attr("width", 1)
     .style("fill", "#ababab")
@@ -173,7 +181,6 @@ function type(d) {
   d.value = +d.value;
   return d;
 }
-
 
 
 </script>
