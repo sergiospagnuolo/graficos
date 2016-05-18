@@ -313,21 +313,26 @@ Macau	(-20.3), Serra Leoa	(-21.5), Iêmen	(-28.1).
           <p>
             As visualizações foram feitas com a biblioteca <a href="http://d3js.org" target="_blank">D3.js</a>,
             e utilizam, exceto no gráfico de inflação, <em>escala linear</em> - o que significa que o eixo X (inferior)
-            avança progressivamente na mesma progressão (10, 20, 30 etc). A visualização das projeções do PIB
-            brasileiro utilizam a biblioteca <a href="http://morrisjs.github.io/morris.js/index.html" target="_blank">Morris.js</a>,
-            construída em D3.
+            avança progressivamente na mesma progressão (10, 20, 30 etc).
           </p>
           <p>
             No gráfico da inflação, por conta da grande distância entre alguns dados -
             por exemplo, as inflações na Venezuela e no Sudão do Sul são totalmente
             díspares com o resto do mundo - utilizamos uma <em>escala logarítica</em>,
-            onde a progressão do eixo X salta em progressão geométrica, a fim de caber os pontos no
+            onde a progressão do eixo X salta em progressão geométrica, a fim de acomodar os pontos no
             gráfico. Por esse motivo, não utilizamos países ou regiões em deflação ou com taxa de inflação zero,
             já que progressão geométrica não comporta base 0.
           </p>
           <p>
+            As visualizações das projeções do PIB
+            brasileiro e de inflação utilizam a biblioteca
+            <a href="http://morrisjs.github.io/morris.js/index.html" target="_blank">Morris.js</a>,
+            construída em D3.
+          </p>
+          <p>
             Os continentes foram divididos de forma abrangente, sem divisões de subregião ou subcontinente. Assim, por exemplo,
-            países do Caribe foram considerados "Americas", e da polinésia foram considerados "Oceania".
+            países do Caribe foram considerados "Americas", e Kosovo e Letônia são "Europa", e não
+            Europa Oriental.
           </p>
 
         <h6>Fontes</h6>

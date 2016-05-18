@@ -55,12 +55,12 @@
     O ponto azul escuro representa a <strong>mediana</strong>.
   </p>
   <ul class="legenda">
-    <li id="brasil"> Brasil  </li>
-    <li id="americas"> Américas  </li>
-    <li id="europa"> Europa  </li>
-    <li id="asia"> Ásia  </li>
-    <li id="oceania"> Oceania  </li>
-    <li id="africa"> África  </li>
+    <li id="Comparativo" class="legenda"> Brasil  </li>
+    <li id="Americas" class="legenda"> Américas  </li>
+    <li id="Europa" class="legenda"> Europa  </li>
+    <li id="Asia" class="legenda"> Ásia  </li>
+    <li id="Oceania" class="legenda"> Oceania  </li>
+    <li id="Africa" class="legenda"> África  </li>
   </ul>
 
 <svg viewBox="0 0 575 250" ></svg>
@@ -146,8 +146,8 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/graficos/gh-pages/dados/pi
           .attr("r", 4)
           .attr("cx", function(d) { return d.data.x; })
           .attr("cy", function(d) { return d.data.y; })
-      .attr("fill",function(d) { if(d.data.id === "Brasil")return "#000"; if(d.data.region === "África")return "rgba(255, 224, 102, 0.4)"; if(d.data.region === "Americas")return "rgba(112, 193, 179, 0.4)"; if(d.data.region === "Europa")return "rgba(29, 53, 87, .4)";
-      if(d.data.region === "Ásia")return "rgba(250, 166, 26, .4)";if(d.data.region === "Oceânia")return "rgba(167, 0, 44, .4)"})
+      .attr("fill",function(d) { if(d.data.id === "Brasil")return "#000"; if(d.data.region === "Africa")return "rgba(255, 224, 102, 0.4)"; if(d.data.region === "Americas")return "rgba(112, 193, 179, 0.4)"; if(d.data.region === "Europa")return "rgba(29, 53, 87, .4)";
+      if(d.data.region === "Asia")return "rgba(250, 166, 26, .4)";if(d.data.region === "Oceania")return "rgba(167, 0, 44, .4)"})
       ;
 
   cell.append("path")

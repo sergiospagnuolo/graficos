@@ -115,27 +115,27 @@ ul {
   font-family: 'Inconsolata';
 }
 
-#brasil {
+#Comparativo {
   color: #fff;
   background-color: #000
 }
 
-#americas {
+#Americas {
   background-color: rgba(112, 193, 179, 0.4)
 }
 
-#europa {
+#Europa {
   background-color: rgba(29, 53, 87, .4)
 }
 
-#asia {
+#Asia {
   background-color: rgba(250, 166, 26, .4)
 }
 
-#oceania {
+#Oceania {
   background-color:rgba(167, 0, 44, .4)
 }
 
-#africa {
+#Africa {
   background-color: rgba(255, 224, 102, 0.4)
 }
