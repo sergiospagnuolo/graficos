@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<link href='https://fonts.googleapis.com/css?family=Rubik' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+</head>
+<style>
+main {
+  min-width: 320px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+section {
+  display: none;
+  padding: 20px;
+  border-top: 0px solid #ddd;
+  margin-top: 0px;
+  font-family:'Rubik';
+  background-color: #ededed;
+  line-height: 1.3em;
+}
+
+h3 {
+	color:#a7002c;
+    font-size: 24px
+    }
+
+input {
+  display: none;
+  
+}
+label {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px 25px;
+  font-weight: 400;
+  text-align: center;
+  color: #a7002c;
+  border: 0px solid transparent;
+  font-family:'Inconsolata';
+    text-align: right;
+}
+label:before {
+  font-weight: normal;
+  margin: 0px;
+}
+label[for*='1']:before { content: ''; }
+label[for*='2']:before { content: ''; }
+
+label:hover {
+  color: #000;
+  cursor: pointer;
+}
+input:checked + label {
+  color: #000;
+  border: 0px solid #bbb;
+  border-top: 2px solid #a7002c;
+  border-bottom: 0px solid #fff;
+}
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2{
+  display: block;
+}
+@media screen and (max-width: 650px) {
+  label {
+    font-size: 16px;
+  }
+  label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  label {
+    padding: 15px;
+    color: black;
+  }
+
+</style>
+<main style="text-align:center;">
+  
+  <input id="tab1" type="radio" name="tabs" checked>
+  <label for="tab1">ANUAL </label>
+    
+  <input id="tab2" type="radio" name="tabs">
+  <label for="tab2">MENSAL</label>
+
+    
+  <section id="content1">
+    <h3>
+      R$ 200/mês
+    </h3>
+    <p>
+      <strong>Característica:</strong> 
+      única parcela de R$ 2.400 - equivalente a mais de 40% de desconto do plano mensal
+      </p>
+    <p>
+    <strong>Forma de pagamento: </strong>
+    <a href="https://www.paypal.com/br/webapps/mpp/home" target="_blank">PayPal</a> ou depósito bancário*
+    </p>
+    <p>
+    <strong>Tempo de contrato: </strong>
+    12 meses
+    </p>
+    <p>
+    <strong>Politica de cancelamento:</strong>
+    Multa de 60% sobre o valor restante do contrato
+    </p>
+    <p style="border-top:1px solid; padding:5px;font-size:14px;">
+    <em>Estamos trabalhando em novas formas de pagamento </em>
+    </p>
+    
+  </section>
+    
+  <section id="content2">
+    <h3>
+      R$ 350/mês
+    </h3>
+    <p>
+      <strong>Característica:</strong> 
+      Pagamentos mês a mês
+      </p>
+    <p>
+    <strong>Forma de pagamento: </strong>
+    <a href="https://www.paypal.com/br/webapps/mpp/home" target="_blank">PayPal</a> ou depósito bancário*
+    </p>
+    <p>
+    <strong>Tempo de contrato: </strong>
+    1 mês
+    </p>
+    <p>
+    <strong>Politica de cancelamento:</strong>
+    Como o pagamento é efetuado mês a mês, não há contratos, mas pagamentos efetuados não serão devolvidos
+    </p>
+    <p style="border-top:1px solid; padding:5px;font-size:14px;">
+    <em>Estamos trabalhando em novas formas de pagamento </em>
+    </p>
+    
+  </section>
+  
+</main>
