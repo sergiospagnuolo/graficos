@@ -1,27 +1,91 @@
 [
   {
-    "name": "Davide Mancini",
-    "handle": "davidewop",
-    "link": "https://twitter.com/davidewop",
+    "name": "Luz Mely Reyes",
+    "handle": "LuzMelyReyes",
+    "link": "https://twitter.com/LuzMelyReyes",
     "script": "Followers",
-    "followers": 162,
-    "numbers": 162
+    "followers": "70.3K",
+    "numbers": 70300
   },
   {
-    "name": "Thiago Medaglia",
-    "handle": "thiagomedaglia",
-    "link": "https://twitter.com/thiagomedaglia",
+    "name": "Ghazala Irshad",
+    "handle": "ghazalairshad",
+    "link": "https://twitter.com/ghazalairshad",
     "script": "Followers",
-    "followers": 300,
-    "numbers": 300
+    "followers": "24.2K",
+    "numbers": 24200
   },
   {
-    "name": "Sergio Spagnuolo",
-    "handle": "ProjetoStock",
-    "link": "https://twitter.com/ProjetoStock",
+    "name": "Fungai Machirori",
+    "handle": "fungaijustbeing",
+    "link": "https://twitter.com/fungaijustbeing",
     "script": "Followers",
-    "followers": 401,
-    "numbers": 401
+    "followers": "8,959",
+    "numbers": 8959
+  },
+  {
+    "name": "Peter Fray",
+    "handle": "PeterFray",
+    "link": "https://twitter.com/PeterFray",
+    "script": "Followers",
+    "followers": "2,571",
+    "numbers": 2571
+  },
+  {
+    "name": "Nicola Menzie",
+    "handle": "namenzie",
+    "link": "https://twitter.com/namenzie",
+    "script": "Followers",
+    "followers": "2,546",
+    "numbers": 2546
+  },
+  {
+    "name": "HR Venkatesh",
+    "handle": "hrvenkatesh",
+    "link": "https://twitter.com/hrvenkatesh",
+    "script": "Followers",
+    "followers": "2,240",
+    "numbers": 2240
+  },
+  {
+    "name": "Madly",
+    "handle": "callmemadly",
+    "link": "https://twitter.com/callmemadly",
+    "script": "Followers",
+    "followers": "1,498",
+    "numbers": 1498
+  },
+  {
+    "name": "Carolina Astuya",
+    "handle": "CaroAstuya",
+    "link": "https://twitter.com/CaroAstuya",
+    "script": "Followers",
+    "followers": "1,484",
+    "numbers": 1484
+  },
+  {
+    "name": "Katsunao Ishii",
+    "handle": "k_ishii",
+    "link": "https://twitter.com/k_ishii",
+    "script": "Followers",
+    "followers": "1,078",
+    "numbers": 1078
+  },
+  {
+    "name": "Reed Dunlea",
+    "handle": "RealDeedRunlea",
+    "link": "https://twitter.com/RealDeedRunlea",
+    "script": "Followers",
+    "followers": 848,
+    "numbers": 848
+  },
+  {
+    "name": "Victoria Schneider",
+    "handle": "vic_schneider",
+    "link": "https://twitter.com/vic_schneider",
+    "script": "Followers",
+    "followers": 470,
+    "numbers": 470
   },
   {
     "name": "Caroline Shin",
@@ -32,44 +96,28 @@
     "numbers": 410
   },
   {
-    "name": "Stephen Jefferson",
-    "handle": "bloomfornews",
-    "link": "https://twitter.com/bloomfornews",
+    "name": "Sergio Spagnuolo",
+    "handle": "ProjetoStock",
+    "link": "https://twitter.com/ProjetoStock",
     "script": "Followers",
-    "followers": 92,
-    "numbers": 92
+    "followers": 401,
+    "numbers": 401
   },
   {
-    "name": "Ghazala Irshad",
-    "handle": "ghazalairshad",
-    "link": "https://twitter.com/ghazalairshad",
+    "name": "Thiago Medaglia",
+    "handle": "thiagomedaglia",
+    "link": "https://twitter.com/thiagomedaglia",
     "script": "Followers",
-    "followers": 24.2,
-    "numbers": 24200
+    "followers": 300,
+    "numbers": 300
   },
   {
-    "name": "HR Venkatesh",
-    "handle": "hrvenkatesh",
-    "link": "https://twitter.com/hrvenkatesh",
+    "name": "Ligia Guimaraes",
+    "handle": "laigous",
+    "link": "https://twitter.com/laigous",
     "script": "Followers",
-    "followers": 2240,
-    "numbers": 2240
-  },
-  {
-    "name": "Peter Fray",
-    "handle": "PeterFray",
-    "link": "https://twitter.com/PeterFray",
-    "script": "Followers",
-    "followers": 2571,
-    "numbers": 2571
-  },
-  {
-    "name": "Katsunao Ishii",
-    "handle": "k_ishii",
-    "link": "https://twitter.com/k_ishii",
-    "script": "Followers",
-    "followers": 1077,
-    "numbers": 1077
+    "followers": 273,
+    "numbers": 273
   },
   {
     "name": "Emrys Eller",
@@ -88,67 +136,19 @@
     "numbers": 202
   },
   {
-    "name": "Victoria Schneider",
-    "handle": "vic_schneider",
-    "link": "https://twitter.com/vic_schneider",
+    "name": "Davide Mancini",
+    "handle": "davidewop",
+    "link": "https://twitter.com/davidewop",
     "script": "Followers",
-    "followers": 470,
-    "numbers": 470
+    "followers": 162,
+    "numbers": 162
   },
   {
-    "name": "Reed Dunlea",
-    "handle": "RealDeedRunlea",
-    "link": "https://twitter.com/RealDeedRunlea",
+    "name": "Stephen Jefferson",
+    "handle": "bloomfornews",
+    "link": "https://twitter.com/bloomfornews",
     "script": "Followers",
-    "followers": 848,
-    "numbers": 848
-  },
-  {
-    "name": "Luz Mely Reyes",
-    "handle": "LuzMelyReyes",
-    "link": "https://twitter.com/LuzMelyReyes",
-    "script": "Followers",
-    "followers": 70.3,
-    "numbers": 70300
-  },
-  {
-    "name": "Carolina Astuya",
-    "handle": "CaroAstuya",
-    "link": "https://twitter.com/CaroAstuya",
-    "script": "Followers",
-    "followers": 1484,
-    "numbers": 1484
-  },
-  {
-    "name": "Fungai Machirori",
-    "handle": "fungaijustbeing",
-    "link": "https://twitter.com/fungaijustbeing",
-    "script": "Followers",
-    "followers": 8959,
-    "numbers": 8959
-  },
-  {
-    "name": "Nicola Menzie",
-    "handle": "namenzie",
-    "link": "https://twitter.com/namenzie",
-    "script": "Followers",
-    "followers": 2546,
-    "numbers": 2546
-  },
-  {
-    "name": "Madly",
-    "handle": "callmemadly",
-    "link": "https://twitter.com/callmemadly",
-    "script": "Followers",
-    "followers": 1498,
-    "numbers": 1498
-  },
-  {
-    "name": "Ligia Guimaraes",
-    "handle": "laigous",
-    "link": "https://twitter.com/laigous",
-    "script": "Followers",
-    "followers": 273,
-    "numbers": 273
+    "followers": 92,
+    "numbers": 92
   }
 ]
