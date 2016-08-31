@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<style>
+@import 'https://fonts.googleapis.com/css?family=Inconsolata|Merriweather:400,700';  
+
+body {
+  font-family: 'Inconsolata', sans-serif;
+        background-color: #fff;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+  max-width: 800px
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+#graph {
+  margin: 0 auto;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+path.domain {
+    stroke: none;
+  }
+
+.y .tick line {
+    stroke: #ddd;
+  }
+
+.x.axis path {
+  display: none;
+}
+
+.tooltip{
+	text-anchor: right;
+	font-family: 'Inconsolata', sans-serif;
+  -webkit-font-smoothing:antialiased;
+	font-size: 16px;
+	font-weight: bold;
+	fill:#000;	
+}
+</style>
+
+<body>
+        <h1>Votação no impeachment de Collor vs Dilma</h1>
+            <div id="graph"> </div>
+        <h4> Fonte: <a href="http://www12.senado.leg.br/hpsenado" target="_blank">Senado Federal </a></h4>
+</div>
+<script>var margin = {top: 20, right: 160, bottom: 35, left: 30};
+
+var width = 600 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var svg = d3.select("body")
+  .append("svg")
+  .attr("viewBox", "0 0 700 500")
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+/* Data in strings like it would be if imported from a csv */
+
+var data = [
+  { year: "1992", sim: "76", nao: "3"},
+  { year: "2016", sim: "61", nao: "20"}
+];
+
+var parse = d3.time.format("%Y").parse;
+
+
+// Transpose the data into layers
+var dataset = d3.layout.stack()(["sim", "nao"].map(function(fruit) {
+  return data.map(function(d) {
+    return {x: parse(d.year), y: +d[fruit]};
+  });
+}));
+
+
+// Set x, y and colors
+var x = d3.scale.ordinal()
+  .domain(dataset[0].map(function(d) { return d.x; }))
+  .rangeRoundBands([10,300], 0.3);
+
+var y = d3.scale.linear()
+  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
+  .range([height, 0]);
+
+var colors = ["#666", "#faa61a"];
+
+
+// Define and draw axes
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left")
+  .ticks(5)
+  .tickSize(-width, 0, 0)
+  .tickFormat( function(d) { return d } );
+
+var xAxis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom")
+  .tickFormat(d3.time.format("%Y"));
+
+svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis);
+
+svg.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
+
+svg.append("text")
+  .attr("x", 90)
+  .attr("dy", "-3")
+  .style("text-anchor", "middle")
+  .attr("font-size", "1.5em")
+  .text("Collor")
+;
+
+svg.append("text")
+  .attr("x", 215)
+  .attr("dy", "-3")
+  .style("text-anchor", "middle")
+  .attr("font-size", "1.5em")
+  .text("Dilma")
+;
+
+// Create groups for each series, rects for each segment 
+var groups = svg.selectAll("g.cost")
+  .data(dataset)
+  .enter().append("g")
+  .attr("class", "cost")
+  .style("fill", function(d, i) { return colors[i]; });
+
+var rect = groups.selectAll("rect")
+  .data(function(d) { return d; })
+  .enter()
+  .append("rect")
+  .attr("x", function(d) { return x(d.x); })
+  .attr("y", function(d) { return y(d.y0 + d.y); })
+  .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+  .attr("width", x.rangeBand())
+  .on("mouseover", function() { tooltip.style("display", null); })
+  .on("mouseout", function() { tooltip.style("display", "none"); })
+  .on("mousemove", function(d) {
+    var xPosition = d3.mouse(this)[0] - 15;
+    var yPosition = d3.mouse(this)[1] - 25;
+    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+    tooltip.select("text").text(d.y);
+  });
+
+
+// Draw legend
+var legend = svg.selectAll(".legend")
+  .data(colors)
+  .enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function(d, i) { return "translate(30," + i * 19 + ")"; });
+ 
+legend.append("rect")
+  .attr("x", width - 18)
+  .attr("width", 18)
+  .attr("height", 18)
+  .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+ 
+legend.append("text")
+  .attr("x", width + 5)
+  .attr("y", 9)
+  .attr("dy", ".35em")
+  .style("text-anchor", "start")
+  .text(function(d, i) { 
+    switch (i) {
+      case 0: return "Não";
+      case 1: return "Sim";
+    }
+  });
+
+
+// Prep the tooltip bits, initial display is hidden
+var tooltip = svg.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+tooltip.append("rect")
+  .attr("width", 30)
+  .attr("height", 40)
+  .attr("fill", "white")
+  .style("opacity", 1);
+
+tooltip.append("text")
+  .attr("x", 15)
+  .attr("dy", "1.2em")
+  .style("text-anchor", "middle")
+  .attr("font-size", "26px")
+  .attr("font-weight", "bold"); 
+  </scritp>
+  
+</body>
