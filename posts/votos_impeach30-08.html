@@ -80,309 +80,153 @@ h4 {
         <h4> Fonte: <a href="http://www12.senado.leg.br/hpsenado" target="_blank">Senado Federal </a></h4>
 </div>
         <script>
-          var legend_width = 120;
- var margin = {
-     top: 20,
-     right: 30,
-     bottom: 0,
-     left: 40
-   },
-   width = 650 - margin.left - margin.right + legend_width,
-   height = 500 - margin.top - margin.bottom;
- var x = d3.scale.ordinal()
-   .rangeRoundBands([0, width], .1);
- var yAbsolute = d3.scale.linear() // for absolute scale
-   .rangeRound([height, 0]);
- var yRelative = d3.scale.linear() // for absolute scale
-   .rangeRound([height, 0]);
- var color = d3.scale.ordinal()
-   .range(["#faa61a", "#666"]);
- var xAxis = d3.svg.axis()
-   .scale(x)
-   .orient("bottom");
- var yAxisRelative = d3.svg.axis()
-   .scale(yRelative)
-   .orient("left")
-   .outerTickSize("1")
-   .innerTickSize("0")
-   .tickFormat(d3.format("%"));
- var yAxisAbsolute = d3.svg.axis()
-   .scale(yAbsolute)
-   .orient("left")
-   .tickFormat(d3.format(".f"));
+         var margin = {top: 20, right: 160, bottom: 35, left: 30};
 
- var svg = d3.select("#graph").append("svg")
-   .classed("svg-container", true)
-   .attr("preserveAspectRatio", "xMinYMin meet")
-   .attr("viewBox", "0 0 900 550")
-   .append("g")
-   .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-   .classed("svg-content-responsive", true);
+var width = 600 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
- d3.tsv("https://raw.githubusercontent.com/voltdatalab/dados/master/politica/vot_impeach_31-08.tsv", function(error, data) {
-   color.domain(d3.keys(data[0]).filter(function(key) {
-     return key !== "partido";
-   }));
+var svg = d3.select("#graph")
+  .append("svg")
+  .attr("viewBox", "0 0 700 500")
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-   data.forEach(function(d) {
-     var mystate = d.partido;
-     var y0 = 0;
-     d.ages = color.domain().map(function(name) {
-       return {
-         mystate: mystate,
-         name: name,
-         y0: y0,
-         y1: y0 += +d[name]
-       };
-     });
 
-     d.total = d.ages[d.ages.length - 1].y1; // the last row	
-     d.pct = [];
+/* Data in strings like it would be if imported from a csv */
 
-     for (var i = 0; i < d.ages.length; i++) {
+var data = [
+  { year: "1992", sim: "76", nao: "3"},
+  { year: "2016", sim: "61", nao: "20"}
+];
 
-       var y_coordinate = +d.ages[i].y1 / d.total;
-       var y_height1 = (d.ages[i].y1) / d.total;
-       var y_height0 = (d.ages[i].y0) / d.total;
-       var y_pct = y_height1 - y_height0;
-       d.pct.push({
-         y_coordinate: y_coordinate,
-         y_height1: y_height1,
-         y_height0: y_height0,
-         name: d.ages[i].name,
-         mystate: d.partido,
-         y_pct: y_pct
+var parse = d3.time.format("%Y").parse;
 
-       });
 
-     }
+// Transpose the data into layers
+var dataset = d3.layout.stack()(["sim", "nao"].map(function(fruit) {
+  return data.map(function(d) {
+    return {x: parse(d.year), y: +d[fruit]};
+  });
+}));
 
-   });
 
-   data.sort(function(a, b) {
-     return b.total - a.total;
-   });
+// Set x, y and colors
+var x = d3.scale.ordinal()
+  .domain(dataset[0].map(function(d) { return d.x; }))
+  .rangeRoundBands([10,300], 0.3);
 
-   x.domain(data.map(function(d) {
-     return d.partido;
-   }));
-   yRelative.domain([0, 1]);
-   yAbsolute.domain([0, d3.max(data, function(d) {
-     return d.total;
-   })]); //Absolute View scale 
-   // Relative View domain 
+var y = d3.scale.linear()
+  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
+  .range([height, 0]);
 
-   var absoluteView = false // define a boolean variable, true is absolute view, false is relative view
-     // Initial view is absolute 
-   svg.append("g")
-     .attr("class", "x axis")
-     .attr("transform", "translate(0," + height + ")")
-     .call(xAxis);
+var colors = ["#666", "#faa61a"];
 
-   //Define the rect of Relative 		
-   var stateRelative = svg.selectAll(".relative")
-     .data(data)
-     .enter().append("g")
-     .attr("class", "relative")
-     .attr("transform", function(d) {
-       return "translate(" + "0 " + ",0)";
 
-     });
+// Define and draw axes
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left")
+  .ticks(5)
+  .tickSize(-width, 0, 0)
+  .tickFormat( function(d) { return d } );
 
-   stateRelative.selectAll("rect")
-     .data(function(d) {
-       return d.pct;
-     })
-     .enter().append("rect")
-     .attr("width", x.rangeBand())
-     .attr("y", function(d) {
-       return yRelative(d.y_coordinate);
-     })
-     .attr("x", function(d) {
-       return x(d.mystate)
-     })
-     .attr("height", function(d) {
-       return yRelative(d.y_height0) - yRelative(d.y_height1); //distance 
-     })
-     .attr("fill", function(d) {
-       return color(d.name)
-     })
-     .attr("stroke", "pink")
-     .attr("stroke-width", 0.2)
-     .attr("id", function(d) {
-       return d.mystate
-     })
-     .attr("class", "relative")
-     .attr("id", function(d) {
-       return d.mystate
-     })
-     .style("pointer-events", "all");
+var xAxis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom")
+  .tickFormat(d3.time.format("%Y"));
 
-   stateRelative.selectAll("rect")
-     .on("mouseover", function(d) {
-       if (!absoluteView) {
-         var xPos = parseFloat(d3.select(this).attr("x"));
-         var yPos = parseFloat(d3.select(this).attr("y"));
-         var height = parseFloat(d3.select(this).attr("height"))
+svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis);
 
-         d3.select(this).attr("stroke", "black").attr("stroke-width", 2);
+svg.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
 
-         svg.append("text")
-           //.attr("x", xPos)
-           //.attr("y", yPos + height / 2)
-         .attr("x", 700)
-         .attr("y", 150)
-         .attr("class", "tooltip")
-           .text(Math.floor(d.y_pct.toFixed(2) * 100) + "% dos votos " + d.mystate);
+svg.append("text")
+  .attr("x", 90)
+  .attr("dy", "-3")
+  .style("text-anchor", "middle")
+  .attr("font-size", "1.5em")
+  .text("Collor")
+;
 
-       }
-     })
-     .on("mouseout", function() {
-       svg.select(".tooltip").remove();
-       d3.select(this).attr("stroke", "pink").attr("stroke-width", 0);
+svg.append("text")
+  .attr("x", 215)
+  .attr("dy", "-3")
+  .style("text-anchor", "middle")
+  .attr("font-size", "1.5em")
+  .text("Dilma")
+;
 
-     })
+// Create groups for each series, rects for each segment 
+var groups = svg.selectAll("g.cost")
+  .data(dataset)
+  .enter().append("g")
+  .attr("class", "cost")
+  .style("fill", function(d, i) { return colors[i]; });
 
-   // End of define rect of relative		 
+var rect = groups.selectAll("rect")
+  .data(function(d) { return d; })
+  .enter()
+  .append("rect")
+  .attr("x", function(d) { return x(d.x); })
+  .attr("y", function(d) { return y(d.y0 + d.y); })
+  .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+  .attr("width", x.rangeBand())
+  .on("mouseover", function() { tooltip.style("display", null); })
+  .on("mouseout", function() { tooltip.style("display", "none"); })
+  .on("mousemove", function(d) {
+    var xPosition = d3.mouse(this)[0] - 15;
+    var yPosition = d3.mouse(this)[1] - 25;
+    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+    tooltip.select("text").text(d.y);
+  });
 
-   // define rect for absolute 
 
-   var stateAbsolute = svg.selectAll(".absolute")
-     .data(data)
-     .enter().append("g")
-     .attr("class", "absolute")
-     .attr("transform", function(d) {
-       return "translate(" + "0" + ",0)";
-     });
+// Draw legend
+var legend = svg.selectAll(".legend")
+  .data(colors)
+  .enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function(d, i) { return "translate(30," + i * 19 + ")"; });
+ 
+legend.append("rect")
+  .attr("x", width - 18)
+  .attr("width", 18)
+  .attr("height", 18)
+  .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+ 
+legend.append("text")
+  .attr("x", width + 5)
+  .attr("y", 9)
+  .attr("dy", ".35em")
+  .style("text-anchor", "start")
+  .text(function(d, i) { 
+    switch (i) {
+      case 0: return "Não";
+      case 1: return "Sim";
+    }
+  });
 
-   stateAbsolute.selectAll("rect")
-     .data(function(d) {
-       return d.ages
-     })
-     .enter().append("rect")
-     .attr("width", x.rangeBand())
-     .attr("y", function(d) {
 
-       return yAbsolute(d.y1);
-     })
-     .attr("x", function(d) {
-       return x(d.mystate)
-     })
-     .attr("height", function(d) {
-       return yAbsolute(d.y0) - yAbsolute(d.y1);
-     })
-     .attr("fill", function(d) {
-       return color(d.name)
-     })
-     .attr("id", function(d) {
-       return d.mystate
-     })
-     .attr("class", "absolute")
-     .style("pointer-events", "all")
-     .attr("opacity", 0); // initially it is invisible, i.e. start with Absolute View 
+// Prep the tooltip bits, initial display is hidden
+var tooltip = svg.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+tooltip.append("rect")
+  .attr("width", 30)
+  .attr("height", 40)
+  .attr("fill", "white")
+  .style("opacity", 1);
 
-   //define two different scales, but one of them will always be hidden. 	  	
-   svg.append("g")
-     .attr("class", "y axis absolute")
-     .call(yAxisAbsolute)
-     .append("text")
-     .attr("transform", "rotate(-90)")
-     .attr("y", 60)
-     .attr("dy", ".71em")
-     .style("text-anchor", "end")
-     .text("Votos");
-
-   svg.append("g")
-     .attr("class", "y axis relative")
-     .call(yAxisRelative)
-     .append("text")
-     .attr("transform", "rotate(-90)")
-     .attr("y", 6)
-     .attr("dy", ".71em")
-     .style("text-anchor", "end")
-     .text("");
-
-   svg.select(".y.axis.absolute").style("opacity", 0);
-
-   // end of define absolute
-
-   // adding legend
-   var legend = svg.selectAll(".legend")
-     .data(color.domain().slice().reverse())
-     .enter().append("g")
-     .attr("class", "legend")
-     .attr("transform", function(d, i) {
-       return "translate(0," + i * 20 + ")";
-     });
-   legend.append("rect")
-     .attr("x", width - 18 + legend_width)
-     .attr("width", 18)
-     .attr("height", 18)
-     .attr("fill", color);
-   legend.append("text")
-     .attr("x", width - 24 + legend_width)
-     .attr("y", 9)
-     .attr("dy", ".35em")
-     .style("text-anchor", "end")
-     .text(function(d) {
-       return d;
-     });
-
-   var clickButton = svg.selectAll(".clickButton")
-     .data([30, 30])
-     .enter().append("g")
-     .attr("class", "clickButton")
-     .attr("transform", "translate(0," + 180 + ")");
-
-   clickButton.append("text")
-     .attr("x", width + legend_width)
-     .attr("y", 9)
-     .attr("dy", "1em")
-     .style("text-anchor", "end")
-     .html("MUDAR GRÁFICO")
-     .style("text-decoration", "underline")
-     .style("border", "1px solid black")
-     .style("font-size", "18px")
-     .style("font-family", "Inconsolata")
-     .attr("fill", "black")
-     .attr("id", "clickChangeView");
-
-   // start with relative view
-   Transition2Absolute();
-   // Switch view on click the clickButton 
-   d3.selectAll("#" + "clickChangeView")
-     .on("click", function() {
-
-       if (absoluteView) { // absolute, otherwise relative 
-         Transition2Relative();
-       } else {
-         Transition2Absolute();
-       }
-       absoluteView = !absoluteView // change the current view status 		
-     });
-
-   function Transition2Absolute() {
-     //Currently it is Relative  
-     
-     
-     stateRelative.selectAll("rect").transition().duration(1000).style("opacity", 0);
-     stateAbsolute.selectAll("rect").transition().duration(1000).style("opacity", 1); //show absolute view rectangles 		
-     svg.select(".y.axis.relative").transition().duration(1000).style("opacity", 0);
-     svg.select(".y.axis.absolute").transition().duration(1000).style("opacity", 1); // show absolute view axis
-
-   }
-
-   function Transition2Relative() {
-     //Currently it is absolute
-     stateAbsolute.selectAll("rect").transition().duration(1000).attr("fill", function(d) {
-       return color(d.name)
-     })
-     stateAbsolute.selectAll("rect").transition().duration(1000).style("opacity", 0); //show absolute view rectangles 		  
-     stateRelative.selectAll("rect").transition().duration(1000).style("opacity", 1);
-     svg.select(".y.axis.relative").transition().duration(1000).style("opacity", 1);
-     svg.select(".y.axis.absolute").transition().duration(1000).style("opacity", 0); // show absolute view axis	  	
-
-   }
- });
+tooltip.append("text")
+  .attr("x", 15)
+  .attr("dy", "1.2em")
+  .style("text-anchor", "middle")
+  .attr("font-size", "26px")
+  .attr("font-weight", "bold");
 </script>
 </body>
