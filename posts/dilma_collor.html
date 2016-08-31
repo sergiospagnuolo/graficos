@@ -63,12 +63,14 @@ path.domain {
             <div id="graph"> </div>
         <h4> Fonte: <a href="http://www12.senado.leg.br/hpsenado" target="_blank">Senado Federal </a></h4>
 </div>
-<script>var margin = {top: 20, right: 160, bottom: 35, left: 30};
+
+<script>
+	var margin = {top: 20, right: 160, bottom: 35, left: 30};
 
 var width = 600 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-var svg = d3.select("body")
+var svg = d3.select("#graph")
   .append("svg")
   .attr("viewBox", "0 0 700 500")
   .append("g")
@@ -210,7 +212,8 @@ tooltip.append("text")
   .attr("dy", "1.2em")
   .style("text-anchor", "middle")
   .attr("font-size", "26px")
-  .attr("font-weight", "bold"); 
-  </scritp>
+  .attr("font-weight", "bold");
+</script>
+
   
 </body>
