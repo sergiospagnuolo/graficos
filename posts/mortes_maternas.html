@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<style>
+@import 'https://fonts.googleapis.com/css?family=Inconsolata|Merriweather:400,700';  
+
+body {
+  font-family: 'Inconsolata', sans-serif;
+        background-color: #fff;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+  max-width: 800px
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 300;
+} 
+ #wrapper {
+        font-family: 'Inconsolata';
+        width: 100%;
+        height: 800px;
+        position: relative;
+    }
+
+    svg {
+        width: 100%;
+        height: 100%;
+        position: center;
+    }
+
+    .toolTip {
+        font-family: 'Inconsolata';
+        position: absolute;
+        display: none;
+        width: auto;
+        height: auto;
+        background: none repeat scroll 0 0 white;
+        border: 0 none;
+        border-radius: 8px 8px 8px 8px;
+        box-shadow: -3px 3px 15px #888888;
+        color: black;
+        font: 14px 'Inconsolata';
+        padding: 5px;
+        text-align: center;
+    }
+
+    text {
+        font: 12px 'Inconsolata';
+        color: white;
+    }
+    text.value {
+        font-size: 1em;
+        fill: #000;
+      display:none;
+    }
+
+    .axisHorizontal path{
+        fill: none;
+    }
+
+    .axisHorizontal .tick line {
+        stroke-width: 1;
+        stroke: rgba(0, 0, 0, 0.2);
+    }
+
+    .bar {
+        fill: #faa61a;
+        fill-opacity: .9;
+    }
+    </style>
+
+</head>
+
+<body>
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+        <h1>Mortalidade materna Nas capitais por 100 mil/hab</h1>
+        <p></p>
+            <div id="wrapper"> </div>
+        <h4> Fonte: <a href="http://datasus.saude.gov.br/" target="_blank">Datasus </a> - 2014</h4>
+</div>
+
+<scritpt>
+ data = [{
+   "label": "Cuiabá",
+   "value": 102.8
+ }, {
+   "label": "Manaus",
+   "value": 98.1
+ }, {
+   "label": "Salvador",
+   "value": 90
+ }, {
+   "label": "Porto Velho",
+   "value": 87.6
+ }, {
+   "label": "Maceió",
+   "value": 87.3
+ }, {
+   "label": "Vitória",
+   "value": 83.2
+ }, {
+   "label": "Belém",
+   "value": 79
+ }, {
+   "label": "São Luís",
+   "value": 72.6
+ }, {
+   "label": "Rio de Janeiro",
+   "value": 71.1
+ }, {
+   "label": "Fortaleza",
+   "value": 65.5
+ }, {
+   "label": "Aracaju",
+   "value": 62.6
+ }, {
+   "label": "Palmas",
+   "value": 58.1
+ }, {
+   "label": "Goiânia",
+   "value": 52.2
+ }, {
+   "label": "Recife",
+   "value": 51.1
+ }, {
+   "label": "João Pessoa",
+   "value": 50.9
+ }, {
+   "label": "Natal",
+   "value": 50.6
+ }, {
+   "label": "São Paulo",
+   "value": 46.1
+ }, {
+   "label": "Brasília",
+   "value": 44.7
+ }, {
+   "label": "Rio Branco",
+   "value": 42.8
+ }, {
+   "label": "Belo Horizonte",
+   "value": 41
+ }, {
+   "label": "Macapá",
+   "value": 40.8
+ }, {
+   "label": "Curitiba",
+   "value": 36.3
+ }, {
+   "label": "Teresina",
+   "value": 21.5
+ }, {
+   "label": "Campo Grande",
+   "value": 21.1
+ }, {
+   "label": "Porto Alegre",
+   "value": 20.8
+ }, {
+   "label": "Boa Vista",
+   "value": 14.8
+ }];
+
+ var div = d3.select("#wrapper").append("div").attr("class", "toolTip");
+
+ var axisMargin = 20,
+   margin = 0,
+   valueMargin = 4,
+   width = parseInt(d3.select('#wrapper').style('width'), "100%"),
+   height = parseInt(d3.select('#wrapper').style('height'), 10),
+   barHeight = (height - axisMargin - margin * 4) * 0.4 / data.length,
+   barPadding = (height - axisMargin - margin * 2) * 0.6 / data.length,
+   data, bar, svg, scale, xAxis, labelWidth = 0;
+
+ max = d3.max(data, function(d) {
+   return d.value;
+ });
+
+ svg = d3.select('#wrapper')
+   .append("svg")
+   .attr("width", width)
+   .attr("height", height);
+
+ bar = svg.selectAll("g")
+   .data(data)
+   .enter()
+   .append("g");
+
+ bar.attr("class", "bar")
+   .attr("cx", 0)
+   .attr("transform", function(d, i) {
+     return "translate(" + margin + "," + (i * (barHeight + barPadding) + barPadding) + ")";
+   });
+
+ bar.append("text")
+   .attr("class", "label")
+   .attr("y", barHeight / 2)
+   .attr("dy", ".35em") //vertical align middle
+    .style("fill", "#000")
+   .text(function(d) {
+     return d.label;
+   }).each(function() {
+     labelWidth = Math.ceil(Math.max(labelWidth, this.getBBox().width));
+   });
+
+ scale = d3.scale.linear()
+   .domain([0, max])
+   .range([0, width - margin * 2 - labelWidth]);
+
+ xAxis = d3.svg.axis()
+   .scale(scale)
+   .tickSize(-height + 2 * margin + axisMargin)
+   .orient("bottom");
+
+ bar.append("rect")
+   .attr("transform", "translate(" + labelWidth + ", 0)")
+   .attr("height", barHeight)
+   .attr("width", function(d) {
+     return scale(d.value);
+   });
+
+ bar.append("text")
+   .attr("class", "value")
+   .attr("y", barHeight / 2)
+   .attr("dx", -valueMargin + labelWidth) //margin right
+   .attr("dy", ".35em") //vertical align middle
+   .attr("text-anchor", "end")
+   .text(function(d) {
+     return (d.value);
+   })
+   .attr("x", function(d) {
+     var width = this.getBBox().width;
+     return Math.max(width + valueMargin, scale(d.value));
+   });
+
+ bar
+   .on("mousemove", function(d) {
+     div.style("left", d3.event.pageX + 10 + "px");
+     div.style("top", d3.event.pageY - 25 + "px");
+     div.style("display", "inline-block");
+     div.html((d.label) + "<br>" + (d.value) );
+   });
+ bar
+   .on("mouseout", function(d) {
+     div.style("display", "none");
+   });
+
+ svg.insert("g", ":first-child")
+   .attr("class", "axisHorizontal")
+   .attr("transform", "translate(" + (margin + labelWidth) + "," + (height - axisMargin - margin) + ")")
+   .call(xAxis);
+<scritpt>
+</body>
+
