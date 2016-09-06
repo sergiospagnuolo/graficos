@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<style>
+@import 'https://fonts.googleapis.com/css?family=Inconsolata:400,700';  
+
+body {
+  font-family: 'Inconsolata', sans-serif;
+        background-color: #fff;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+  max-width: 800px
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+#graph {
+  margin: 0 auto;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+path.domain {
+    stroke: none;
+  }
+
+.y .tick line {
+    stroke: #ddd;
+  }
+
+.x.axis path {
+  display: none;
+}
+
+.tooltip{
+	text-anchor: right;
+	font-family: 'Inconsolata', sans-serif;
+  -webkit-font-smoothing:antialiased;
+	font-size: 16px;
+	font-weight: bold;
+	fill:#000;	
+}
+</style>
+</head>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+        <h1>roubos de rua no Rio de Janeiro</h1>
+<p>De jul.2015 a jul.2016 </p>
+            <div id="graph"> </div>
+        <h4> Fonte: <a href="http://www.isp.rj.gov.br/dadosoficiais.asp" target="_blank">ISP </a></h4>
+        
+        <script>
+        var margin = {top: 40, right: 160, bottom: 35, left: 50};
+
+var width = 500 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var svg = d3.select("#graph")
+  .append("svg")
+  .attr("viewBox", "0 0 700 500")
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+/* Data in strings like it would be if imported from a csv */
+
+var data = [
+  { year: "2015", cidade: "3646", estado: "2764"},
+  { year: "2016", cidade: "5186", estado: "5515"}
+];
+
+var parse = d3.time.format("%Y").parse;
+
+
+// Transpose the data into layers
+var dataset = d3.layout.stack()(["cidade", "estado"].map(function(roubos) {
+  return data.map(function(d) {
+    return {x: parse(d.year), y: +d[roubos]};
+  });
+}));
+
+
+// Set x, y and colors
+var x = d3.scale.ordinal()
+  .domain(dataset[0].map(function(d) { return d.x; }))
+  .rangeRoundBands([10,300], 0.43);
+
+var y = d3.scale.linear()
+  .domain([0, d3.max(dataset, function(d) {  return d3.max(d, function(d) { return d.y0 + d.y; });  })])
+  .range([height, 0]);
+
+var colors = ["#666", "#faa61a"];
+
+
+// Define and draw axes
+var yAxis = d3.svg.axis()
+  .scale(y)
+  .orient("left")
+  .ticks(5)
+  .tickSize(-width, 0, 0)
+  .tickFormat( function(d) { return d } );
+
+var xAxis = d3.svg.axis()
+  .scale(x)
+  .orient("bottom")
+  .tickFormat(d3.time.format("%Y"));
+
+svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis);
+
+svg.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0," + height + ")")
+  .call(xAxis);
+
+svg.append("text")
+  .attr("x", 40)
+  .attr("dy", 25)
+  .style("text-anchor", "middle")
+  .attr("font-size", ".8em")
+  .text("Ocorrências")
+;
+
+svg.append("text")
+  .attr("x", 215)
+  .attr("dy", "-3")
+  .style("text-anchor", "middle")
+  .attr("font-size", "1.5em")
+  .text("")
+;
+
+// Create groups for each series, rects for each segment 
+var groups = svg.selectAll("g.cost")
+  .data(dataset)
+  .enter().append("g")
+  .attr("class", "cost")
+  .style("fill", function(d, i) { return colors[i]; });
+
+var rect = groups.selectAll("rect")
+  .data(function(d) { return d; })
+  .enter()
+  .append("rect")
+  .attr("x", function(d) { return x(d.x); })
+  .attr("y", function(d) { return y(d.y0 + d.y); })
+  .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
+  .attr("width", x.rangeBand())
+  .on("mouseover", function() { tooltip.style("display", null); })
+  .on("mouseout", function() { tooltip.style("display", "none"); })
+  .on("mousemove", function(d) {
+    var xPosition = d3.mouse(this)[0] - 15;
+    var yPosition = d3.mouse(this)[1] - 25;
+    tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
+    tooltip.select("text").text(d.y);
+  });
+
+
+// Draw legend
+var legend = svg.selectAll(".legend")
+  .data(colors)
+  .enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function(d, i) { return "translate(30," + i * 19 + ")"; });
+ 
+legend.append("rect")
+  .attr("x", width - 18)
+  .attr("width", 18)
+  .attr("height", 18)
+  .style("fill", function(d, i) {return colors.slice().reverse()[i];});
+ 
+legend.append("text")
+  .attr("x", width + 10)
+  .attr("y", 9)
+  .attr("dy", ".35em")
+  .style("text-anchor", "start")
+  .text(function(d, i) { 
+    switch (i) {
+      case 0: return "Estado";
+      case 1: return "Cidade";
+    }
+  });
+
+
+// Prep the tooltip bits, initial display is hidden
+var tooltip = svg.append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+    
+tooltip.append("rect")
+  .attr("width", 40)
+  .attr("height", 40)
+  .attr("fill", "white")
+  .style("padding", "10px")
+  .style("opacity", 1);
+
+tooltip.append("text")
+  .attr("x", 20)
+  .attr("dy", "1.4em")
+  .style("text-anchor", "middle")
+  .attr("font-size", "16px")
+  .attr("font-weight", "bold");
+        </script>
+
+
+</body>
