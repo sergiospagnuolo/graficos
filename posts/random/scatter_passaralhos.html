@@ -1,1 +1,56 @@
 <!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="http://d3plus.org/js/d3.js"></script>
+  <script src="http://d3plus.org/js/d3plus.js"></script>
+ <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+
+<body>
+  
+  <div id="scatter"></div>
+  
+  <script>
+    //baseado em http://d3plus.org/examples/advanced/a9a9ada6101818be4fdc/
+
+var json = (function () {
+        var json = null;
+        $.ajax({
+            'async': false,
+            'global': false,
+            'url': 'https://raw.githubusercontent.com/voltdatalab/dados/master/passaralhos/geral.json',
+            'dataType': "json",
+            'success': function (data) {
+                json = data;
+            }
+        });
+        return json;
+    })
+    ();
+
+  var visualization = d3plus.viz()
+    .container("#scatter")
+    .data(json)
+    .type("scatter")
+    .id("veiculo")
+    .x("jornalistas")
+    .time({"value": "mes"})
+    .y("mes")
+    .size("jornalistas")
+    .color({"heatmap": ['#252235','#E1E4E8','#828BA0','#a7000c','#E23B22'], "value": "jornalistas"})
+    .legend(false)
+    .format("pt_BR")
+    .font({"family": "Inconsolata"})
+    .ui([
+      {
+        "method" : "size",
+        "label": "Tamano do círculo por:",
+        "type": "button",
+        "value": ["jornalistas", "total"]
+      },
+    ])
+    .draw()
+  </script>
+  
+</body>
