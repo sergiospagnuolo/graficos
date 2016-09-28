@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="http://d3plus.org/js/d3.js"></script>
+  <script src="http://d3plus.org/js/d3plus.js"></script>
+ <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+</head>
+
+<body>
+  
+  <div id="grafico"></div>
+  
+  <script>
+var json = (function () {
+        var json = null;
+        $.ajax({
+            'async': false,
+            'global': false,
+            'url': 'https://raw.githubusercontent.com/voltdatalab/dados/master/passaralhos/geral.json',
+            'dataType': "json",
+            'success': function (data) {
+                json = data;
+            }
+        });
+        return json;
+    })
+    ();
+
+
+  var visualization = d3plus.viz()
+    .container("#grafico")
+    .data(json)
+    .height({"max": 1000, "value":1000})
+    .type("bar")
+    .id("veiculo")
+    .x({"value" : "jornalistas", "grid": false})
+    .y({"scale": "discrete", "value" : "veiculo","grid": false})
+    .order({"value": "jornalistas", "sort":"asc"})
+    .color({"value": "jornalistas"})
+    .size("jornalistas")
+    .format("pt_BR")
+    .margin( "0px 10px" )
+    .tooltip({"background":"#ededed"})
+    .font({"family": "Inconsolata"})
+    .legend({"value": false, "align": "middle"})
+  .time({"value": "ano"})
+    .ui([
+      {
+        "method" : "size",
+        "label": "Organizar por:",
+        "type": "button",
+        "value": ["jornalistas", "total"]
+      },
+    ])
+    .draw();
+  </script>
+  
+</body>
