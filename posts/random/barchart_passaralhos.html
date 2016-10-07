@@ -33,6 +33,13 @@ var json = (function () {
     .data(json)
     .height({"max": 1000, "value":1000})
     .type("bar")
+    .axes({
+  background: {
+    stroke: {
+      width: 0
+    }
+  }
+})
     .id("veiculo")
     .x({"value" : "jornalistas", "grid": false})
     .y({"scale": "discrete", "value" : "veiculo","grid": false})
