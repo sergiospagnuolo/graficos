@@ -1,0 +1,68 @@
+<!Doctype html> 
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <style>
+        body {
+            font-family: Inconsolata;
+            max-width: 800px;
+            margin: 20px;
+        }
+        h1 {
+            text-transform: uppercase;
+        }
+        a {
+            color: #000;
+            border-bottom: 1px solid #faa61a;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://d3plus.org/js/d3.js"></script>
+<script src="http://d3plus.org/js/d3plus.js"></script>
+
+    <h1>Os gastos do governo federal</h1>
+    <h2>Execução do orçamento federal em 2015, em R$ bilhões, e percentual de liquidação de programas frente ao total liquidado.</h2> 
+    <hr>
+    <p>Dados discriminam em categorias a soma das 15 maiores liquidações orçamentárias do governo no ano divididas, além do custo da Câmara e do Senado. 'Outros' são quaisquer liquidações além das 15 maiores, independente das categorias.</p>
+    <p>Segundo o <a href="http://www.orcamentofederal.gov.br/informacoes-orcamentarias/manual-tecnico/mto_2016_2aedicao_220915.pdf" target="_blank">Manual Técnico do Orçamento</a>, <em>Operações Especiais</em> são "despesas que não contribuem para a manutenção, expansão ou aperfeiçoamento das ações de governo [federal], das quais não resulta um produto e não geram contraprestação direta sob a forma de bens ou serviços." Fazem parte dela as contas da dívida pública, mas também os repasses a Estados, por exemplo. </p>
+    <div id="grafico"></div>
+    <p>Fonte: <a href="http://www8d.senado.gov.br/BOE/BI/logon/start.do?ivsLogonToken=WWW8D.senado.gov.br%3A6400%404252776J6OFF2FNx2RYyNyZu1ky9PM4252774JBlP7bRusa5FNkIbjXKhmc8" target="_blank"> Siga Brasil/Senado Federal</a> </p>
+<script>
+var json = (function () {
+        var json = null;
+        $.ajax({
+            'async': false,
+            'global': false,
+            'url': 'https://raw.githubusercontent.com/voltdatalab/dados/master/economia/exec_orc_federal_2015.json',
+            'dataType': "json",
+            'success': function (data) {
+                json = data;
+            }
+        });
+        return json;
+    })
+    ();
+
+
+  var visualization = d3plus.viz()
+    .container("#grafico")
+    .data(json)
+    .height({"max": 500, "value":500})
+    .type("table")
+    .id("tipo")
+    .shape("square")
+    .cols(["liquidado", "percentual"])
+    .font({"family": "Inconsolata"})
+    .format("pt_BR")
+    .labels({"resize": false, "font": {"size": 18}})
+    .draw();
+
+</script>
+
+</body>
+
+</html>
