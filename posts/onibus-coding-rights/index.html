@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gráfico - ônibus RJ</title>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//cdn.rawgit.com/newrelic-forks/d3-plugins-sankey/master/sankey.js"></script>
+<script src="//cdn.rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
+<script src="//cdn.rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+body {
+  font-family: Inconsolata;
+  font-size: 14px;
+  background-color: #ededed
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+p{
+  line-height: 1.4em;
+}
+
+hr {
+  margin: 30px 0 0;
+}
+
+#chart {
+  width: 100%;
+  height: 600px;
+  padding: 10px 0;
+  clear: both;
+}
+
+.node rect {
+  fill-opacity: .7;
+  stroke-width: 0;
+}
+
+.node text {
+  text-shadow: 0 1px 0 #cbcbcb;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .1;
+}
+.link:hover {
+  fill: none;
+  stroke: #c00;
+  stroke-opacity: .5;
+}
+
+.control {
+  float: left;
+  padding: 6px;
+}
+
+.control label {
+  display: block;
+  padding: 0px;
+  margin-left: -5px;
+  text-transform: uppercase;
+}
+
+.control input {
+  width: 2.5em;
+}
+
+.control button {
+  border: outset 2px;
+}
+
+.control button.active {
+  border: inset 2px;
+}
+
+#events {
+  height: 15ex;
+  overflow-y: scroll;
+  color: #444;
+  font-family: monospace;
+  border: 1px solid #eee;
+}
+
+#events span:first-child {
+  width: 10em;
+  display: inline-block;
+}
+
+select {
+  border: 1px solid #222;
+  font-size: 14px;
+  height: 34px;
+  width: 100%;
+  background-color: #ededed;
+  color: #222;
+  float: right;
+  margin-right: 3%;
+  font-family: Inconsolata;
+}
+
+.none{
+  display: none;
+}
+
+#conteudo {
+  max-width: 800px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+<div id="conteudo">
+<h1>Cardume do busão </h1>
+<p>No gráfico abaixo, é possível ver as relações de sócios de empresas de ônibus no Rio de Janeiro, distinguindo quem são os principais empresários do setor. O diagrama não discrimina participação acionária, apenas quantas companhias cada indivíduo possui participação. </p>
+  <p>Gráfico interativo, use o cursor para ver as relações entre sócios e empresas.</p>
+  
+  <hr>
+
+<div class="controls">
+  <div class="control">
+    <label for="source">Escolha a classe de sócio</label><br>
+    <select id="source">
+          <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/tubarao.json">Tubarão - Sócios de 6 ou mais empresas</option>
+           <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/capitao.json">Capitão de Fragata - Sócios de 5 empresas</option>
+          <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/velho.json">Velho Lobo do Mar - Sócios de 4 empresas</option>
+          <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/pescador.json">Pescador - Sócios de 3 empresas</option>
+          <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/tainha.json">Tainha - Sócios de 2 empresas</option>
+          <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/peixe.json">Peixe Pequeno - Sócios de 1 empresa</option>
+         
+        </select>
+  </div>
+  <div class="control">
+    <label for="spread">Alinhar</label>
+    <input type="checkbox" id="spread" value="1">
+  </div>
+  <div class="control none">
+    <label for="type">Tipo de gráfico</label><br>
+    <select id="type">
+          <option>Sankey.Path</option>
+          <option>Sankey.Selection</option>
+          <option>Sankey</option>
+        </select>
+  </div>
+</div>
+
+<div id="chart"></div>
+<hr>
+<p>FONTE: Levantamento Data Labe em parceria com Coding Rights</p>
+<script>
+var chart = null;
+timer = null;
+
+d3.selectAll(".controls input").on("change", updateKnobs);
+d3.select("#source").on("change", updateSource);
+d3.select("#type").on("change", updateType)
+
+function updateKnobs() {
+  chart
+    .spread(checkControl("spread"));
+}
+
+function updateSource() {
+  d3.json(d3.select("#source").node().value, function(error, json) {
+    chart.draw(json);
+  });
+}
+
+function updateType() {
+  var type = d3.select("#type").node().value;
+  d3.select("#chart svg").remove();
+  chart = d3.select("#chart").append("svg").chart(type);
+  updateKnobs();
+  updateSource();
+}
+
+function checkControl(id, value) {
+  var o = d3.select("#" + id);
+  if (typeof value !== "undefined") {
+    o.node().checked = value;
+    updateKnobs();
+  }
+  return o.node().checked;
+}
+
+updateType();
+</script>
+</body>
+
+</html>
