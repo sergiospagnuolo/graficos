@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Gráfico - dívida dos Estados</title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71324943-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<style>
+@import 'https://fonts.googleapis.com/css?family=Inconsolata';
+body {
+  font-family: 'Inconsolata', sans-serif;
+  margin: 0 10px;
+  background-color: #ededed;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+div{
+  max-width: 700px;
+  margin:0 auto;
+}
+
+p {
+   margin-bottom: 14px;
+   font-family: Inconsolata, sans-serif;
+   line-height: 1.2em
+}
+
+.xAxis path,
+.yAxis path,
+.xAxis line,
+.yAxis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges
+}
+
+.line {
+  fill: none;
+  stroke: #a7000c;
+  stroke-width: 2.5px
+}
+
+.caixa{
+  -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+  border: 1px solid #222;
+   font-size: 16px;
+   height: 34px;
+   width: 168px;
+  background-color: #ededed; 
+  color:#222;
+   float: right;
+  margin-right: 3%;
+  }
+</style>
+</head>
+
+<body>
+<div>
+  <h1>Endividamento dos Estados </h1>
+  <p>Relação por Estadoa entre dívida consolidada líquida (DCL) e receita líquida (RCL). Quando o endividamento for 2 vezes maior do que a receita corrente - o Estado não pode captar novos empréstimos, segundo a Lei de Responsabilidade Fiscal.</p>
+  <p>No gráfico abaixo, selecione a UF para ver cada caso - a escala será ajustada para refletir melhor o desempenho de cada Estado.</p>
+
+<div id="chart" class="svg-container"></div>
+  <h5>FONTE: Siconfi/Tesouro Nacional</h5>
+</div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+var div = d3.select('#chart').append('div')
+var margin = {
+    top: 20,
+    right: 20,
+    bottom: 30,
+    left: 50
+  },
+  width = 700 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
+var parseDate = d3.time.format("%m-%d-%Y").parse;
+var formatPct = d3.format('.0')
+var x = d3.time.scale().range([0, width]);
+var y = d3.scale.linear().range([height, 0]);
+var xAxis = d3.svg.axis().scale(x).orient("bottom");
+var yAxis = d3.svg.axis().scale(y)
+//.tickFormat(formatPct)
+.tickPadding(13)
+.orient("left");
+var line = d3.svg.line().x(function(d) {
+  return x(d.date);
+}).y(function(d) {
+  return y(d.taxa);
+});
+var svg = d3.select("#chart")
+.append("svg")
+.attr("viewBox", "0 0 700 500")
+//.attr("width", width + margin.left + margin.right)
+//.attr("height", height + margin.top + margin.bottom)
+.append("g")
+.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var dataFiltered = {}
+var dataNested = {}
+d3.json("https://raw.githubusercontent.com/voltdatalab/dados/master/economia/proporcao_divida_estados.json", function(error, data) {
+  data.forEach(function(d) {
+    d.date = parseDate(d.date);
+    d.taxa = +d.taxa;
+    d.ano = +d.ano;
+    d.uf = d.uf;
+  });
+  var dataNested = d3.nest().key(function(d) {
+    return d.uf
+  }).entries(data)
+  div.append('select')
+    .attr('id', 'variableSelect')
+    .attr('class', 'caixa')
+    .on('change', variableChange)
+    .selectAll('option')
+    .data(dataNested)
+    .enter()
+    .append('option')
+    .attr('value', function(d) {
+    return d.key
+  }).text(function(d) {
+    return d.key
+  })
+  var dataFiltered = dataNested.filter(function(d) {
+    return d.key === d3.select('#variableSelect').property('value')
+  })
+  x.domain(d3.extent(dataFiltered[0].values, function(d) {
+    return d.date;
+  }));
+  y.domain(d3.extent(dataFiltered[0].values, function(d) {
+    return d.taxa;
+  }));
+  svg.append("g").attr("class", "xAxis").attr("transform", "translate(0," + height + ")").call(xAxis);
+  svg.append("g").attr("class", "yAxis").call(yAxis).append("text").attr("transform", "rotate(-90)").attr("y", 6).attr("dy", ".71em").style("text-anchor", "end").text("Em vezes");
+  
+  svg.append("path").datum(dataFiltered[0].values).attr("class", "line").attr("d", line);
+  
+  
+  
+
+  function variableChange() {
+    var value = this.value
+    var dataFiltered = dataNested.filter(function(d) {
+      return d.key === value
+    })
+    x.domain(d3.extent(dataFiltered[0].values, function(d) {
+      return d.date;
+    }));
+    y.domain(d3.extent(dataFiltered[0].values, function(d) {
+      return d.taxa;
+    }));
+    d3.select('.xAxis').transition().duration(1000).call(xAxis)
+    d3.select('.yAxis').transition().duration(1000).call(yAxis)
+    d3.select('.line').datum(dataFiltered[0].values).attr('d', line)
+  }
+});
+</script>
+</body>
+</html>
