@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Chart - voter turnout</title>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71324943-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<style>
+body {
+  font-family: 'Inconsolata', sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  pointer-events: none;
+}
+
+#scatter{
+  max-width: 800px;
+  min-widh: 500px;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+h4 {
+  font-weight: 300;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.5em
+}
+
+div {
+  max-width: 700px;
+}
+</style>
+</head>
+<body>
+<link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+<div>
+<h1>US x Mandatory Voting</h1>
+  <p>Turnout rate of voting age population in the US compared to some of the biggest democracies with mandatory voting, for general elections.
+</p>
+</div>
+  <div id="scatter"> </div>
+
+<h4><a href="http://www.idea.int/data-tools/question-view/524" target="_blank">Fonte: International Institute for Democracy and Electoral Assistance</a></h4>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+</body>
+<script>
+var margin = {
+    top: 20,
+    right: 20,
+    bottom: 30,
+    left: 25
+  },
+  width = 500 - margin.left - margin.right,
+  height = 400 - margin.top - margin.bottom;
+
+var xValue = function(d) {
+    return d.year;
+  }, 
+  xScale = d3.scale.linear().range([0, width]), 
+  xMap = function(d) {
+    return xScale(xValue(d));
+  }, 
+  xAxis = d3.svg.axis().scale(xScale).orient("bottom").ticks(10,"d");
+
+
+var yValue = function(d) {
+    return d.vapvt;
+  }, 
+  yScale = d3.scale.linear().range([height, 0]), 
+  yMap = function(d) {
+    return yScale(yValue(d));
+  },
+  yAxis = d3.svg.axis().scale(yScale).orient("left");
+
+// cores
+var cValue = function(d) {
+    return d.country;
+  },
+  color = d3.scale.category10();
+
+var svg = d3.select("#scatter").append("svg")
+  .attr("viewBox", "0 0 600 400")
+  .append("g")
+  .style("font", "14px Inconsolata")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+// tooltip 
+var tooltip = d3.select("body").append("div")
+  .attr("class", "tooltip")
+  .style("opacity", 0);
+
+//  data
+d3.csv("https://raw.githubusercontent.com/voltdatalab/dados/master/politica/voter_turnout_countries_vs_US.csv", function(error, data) {
+
+  // csv para numero
+  data.forEach(function(d) {
+    d.vap = +d.vap;
+    d.vapvt = +d.vapvt;
+    d.year = +d.year;
+    //console.log(d);
+  });
+
+  xScale.domain([d3.min(data, xValue) - 1, d3.max(data, xValue) + 1]);
+  yScale.domain([d3.min(data, yValue) - 1, d3.max(data, yValue) + 1]);
+
+  // x-axis
+  svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis)
+    .append("text")
+    .attr("class", "label")
+    .attr("x", width)
+    .attr("y", -6)
+    .style("text-anchor", "end")
+    .style("font", "1.1em Inconsolata")
+    .text("");
+
+  // y-axis
+  svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
+    .append("text")
+    .attr("class", "label")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .style("font", "1em Inconsolata")
+    .text("Turnout rate in %");
+
+  // dots
+  svg.selectAll(".dot")
+    .data(data)
+    .enter().append("circle")
+    .attr("class", "dot")
+    .attr("r", 4)
+    .style("opacity", .8)
+    .attr("cx", xMap)
+    .attr("cy", yMap)
+    .style("fill", function(d) {
+      return color(cValue(d));
+    })
+    .on("mouseover", function(d) {
+      tooltip.transition()
+        .duration(50)
+        .attr("min-height", "120px")
+        .style("opacity", 1)
+        .style("background-color", "#cbcbcb")
+        .style("font", "12px Inconsolata")
+        .style("padding", "10px");
+
+      tooltip.html("Year:<strong> " + d.year + "</strong>" + "<br/>"+ "Voting age pop: "+ d.vap + "</strong> <br/>" +
+          "Turnout rate: <strong> " + yValue(d) + " %</strong>")
+        .style("left", (d3.event.pageX + 5) + "px")
+        .style("top", (d3.event.pageY - 28) + "px")
+        .style("bottom", (d3.event.pageY - 28) + "px");
+    })
+    .on("mouseout", function(d) {
+      tooltip.transition()
+        .duration(500)
+        .style("opacity", 0);
+    });
+
+  //  legenda
+  var legend = svg.selectAll(".legend")
+    .data(color.domain())
+    .enter().append("g")
+    .attr("class", "legend")
+    .style("font", "18px Inconsolata")
+    .attr("transform", function(d, i) {
+      return "translate(0," + i * 20 + ")";
+    });
+
+  // legenda retangular
+  legend.append("rect")
+    .attr("x", width / 1.24)
+    .attr("y", 225)
+    .attr("width", 8)
+    .attr("height", 18)
+    .style("fill", color);
+
+  // texto legenda 
+  legend.append("text")
+    .attr("x", width / 1.2)
+    .attr("y", 235)
+    .attr("dy", ".35em")
+    .style("font", ".5em Inconsolata")
+    .style("text-anchor", "right")
+    .text(function(d) {
+      return d;
+    })
+});
+
+
+</script>
+
+</html>
