@@ -34,12 +34,13 @@ body {
 
 h1 {
   text-transform: uppercase;
-  font-size: 2.5em;
-  color: rgba(252, 30, 123, 1)
+  font-size: 2.2em;
+  line-height: 1.5em;
+  color: #222
 }
 
 hr {
-  border-top: 3px solid #24d1fd;
+  border-top: 1px solid #cbcbcb;
   padding-bottom: 20px;
   border-left: 0;
   border-right: 0;
@@ -60,21 +61,20 @@ p {
 }
 
 .node rect {
-  fill-opacity: .0;
-  width: 15px;
+  fill-opacity: .5;
   fill: #fff;
-  stroke-width: 1;
+  stroke-width: 0;
 }
 
 .node text {
-  fill: #fc1e7b;
+  fill: #222;
   text-shadow: 0 0px 0 #000;
   font-size: 1.2em;
 }
 
 .link {
   fill: none;
-  stroke: #24d1fd;
+  stroke: #cbcbcb;
   stroke-opacity: .6;
 }
 
@@ -126,7 +126,7 @@ select {
   font-size: 14px;
   height: 34px;
   width: 100%;
-  background-color:rgba(252, 30, 123, .4) ;
+  background-color: #ededed;
   color: #000;
   float: right;
   margin-right: 3%;
@@ -152,11 +152,11 @@ select {
 <script src="//cdn.rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
 <script src="//cdn.rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
 <div id="conteudo">
-<h1>Quem manda no transporte público do Rio de Janeiro?</h1>
+<h1>Quem manda no transporte público <br>do Rio de Janeiro?</h1>
 <p>Apesar de serem muitas, as empresas que controlam o transporte público
 no Rio de Janeiro estão concentradas na mão de poucas pessoas.
 Neste gráfico, visualizamos as relações de sócios de empresas de ônibus para distinguir quem são os principais empresários do setor.</p>
-  <p><em>Gráfico interativo, use o cursor para ver as relações entre sócios e empresas.</em></p>
+  <p class="fonte"><em>Gráfico interativo, use o cursor para ver as relações entre sócios e empresas.</em></p>
   
   <hr>
 
