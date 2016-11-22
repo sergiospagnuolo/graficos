@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gráfico - ônibus RJ</title>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//cdn.rawgit.com/newrelic-forks/d3-plugins-sankey/master/sankey.js"></script>
+<script src="//cdn.rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
+<script src="//cdn.rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
+<style>
+@font-face {
+  font-family: 'Atlas Grotesk Web';
+  src: url('Atlas Grotesk Web-Bold.eot');
+  src: url('Atlas Grotesk Web-Bold.eot?#iefix') format('embedded-opentype'), url('Atlas Grotesk Web-Bold.woff') format('woff'), url('Atlas Grotesk Web-Bold.ttf') format('truetype'), url('Atlas Grotesk Web-Bold.svg#Atlas Grotesk Web') format('svg');
+  font-weight: 700, 300;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'Atlas Grotesk Web';
+  src: url('Atlas Grotesk Web-Regular.eot');
+  src: url('Atlas Grotesk Web-Regular.eot?#iefix') format('embedded-opentype'), url('Atlas Grotesk Web-Regular.woff') format('woff'), url('Atlas Grotesk Web-Regular.ttf') format('truetype'), url('Atlas Grotesk Web-Regular.svg#Atlas Grotesk Web') format('svg');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+body {
+  font-family: 'Atlas Grotesk Web';
+  font-size: 14px;
+  background-color: #fff;
+  color: #000
+}
+h1 {
+  text-transform: uppercase;
+  font-size: 2.2em;
+  line-height: 1.5em;
+  color: #222
+}
+hr {
+  border-top: 1px solid #cbcbcb;
+  padding-bottom: 20px;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  margin: 30px 0 0;
+}
+p {
+  line-height: 1.4em;
+  font-size: 1.3em;
+}
+#chart {
+  width: 100%;
+  height: 1200px;
+  padding: 10px 0;
+  clear: both;
+}
+.node rect {
+  fill-opacity: .5;
+  fill: #fff;
+  stroke-width: 0;
+}
+.node text {
+  fill: #222;
+  text-shadow: 0 0px 0 #000;
+  font-size: 1.2em;
+}
+.link {
+  fill: none;
+  stroke: #cbcbcb;
+  stroke-opacity: .6;
+}
+.link:hover {
+  fill: none;
+  stroke:#fc1e7b ;
+  stroke-opacity: .5;
+}
+.control {
+  float: left;
+  padding: 6px;
+}
+.control label {
+  display: block;
+  padding: 0px;
+  margin-left: -5px;
+  text-transform: uppercase;
+}
+.control input {
+  width: 2.5em;
+}
+.control button {
+  border: outset 2px;
+}
+.control button.active {
+  border: inset 2px;
+}
+#events {
+  height: 15ex;
+  overflow-y: scroll;
+  color: #24d1fd;
+  font-family: monospace;
+  border: 1px solid #eee;
+}
+#events span:first-child {
+  width: 10em;
+  display: inline-block;
+}
+select {
+  border: 0px solid #222;
+  font-size: 14px;
+  height: 34px;
+  width: 100%;
+  background-color: #ededed;
+  color: #000;
+  float: right;
+  margin-right: 3%;
+}
+.none {
+  display: none;
+}
+#conteudo {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.fonte {
+  font-size: 12px;
+}
+</style>
+</head>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="//cdn.rawgit.com/newrelic-forks/d3-plugins-sankey/master/sankey.js"></script>
+<script src="//cdn.rawgit.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
+<script src="//cdn.rawgit.com/q-m/d3.chart.sankey/master/d3.chart.sankey.min.js"></script>
+<div id="conteudo">
+<h1>¿QUIÉN MANDA EN EL TRANSPORTE<br>PÚBLICO DE RIO DE JANEIRO?</h1>
+<p>A pesar de que son muchas, las empresas que controlan el transporte público de Rio de Janeiro están concentradas en las manos de pocas personas. En este gráfico es posible ver a los socios de las empresas de autobuses para distinguir quiénes son los principales empresarios del sector.</p>
+  <p class="fonte"><em>Gráfico interactivo; use el cursor para ver las relaciones entre socios y empresas.</em></p>
+  
+  <hr>
+
+<div class="controls">
+  <div class="control">
+    <label for="source">ELIJA LA CLASE DE SOCIO</label><br>
+    <select id="source">
+          <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/tubarao.json">Tubarão - Sócios de 6 ou mais empresas</option>
+           <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/capitao.json">Capitão de Fragata - Sócios de 5 empresas</option>
+          <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/velho.json">Velho Lobo do Mar - Sócios de 4 empresas</option>
+          <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/pescador.json">Pescador - Sócios de 3 empresas</option>
+          <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/tainha.json">Tainha - Sócios de 2 empresas</option>
+          <option value="https://raw.githubusercontent.com/voltdatalab/dados/master/geral/bus_rio/peixe.json">Peixe Pequeno - Sócios de 1 empresa</option>
+         
+        </select>
+  </div>
+  <div class="control">
+    <label for="spread">ALINEAR</label>
+    <input type="checkbox" id="spread" value="1">
+  </div>
+  <div class="control none">
+    <label for="type">Tipo de gráfico</label><br>
+    <select id="type">
+          <option>Sankey.Path</option>
+          <option>Sankey.Selection</option>
+          <option>Sankey</option>
+        </select>
+  </div>
+</div>
+
+<div id="chart"></div>
+<hr>
+<p class="fonte">FUENTE: Investigación de Data Labe, en colaboración con Coding Rights</p>
+  <p class="fonte">*El diagrama no discrimina la participación accionaria, sino solamente el número de compañías en las que cada individuo tiene una participación.</p>
+<script>
+var chart = null;
+timer = null;
+d3.selectAll(".controls input").on("change", updateKnobs);
+d3.select("#source").on("change", updateSource);
+d3.select("#type").on("change", updateType)
+function updateKnobs() {
+  chart
+    .spread(checkControl("spread"));
+}
+function updateSource() {
+  d3.json(d3.select("#source").node().value, function(error, json) {
+    chart.draw(json);
+  });
+}
+function updateType() {
+  var type = d3.select("#type").node().value;
+  d3.select("#chart svg").remove();
+  chart = d3.select("#chart").append("svg").chart(type);
+  updateKnobs();
+  updateSource();
+}
+function checkControl(id, value) {
+  var o = d3.select("#" + id);
+  if (typeof value !== "undefined") {
+    o.node().checked = value;
+    updateKnobs();
+  }
+  return o.node().checked;
+}
+updateType();
+</script>
+</body>
+
+</html>
