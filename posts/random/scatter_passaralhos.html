@@ -8,9 +8,9 @@
 </head>
 
 <body>
-  
+
   <div id="scatter"></div>
-  
+
   <script>
     //baseado em http://d3plus.org/examples/advanced/a9a9ada6101818be4fdc/
 
@@ -34,15 +34,17 @@ var json = (function () {
     .data(json)
     .type("scatter")
     .id("veiculo")
-    .x("jornalistas")
+    .x({"value": "jornalistas", "label": "Jornalistas Demitidos"})
+    //.x("jornalistas")
     .time({"value": "mes"})
     //.margin(50)
-    .y("mes")
+    //.y("mes")
+    .y({"value": "mes", "label": "Período"})
     .size("jornalistas")
     .color({"heatmap": ['#252235','#E1E4E8','#828BA0','#a7000c','#E23B22'], "value": "jornalistas"})
     .legend(false)
     .format("pt_BR")
-    .font({"family": "Inconsolata"})
+    .font({"family": "Inconsolata", "size": 10})
     .ui([
       {
         "method" : "size",
@@ -53,5 +55,5 @@ var json = (function () {
     ])
     .draw()
   </script>
-  
+
 </body>
