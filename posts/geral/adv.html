@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+</head>
+
+<body>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stupidtable/0.0.1/stupidtable.js" type="text/javascript"></script> 
+<div>
+  <div id="table"></div>
+<hr>
+<h5>FONTE: Volt Data Lab com dados de OABs estaduais e IBGE</h5>
+</div>
+<script>
+//baseado em http://bl.ocks.org/d3noob/a22c42db65eb00d4e369 
+
+d3.csv("https://raw.githubusercontent.com/voltdatalab/dados/master/geral/indice_adv.csv", function(error, data) {
+
+    if (error) {
+      console.log("Erro...");
+
+    }
+
+    console.log(data);
+
+    var simpleArray = [];
+    var averageInColor = [];
+    
+    var valueline = d3.svg.line()
+    .x(function(d) { return x(d.estado); })
+    .y(function(d) { return y(d["(b)-(a)"]); });
+
+    
+
+    data.forEach(function(d, i) {
+      d.estado = d.estado;
+      d.indice = +d.indice;
+
+      d.AverageGP = (d.indice);
+      
+      var observacao = d.estado;
+      console.log(d.AverageGP.toFixed(0));
+
+      simpleArray.push([d.estado, d.indice]);
+      averageInColor.push(d.AverageGP.toFixed(0));
+     
+    });
+    
+    var justInCase = d3.extent(averageInColor);
+    var minData = d3.min(averageInColor);
+    var maxData = d3.max(averageInColor);
+    console.log(minData);
+    
+    var myColorScale = d3.scale.linear()
+      //.domain([minData, maxData])
+      .domain([1,2,3,4,5,7,12])
+      .range([
+"#fea99d",
+"#fd644f",
+"#fd8676",
+"#fd533c",
+"#b13a2a",
+"#973124",
+"#652118",
+]);
+    
+    
+
+    var table = d3.select("#table").append("table");
+    
+    var div = d3.select("#notas").append("text")	
+    .attr("class", "tooltip")
+    .style("opacity", 1)
+    .text(function(d) {
+        return d;
+      });
+
+    var header = table.append("thead").append("tr");
+
+    header.selectAll("th")
+      .data(["", "Índice baseado nos valores mínimos de consultas e pareceres de advogados, sugeridos pelas seccionais da OAB,em relação à renda média dos Estados. Quanto mais próximo de 1, mais perto da renda média, quanto mais distante mais caro o serviço."])
+      .enter()
+      .append("th")
+      .text(function(d) {
+        return d;
+      });
+
+    var tablebody = table.append("tbody");
+
+    rows = tablebody
+      .selectAll("tr")
+      .data(simpleArray)
+      .enter()
+      .append("tr")
+
+    cells = rows.selectAll("td")
+      .data(function(d) {
+        return d;
+      })
+      .enter()
+      .append("td")
+      .style("background-color", function(d, i) {
+        if (i === 1,2) {
+          return myColorScale(d);
+        }
+
+      })
+     .text(function(d) {
+        return d;
+     });
+
+    d3.select("tbody").selectAll("tr").selectAll("td")
+      .style("color", function(d, i) {
+         if (i > 5) {
+          return "white";
+        }
+      });
+
+    d3.selectAll("th")
+      .data(["string", "int", "string", "string"])
+     .attr("data-sort", function(d) {
+        return d;
+      });
+
+
+    $("table").stupidtable();
+  });   
+
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,700');
+body {
+  background-color: #fff;
+  height: 100%;
+  font-family: 'PT Serif', sans-serif;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+div {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+p {
+  margin-bottom: 16px;
+  line-height: 1.2em;
+  font-size: 1.2em
+}
+
+th {
+  text-align: left;
+  font-family: 'PT Serif', sans-serif;
+  cursor: pointer;
+  width: 300px;
+  font-size: 14px
+}
+
+td {
+  text-align: center;
+  font-size: 16px;
+  height: 20px;
+  padding: 3px;
+  padding-left: 10px;
+}
+
+td:nth-last-child(1) {
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 30px;
+  text-transform: capitalize;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 20px;
+  color: #ededed;
+  width:70%
+}
+
+td:nth-last-child(2) {
+  text-align: right;
+  width:100px
+}
+
+thead:first-child th {
+  text-align: left;
+  padding: 10px;
+  background-color: #fff;
+}
+</style>
+</body>
