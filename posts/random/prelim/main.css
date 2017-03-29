@@ -1,0 +1,96 @@
+body { 
+    font-family: Tofino Personal;
+    background-color: #eaeaea;
+    font-size:12px;
+}
+
+path { 
+    stroke: none;
+    stroke-width: 3;
+    fill: none;
+}
+
+.x.axis line {
+    stroke: lightgrey;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: none;
+    shape-rendering: crispEdges;
+}
+
+.legend {
+    font-size: 16px;
+    text-anchor: end;
+}
+
+.tick line {
+    stroke: #bbbbbb;
+    opacity: .5;
+}
+
+.y_axis, .x_axis {
+    font-size: 14px;
+    font-weight: 300;
+    fill: #bbbbbb
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: left;			
+    min-width: 100px;
+    max-width: 100%;
+    height: auto;					
+    padding: 15px;					
+    border: 0px;		
+    border-radius: 5px;			
+    pointer-events: none;
+    background: white
+}
+
+/* Texto outside */
+
+h1{
+  font-size: 56.9px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #151515;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #7d7d7d;
+}
+
+h4{
+    margin: 0;
+    display: inline
+}
+
+p{
+    font-size: 1.5em;
+    color: #7d7d7d;
+}
+
+.nota{
+    font-size:1.2em;
+    color: #151515;
+}
+
+
+.chart{
+    max-width: 700px;
+    margin: 0 auto;
+}
