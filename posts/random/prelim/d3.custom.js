@@ -2234,7 +2234,7 @@
         break;
 
        case "%":
-        scale = 100;
+        scale = 1;
         suffix = "%";
         type = "f";
         break;

@@ -1,10 +1,10 @@
-body { 
+body {
     font-family: Tofino Personal;
     background-color: #eaeaea;
-    font-size:12px;
+    font-size: 16px;
 }
 
-path { 
+path {
     stroke: none;
     stroke-width: 3;
     fill: none;
@@ -31,66 +31,107 @@ path {
     opacity: .5;
 }
 
-.y_axis, .x_axis {
+.y_axis,
+.x_axis {
     font-size: 14px;
     font-weight: 300;
     fill: #bbbbbb
 }
 
-div.tooltip {	
-    position: absolute;			
-    text-align: left;			
+div.tooltip {
+    position: absolute;
+    text-align: left;
     min-width: 100px;
     max-width: 100%;
-    height: auto;					
-    padding: 15px;					
-    border: 0px;		
-    border-radius: 5px;			
+    height: auto;
+    padding: 15px;
+    border: 0px;
+    border-radius: 5px;
     pointer-events: none;
     background: white
 }
 
+
 /* Texto outside */
 
-h1{
-  font-size: 56.9px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #151515;
-}
-
-h2 {
-  font-size: 32px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #7d7d7d;
-}
-
-h4{
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
     margin: 0;
-    display: inline
-}
-
-p{
-    font-size: 1.5em;
-    color: #7d7d7d;
-}
-
-.nota{
-    font-size:1.2em;
+    padding: 0;
+    text-align: left;
     color: #151515;
 }
 
+h2 {
+    font-size: 1.4em;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #7d7d7d;
+    margin: 0;
+    padding: 0;
+}
 
-.chart{
+h3 {
+    font-weight: 500;
+    text-align: center;
+    color: #7d7d7d;
+}
+
+h4 {
+    margin: 0;
+    display: inline;
+    color: #7d7d7d;
+}
+
+h5 {
+    font-size: 2em;
+    color: #7d7d7d;
+}
+
+p {
+    font-size: 1.5em;
+    line-height: 1.4em;
+}
+
+li {
+    line-height: 2em;
+}
+
+.nota {
+    font-size: .9em;
+    color: #7d7d7d;
+    max-width: 450px;
+}
+
+.chart {
     max-width: 700px;
     margin: 0 auto;
+}
+
+a {
+    border-bottom: #a5e9fc solid 4px;
+    color: #151515;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: #a5e9fc solid 4px;
+    color: #151515;
+    text-decoration: none;
+    background-color: #a5e9fc;
+}
+
+@media screen and (max-width: 780px) {
+    .chart {
+        padding: 2%;
+    }
 }

@@ -1,5 +1,5 @@
-var margin = {top: 30, right: 180, bottom: 100, left: 80},
-    width = 600,
+var margin = {top: 30, right: 80, bottom: 100, left: 47},
+    width = 650,
     height = .8 * width,
     aspect = width / height;
     //width = 700 - margin.left - margin.right,
@@ -10,7 +10,7 @@ var parseDate = d3.time.format("%Y").parse;
 // escalas
 var x = d3.time.scale().range([0, width]);
 //var y = d3.scale.log().range([height, 0]); Logaritmica, se necessário
-var y = d3.scale.linear().range([height, 0]);
+var y = d3.scale.linear().range([height, 40]);
 
 // eixos
 var xAxis = d3.svg.axis()
@@ -23,17 +23,22 @@ var xAxis = d3.svg.axis()
 
 var yAxis = d3.svg.axis().scale(y)
     .orient("left")
-    .ticks(6)
+    .ticks(6, "%")
     .tickSize(3, 0)
     .innerTickSize(-width)
     .outerTickSize(0)
-    .tickPadding(10);
+    .tickPadding(15);
 
 // linhas do gráfico
 var valueline = d3.svg.line()   
     .x(function(d) { return x(d.date); })
     // se usar escala log, cria o valor referência
     .y(function(d) { return y(d.value + 1); }); 
+
+var nota = d3.select(".nota")
+    //.append("div")
+    .attr("class", "nota")
+    .style("opacity", 0);
     
 // acrescenta a canvas de svg
 var svg = d3.select("#chart")
@@ -42,15 +47,25 @@ var svg = d3.select("#chart")
         .attr("height", height + margin.top + margin.bottom)
     .append("g")
         .attr("transform", 
-              "translate(" + margin.left + "," + margin.top + ")");
+              "translate(" + margin.left + "," + margin.top + ")")
+    .on("mouseover", function() {		
+            nota.transition()		
+                .duration(200)		
+                .style("opacity", 1);	
+            })					
+        .on("mouseout", function(d) {		
+            nota.transition()		
+                .duration(500)		
+                .style("opacity", 0);	
+        });
     
 
 // puxa os dados da tabela
-d3.tsv("vistos.tsv", function(error, data) {
+d3.tsv("reject.tsv", function(error, data) {
     data.forEach(function(d) {
         d.date = parseDate(d.date);
         d.value = +d.value;
-        d.valores = +d.valores;
+        //d.valores = +d.valores;
     });
     
 
@@ -95,6 +110,17 @@ d3.tsv("vistos.tsv", function(error, data) {
             //.attr("width", 8)
             //.attr("height", 8)
             //.style("fill", function() { return d.color = color(d.key); });
+        
+            //linhas para anos
+        //svg.selectAll("line").data(data).enter().append("line")       
+            //.attr('x1',function(d) { return x(d.date); })
+            //.attr('y1',function(d) { return y(0); })
+            //.attr('x2',function(d) { return x(d.date); })
+            //.attr('y2',function(d) { return y(d.value); })
+            //.style("stroke-width", 2)
+            //.style("stroke", "gray")
+            //.style("stroke-dasharray", ("2, 2"))
+            //.style("opacity",0);
 
             // texto legenda 
         svg.append("text")
@@ -107,7 +133,7 @@ d3.tsv("vistos.tsv", function(error, data) {
             .on("click", function(){
                 // Determine if current line is visible 
                 var active   = d.active ? false : true,
-                newOpacity = active ? 0.1 : 1; 
+                newOpacity = active ? 0.05 : 1; 
                 // Hide or show the elements based on the ID
                 d3.select("#tag"+d.key.replace(/\s+/g, ''))
                     .transition().duration(1000) 
@@ -118,17 +144,16 @@ d3.tsv("vistos.tsv", function(error, data) {
             .text(d.key)
     });
     
-
     // eixo x
     svg.append("g")
-        .attr("class", "x_axis")
+        .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .style("stroke", "15px")
         .call(xAxis);
 
     // eixo y
     svg.append("g")
-        .attr("class", "y_axis")
+        .attr("class", "y axis")
         .style("stroke", "0")
         .call(yAxis);
 
@@ -147,23 +172,23 @@ d3.tsv("vistos.tsv", function(error, data) {
         //.attr("x",0 - (height / 2))
         //.attr("y", 0 - margin.left)
         .attr("y", height + 60)
-        .attr("width", width - 80)
+        .attr("x", -38)
+        .attr("width", width - 50)
         .attr("height", "2px")
         .style("fill", "#bbbbbb");
     
     svg.append("svg:image")
-        .attr("xlink:href", "logo.png")
+        .attr("xlink:href", "piauicinza.png")
         .attr("y", height + 20)
         .attr("x", width - 60)
         .attr("width", 60)
         .attr("height", 80);
 
     // Define a div para tooltip
-var div = d3.select("body").append("div")
+var div = d3.select("#chart").append("div")
     .data(data)	
     .attr("class", "tooltip")
     .style("opacity", 0);
-    //.style("background-color", function(d) { return d.color = color(d.key); });
     
     
     // Formata data para tooltip
@@ -183,7 +208,7 @@ var div = d3.select("body").append("div")
             div.transition()		
                 .duration(200)		
                 .style("opacity", .8);		
-            div	.html("<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>"  + "<h4>Total de vistos: </h4> " + d.value + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)	
+            div	.html("<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>"  + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>"  + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
             })					
