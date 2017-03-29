@@ -146,14 +146,14 @@ d3.tsv("reject.tsv", function(error, data) {
     
     // eixo x
     svg.append("g")
-        .attr("class", "x axis")
+        .attr("class", "x_axis")
         .attr("transform", "translate(0," + height + ")")
         .style("stroke", "15px")
         .call(xAxis);
 
     // eixo y
     svg.append("g")
-        .attr("class", "y axis")
+        .attr("class", "y_axis")
         .style("stroke", "0")
         .call(yAxis);
 

@@ -103,7 +103,7 @@ p {
 }
 
 li {
-    line-height: 2em;
+    padding-top: 10px;
 }
 
 .nota {
