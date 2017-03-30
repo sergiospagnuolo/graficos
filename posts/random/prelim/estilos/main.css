@@ -1,12 +1,27 @@
+@font-face {
+    font-family: "TradeGothic Bold";
+    src: url(fontes/TradeGothic-Bold.ttf)
+}
+
+@font-face {
+    font-family: "TradeGothic Light";
+    src: url(fontes/TradeGothic-Light.ttf)
+}
+
+@font-face {
+    font-family: "TradeGothic";
+    src: url(fontes/TradeGothic.ttf)
+}
+
 body {
-    font-family: Tofino Personal;
+    font-family: TradeGothic;
     background-color: #eaeaea;
     font-size: 16px;
 }
 
 path {
     stroke: none;
-    stroke-width: 3;
+    stroke-width: 4;
     fill: none;
 }
 
@@ -22,13 +37,14 @@ path {
 }
 
 .legend {
-    font-size: 16px;
-    text-anchor: end;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-anchor: middle;
 }
 
 .tick line {
     stroke: #bbbbbb;
-    opacity: .5;
+    opacity: .6;
 }
 
 .y_axis,
@@ -48,14 +64,15 @@ div.tooltip {
     border: 0px;
     border-radius: 5px;
     pointer-events: none;
-    background: white
+    background: white;
+    
 }
 
 
 /* Texto outside */
 
 h1 {
-    font-size: 2.5em;
+    font-size: 3em;
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -63,12 +80,12 @@ h1 {
     letter-spacing: normal;
     margin: 0;
     padding: 0;
-    text-align: left;
     color: #151515;
+    text-align: center;
 }
 
 h2 {
-    font-size: 1.4em;
+    font-size: 1.5em;
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -76,8 +93,10 @@ h2 {
     letter-spacing: normal;
     text-align: left;
     color: #7d7d7d;
-    margin: 0;
+    margin: 20px auto;
     padding: 0;
+    text-align: center;
+    line-height: 1.2em;
 }
 
 h3 {
@@ -107,12 +126,25 @@ li {
 }
 
 .nota {
-    font-size: .9em;
+    font-size: .8em;
     color: #7d7d7d;
-    max-width: 450px;
+    max-width: 150px;
+    text-align: left;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #eaeaea;
+    position: absolute;
+    margin: 30px 90px;
+    right: 0
 }
 
 .chart {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#chart{
     max-width: 700px;
     margin: 0 auto;
 }
@@ -130,8 +162,11 @@ a:hover {
     background-color: #a5e9fc;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 700px) {
     .chart {
         padding: 2%;
+    }
+    .nota{
+        display: none;
     }
 }
