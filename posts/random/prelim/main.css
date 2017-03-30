@@ -1,16 +1,16 @@
 @font-face {
     font-family: "TradeGothic Bold";
-    src: url(./fontes/TradeGothic-Bold.ttf)
+    src: url(TradeGothic-Bold.ttf)
 }
 
 @font-face {
     font-family: "TradeGothic Light";
-    src: url(./fontes/TradeGothic-Light.ttf)
+    src: url(TradeGothic-Light.ttf)
 }
 
 @font-face {
     font-family: "TradeGothic";
-    src: url(./fontes/TradeGothic.ttf)
+    src: url(TradeGothic.ttf)
 }
 
 body {
