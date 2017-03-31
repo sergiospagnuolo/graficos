@@ -161,7 +161,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .on("mouseover", function (d) {
                 div.transition()
                     .duration(200)
-                    .style("opacity", .9);
+                    .style("opacity", 1);
                 div.html("<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
                     .style("left", d3.select(this).attr("cx") + "px")
                     .style("top", d3.select(this).attr("cy") + "px");
@@ -174,8 +174,8 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         
         //rect botões
         svg.append("rect")
-            .attr("x", (legendSpace / 18) + i * legendSpace) // space legend
-            .attr("y", -46)
+            .attr("x", (legendSpace / 12) + i * legendSpace) // space legend
+            .attr("y", -42)
             .attr("rx", 8)
             .attr("class", "botoes")
             .style("fill", function () {
@@ -188,7 +188,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             })
             .on("mouseout", function (d) {
                 nota.transition()
-                    .style("opacity", .2);
+                    .style("opacity", .5);
             })
             .on("click", function () {
                 // Determine if current line is visible 

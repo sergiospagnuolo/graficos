@@ -14,9 +14,10 @@
 }
 
 body {
-    font-family: TradeGothic;
+    font-family: TradeGothic Light;
     background-color: #eaeaea;
     font-size: 16px;
+    font-weight: 
 }
 
 path {
@@ -46,8 +47,8 @@ path {
 
 .botoes {
     text-anchor: middle;
-    height: 40px;
-    width: 120px;
+    height: 30px;
+    width: 110px;
     margin: 0;
     border-radius: 15px;
     cursor: pointer;
@@ -62,7 +63,8 @@ path {
 .x_axis {
     font-size: 14px;
     font-weight: 300;
-    fill: #bbbbbb
+    fill: #bbbbbb;
+    font-family: TradeGothic;
 }
 
 div.tooltip {
@@ -93,6 +95,8 @@ h1 {
     padding: 0;
     color: #151515;
     text-align: center;
+    text-transform: uppercase;
+    font-family: TradeGothic Bold;
 }
 
 h2 {
@@ -146,7 +150,7 @@ li {
     padding: 10px;
     background-color: #eaeaea;
     position: absolute;
-    margin: 60px 150px;
+    margin: 60px 120px;
     right: 0
 }
 
