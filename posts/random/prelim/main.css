@@ -41,6 +41,16 @@ path {
     font-weight: 700;
     text-anchor: middle;
     list-style-type: none;
+    cursor: pointer;
+}
+
+.botoes {
+    text-anchor: middle;
+    height: 40px;
+    width: 120px;
+    margin: 0;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
 .tick line {
@@ -136,7 +146,7 @@ li {
     padding: 10px;
     background-color: #eaeaea;
     position: absolute;
-    margin: 30px 90px;
+    margin: 60px 150px;
     right: 0
 }
 

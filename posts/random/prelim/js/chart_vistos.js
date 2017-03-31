@@ -1,5 +1,5 @@
 var margin = {
-        top: 30,
+        top: 50,
         right: 80,
         bottom: 100,
         left: 47
@@ -171,13 +171,13 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .duration(1000)
                     .style("opacity", 0);
             });
-
-        // texto legenda 
-        svg.append("text")
-            .attr("x", (legendSpace / 2) + i * legendSpace) // space legend
-            //.attr("y", height + (margin.bottom/1.5)+ 5)
-            .attr("y", -10)
-            .attr("class", "legend") // style the legend
+        
+        //rect botões
+        svg.append("rect")
+            .attr("x", (legendSpace / 18) + i * legendSpace) // space legend
+            .attr("y", -46)
+            .attr("rx", 8)
+            .attr("class", "botoes")
             .style("fill", function () {
                 return d.color = color(d.key);
             })
@@ -193,10 +193,41 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .on("click", function () {
                 // Determine if current line is visible 
                 var active = d.active ? false : true,
-                    newOpacity = active ? 1 : 0.1;
+                    newOpacity = active ? 1 : 0.2;
                 // Hide or show the elements based on the ID
                 d3.select("#tag" + d.key.replace(/\s+/g, ''))
-                    .transition().duration(500)
+                    .transition().duration(300)
+                    .ease("linear")
+                    .style("opacity", newOpacity);
+                d.active = active;
+            })
+            .text(d.key);
+            
+
+        // texto legenda 
+        svg.append("text")
+            .attr("x", (legendSpace / 2) + i * legendSpace) // space legend
+            //.attr("y", height + (margin.bottom/1.5)+ 5)
+            .attr("y", -20)
+            .attr("class", "legend")
+            //.style("fill", function () {return d.color = color(d.key);})
+            .style("fill", "#fff")
+            .on("mouseover", function () {
+                nota.transition()
+                    .style("display", "block")
+                    .style("opacity", "1");
+            })
+            .on("mouseout", function (d) {
+                nota.transition()
+                    .style("opacity", .2);
+            })
+            .on("click", function () {
+                // Determine if current line is visible 
+                var active = d.active ? false : true,
+                    newOpacity = active ? 1 : 0.2;
+                // Hide or show the elements based on the ID
+                d3.select("#tag" + d.key.replace(/\s+/g, ''))
+                    .transition().duration(300)
                     .ease("linear")
                     .style("opacity", newOpacity);
                 d.active = active;
