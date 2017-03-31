@@ -160,6 +160,12 @@ li {
     position: relative;
 }
 
+.texto {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
 #chart{
     max-width: 700px;
     margin: 0 auto;
