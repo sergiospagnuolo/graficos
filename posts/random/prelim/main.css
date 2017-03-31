@@ -40,6 +40,7 @@ path {
     font-size: 1.3em;
     font-weight: 700;
     text-anchor: middle;
+    list-style-type: none;
 }
 
 .tick line {
@@ -120,6 +121,7 @@ p {
     font-size: 1.5em;
     line-height: 1.4em;
 }
+
 
 li {
     padding-top: 10px;

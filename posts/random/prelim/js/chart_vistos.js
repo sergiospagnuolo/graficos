@@ -103,10 +103,10 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                 return d.key === 'Média RIC' ? '4 4' : '';
             })
             .style('opacity', function () {
-                if (d.key === 'Rússia') return '.0';
-                if (d.key === 'China') return '.0'
-                if (d.key === 'Índia') return '.0'
-                if (d.key === 'Média RIC') return '.0'
+                if (d.key === 'Rússia') return '.1';
+                if (d.key === 'China') return '.1'
+                if (d.key === 'Índia') return '.1'
+                if (d.key === 'Média RIC') return '.1'
             })
             .attr("id", 'tag' + d.key.replace(/\s+/g, '')) // aplicar classe das linhas
             .attr("d", valueline(d.values))
@@ -196,7 +196,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     newOpacity = active ? 1 : 0.1;
                 // Hide or show the elements based on the ID
                 d3.select("#tag" + d.key.replace(/\s+/g, ''))
-                    .transition().duration(1500)
+                    .transition().duration(500)
                     .ease("linear")
                     .style("opacity", newOpacity);
                 d.active = active;
