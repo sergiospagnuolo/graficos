@@ -259,7 +259,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .style("fill", "#bbb")
-        .text("Fonte: Departamendo de Estado dos EUA");
+        .text("Fonte: Departamento de Estado dos EUA");
 
     svg.append("rect")
         //.attr("x",0 - (height / 2))
