@@ -159,7 +159,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         //rect botões
         svg.append("rect")
             .attr("x", (legendSpace / 4) + i * legendSpace) // space legend
-            .attr("y", -38)
+            .attr("y", -39)
             .attr("rx", 5)
             .attr("class", "botoes")
             .style("fill", function () {
