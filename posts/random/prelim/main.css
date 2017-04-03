@@ -16,7 +16,7 @@
 body {
     font-family: TradeGothic Light;
     background-color: #eaeaea;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 
 }
 
@@ -69,6 +69,7 @@ path {
 
 div.tooltip {
     position: absolute;
+    top: -100px;
     text-align: left;
     min-width: 100px;
     max-width: 100%;
@@ -190,4 +191,35 @@ a:hover {
     .nota{
         display: none;
     }
+    .botoes{
+        height: 30px;
+        width: 70px;
+        font-size: .9em;
+    }
+    .legend {
+    font-size: 1em;
+    color: inherit;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .botoes{
+        height: 30px;
+        width: 50px;
+        font-size: .9em;
+    }
+    .legend {
+    font-size: 1em;
+    color: inherit;
+    }
+    .fonte{
+        font-size: .8em;
+    }
+    .chart {
+    max-width: 900px;
+    margin: 0 auto;
+    }
+    .y_axis,
+    .x_axis {
+    font-size: 11px;
 }
