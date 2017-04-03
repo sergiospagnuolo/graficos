@@ -130,7 +130,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         svg.selectAll("dot")
             .data(data)
             .enter().append("circle")
-            .attr("r", 5)
+            .attr("r", 4)
             .attr("cx", function (d) {
                 return x(d.date);
             })
@@ -140,7 +140,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .style("fill", function (d) {
                 return d.color = color(d.key);
             })
-            .style("opacity", ".0")
+            .style("opacity", ".05")
             .attr("id", 'dot' + d.key.replace(/\s+/g, ''))
             .on("mouseover", function (d) {
                 div.transition()
@@ -209,7 +209,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .on("click", function () {
                 // Determine if current line is visible 
                 var active = d.active ? false : true,
-                    newOpacity = active ? 1 : 0;
+                    newOpacity = active ? 1 : 0.05;
                 // Hide or show the elements based on the ID
                 d3.select("#tag" + d.key.replace(/\s+/g, ''))
                     .transition().duration(300)

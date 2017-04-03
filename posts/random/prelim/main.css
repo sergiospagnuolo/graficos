@@ -38,7 +38,7 @@ path {
 }
 
 .legend {
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: 700;
     text-anchor: middle;
     list-style-type: none;
@@ -163,7 +163,7 @@ li {
 .chart {
     max-width: 900px;
     margin: 0 auto;
-    position: relative;
+    
 }
 
 .texto {
@@ -178,8 +178,13 @@ svg {
 
 #chart{
     width: 100%;
-    max-width: 850px;
+    max-width: 900px;
     margin: 0 auto;
+    position: absolute;
+}
+
+#chart > svg {
+    width: 100%
 }
 
 a {
