@@ -79,7 +79,7 @@ d3.csv("https://raw.githubusercontent.com/voltdatalab/dados/master/geral/indice_
     var header = table.append("thead").append("tr");
 
     header.selectAll("th")
-      .data(["", "Índice baseado nos valores mínimos ajustados de consultas e pareceres de advogados, sugeridos pelas seccionais da OAB, em relação à renda média dos Estados. Quanto mais próximo de 1, mais perto da renda média, quanto mais distante mais caro o serviço."])
+      .data(["", "Índice baseado nos valores mínimos ajustados de consultas e pareceres de advogados, sugeridos pelas seccionais da OAB, em relação à renda média dos Estados. Quanto mais próximo de 1, menor o peso do custo dos serviços em relação à renda média per capita, quanto mais distante mais caro o serviço."])
       .enter()
       .append("th")
       .text(function(d) {
