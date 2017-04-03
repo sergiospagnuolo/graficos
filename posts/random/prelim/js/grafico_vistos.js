@@ -1,11 +1,11 @@
 var margin = {
         top: 50,
-        right: 80,
+        right: 20,
         bottom: 100,
         left: 47
     },
     width = parseInt(d3.select('#chart').style('width'), 10),
-    width = width - margin.left - 30,
+    width = width - margin.left - margin.right,
     height = .8 * width,
     aspect = width / height;
 //width = 700 - margin.left - margin.right,
@@ -155,8 +155,8 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         
         //rect botões
         svg.append("rect")
-            .attr("x", (legendSpace / 11) + i * legendSpace) // space legend
-            .attr("y", -42)
+            .attr("x", (legendSpace / 4.5) + i * legendSpace) // space legend
+            .attr("y", -38)
             .attr("rx", 5)
             .attr("class", "botoes")
             .style("fill", function () {
@@ -267,8 +267,8 @@ d3.select(window).on('resize', resize);
 
 function resize() {
     // update width
-    width = parseInt(d3.select('#chart').style('width'), 10);
-    width = width - margin.left - margin.right;
+    width = parseInt(d3.select('#chart').style('width'), 10),
+    width = width - margin.left - margin.right,
     
     
     legendSpace = width / dataNest.length;

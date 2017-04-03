@@ -38,7 +38,7 @@ path {
 }
 
 .legend {
-    font-size: 1.3em;
+    font-size: 1em;
     font-weight: 700;
     text-anchor: middle;
     list-style-type: none;
@@ -47,8 +47,8 @@ path {
 
 .botoes {
     text-anchor: middle;
-    height: 30px;
-    width: 110px;
+    height: 25px;
+    width: 70px;
     margin: 0;
     border-radius: 15px;
     cursor: pointer;
@@ -192,8 +192,8 @@ a:hover {
         display: none;
     }
     .botoes{
-        height: 30px;
-        width: 70px;
+        height: 27px;
+        width: 55px;
         font-size: .9em;
     }
     .legend {
@@ -204,13 +204,12 @@ a:hover {
 
 @media screen and (max-width: 450px) {
     .botoes{
-        height: 30px;
-        width: 50px;
-        font-size: .9em;
+        height: 24px;
+        width: 40px;
     }
     .legend {
-    font-size: 1em;
-    color: inherit;
+    font-size: .8em;
+    padding-left: 100px
     }
     .fonte{
         font-size: .8em;
@@ -222,4 +221,5 @@ a:hover {
     .y_axis,
     .x_axis {
     font-size: 11px;
+    fill: #bbbbbb;
 }
