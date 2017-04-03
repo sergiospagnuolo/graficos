@@ -55,7 +55,7 @@ var svg = d3.select("#chart")
     .append("svg")
     //.attr("width", width + margin.left + margin.right)
     //.attr("height", height + margin.top + margin.bottom)
-    .attr("viewBox", "0 0 800 800")
+    .attr("viewBox", "0 0 800 750")
     .attr("preserveAspectRatio", "xMaxYMid meet")
     .append("g")
     .attr("transform",
@@ -159,7 +159,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         //rect botões
         svg.append("rect")
             .attr("x", (legendSpace / 5.3) + i * legendSpace) // space legend
-            .attr("y", -47)
+            .attr("y", -45)
             .attr("rx", 5)
             .attr("class", "botoes")
             .style("fill", function () {
