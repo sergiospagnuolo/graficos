@@ -1,12 +1,13 @@
 var margin = {
         top: 50,
-        right: 20,
-        bottom: 100,
-        left: 47
+        right: 0,
+        bottom: 0,
+        left: 50
     },
-    width = parseInt(d3.select('#chart').style('width'), 10),
-    width = width - margin.left - margin.right,
-    height = .8 * width,
+    //width = parseInt(d3.select('#chart').style('width'), 10),
+    //width = width - margin.left - margin.right,
+    width = 700,
+    height = 600,
     aspect = width / height;
 //width = 700 - margin.left - margin.right,
 //height = 700 - margin.top - margin.bottom;
@@ -52,8 +53,10 @@ var nota = d3.select(".nota")
 // acrescenta a canvas de svg
 var svg = d3.select("#chart")
     .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    //.attr("width", width + margin.left + margin.right)
+    //.attr("height", height + margin.top + margin.bottom)
+    .attr("viewBox", "0 0 800 800")
+    .attr("preserveAspectRatio", "xMaxYMid meet")
     .append("g")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
@@ -155,7 +158,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         
         //rect botões
         svg.append("rect")
-            .attr("x", (legendSpace / 4.5) + i * legendSpace) // space legend
+            .attr("x", (legendSpace / 4) + i * legendSpace) // space legend
             .attr("y", -38)
             .attr("rx", 5)
             .attr("class", "botoes")
@@ -233,16 +236,14 @@ d3.tsv("dados/reject.tsv", function (error, data) {
 
     // Fonte
     svg.append("text")
-        //.attr("y", 0 - margin.left)
-        //.attr("x",0 - (height / 2))
         .attr("transform", "rotate(0)")
         .attr("class", "fonte")
         .attr("y", height + 70)
-        .attr("x", 120)
+        .attr("x", 74)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .style("fill", "#bbb")
-        .text("Fonte: Departamento de Estado dos EUA");
+        .text("Fonte: Depto. de Estado dos EUA");
 
     svg.append("rect")
         //.attr("x",0 - (height / 2))
