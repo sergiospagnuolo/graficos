@@ -7,8 +7,8 @@ var margin = {
     //width = parseInt(d3.select('#chart').style('width'), 10),
     //width = width - margin.left - margin.right,
     width = 700,
-    height = 600,
-    aspect = width / height;
+    height = 600;
+    //aspect = width / height;
 //width = 700 - margin.left - margin.right,
 //height = 700 - margin.top - margin.bottom;
 
@@ -158,8 +158,8 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         
         //rect botões
         svg.append("rect")
-            .attr("x", (legendSpace / 4) + i * legendSpace) // space legend
-            .attr("y", -39)
+            .attr("x", (legendSpace / 5.3) + i * legendSpace) // space legend
+            .attr("y", -47)
             .attr("rx", 5)
             .attr("class", "botoes")
             .style("fill", function () {

@@ -17,7 +17,7 @@ body {
     font-family: TradeGothic Light;
     background-color: #eaeaea;
     font-size: 1em;
-    font-weight: 
+    color: #7d7d7d;
 }
 
 path {
@@ -38,7 +38,7 @@ path {
 }
 
 .legend {
-    font-size: 1.2em;
+    font-size: 1.7em;
     font-weight: 700;
     text-anchor: middle;
     list-style-type: none;
@@ -47,10 +47,9 @@ path {
 
 .botoes {
     text-anchor: middle;
-    height: 25px;
-    width: 70px;
+    height: 35px;
+    width: 90px;
     margin: 0;
-    border-radius: 15px;
     cursor: pointer;
 }
 
@@ -150,9 +149,15 @@ li {
     margin: 20px auto;
     padding: 10px;
     background-color: #eaeaea;
-    position: absolute;
     margin: 60px 120px;
     right: 0
+}
+
+.claimer {
+    font-size: .8em;
+    text-align: center;
+    max-width: 580px;
+    margin: 20px auto;
 }
 
 .chart {
