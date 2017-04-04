@@ -1,4 +1,4 @@
-var margin = {top: 50, right: 60, bottom: 100, left: 50},
+var margin = {top: 50, right: 62, bottom: 100, left: 50},
     dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
     width = dim - margin.left - margin.right,
     height = dim - margin.top - margin.bottom;

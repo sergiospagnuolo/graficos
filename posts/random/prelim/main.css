@@ -265,6 +265,7 @@ a:hover {
     .x_axis {
     font-size: 13px;
     fill: #bbbbbb;
+    stroke: #bbbbbb;
     }
     .fonte{
         font-size: .8em;
