@@ -216,10 +216,12 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                 return d.color = color(d.key);
             })
             .style("opacity", ".1")
+            .style("cursor", "pointer")
             .attr("id", 'key' + d.key.replace(/\s+/g, ''))
             .on("mouseover", function (d) {
                 div.transition()
                     .duration(200)
+                    .style("cursor", "pointer")
                     .style("opacity", 1);
                 div.html("<h4>Ano: " + d.key + "</h4> <br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
                     .style("left", d3.select(this).attr("cx") + "px")
