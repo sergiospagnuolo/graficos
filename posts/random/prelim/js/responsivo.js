@@ -216,6 +216,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                 return d.color = color(d.key);
             })
             .style("opacity", ".1")
+            .classed("hidden", true)
             .style("cursor", "pointer")
             .attr("id", 'key' + d.key.replace(/\s+/g, ''))
             .on("mouseover", function (d) {
@@ -230,6 +231,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .on("mouseout", function (d) {
                 button.transition()
                     .duration(100)
+                    
                     .style("opacity", 0);
             });
 
@@ -291,51 +293,6 @@ function resize() {
   // Update the range of the scale with new width/height
   x.range([0, width]);
   y.range([height, 0]);
-    
-  //rect botões
-        svg.append("rect")
-            .attr("x", (legendSpace / 4) + i * legendSpace) // space legend
-            .attr("y", -38)
-            .attr("rx", 4)
-            .attr("class", "botoes")
-            .style("fill", function () {
-                return d.color = color(d.key);
-            })
-            .on("mouseover", function () {
-                nota.transition()
-                    .style("display", "block")
-                    .style("opacity", "1");
-            })
-            .on("mouseout", function (d) {
-                nota.transition()
-                    .style("opacity", .5);
-            })
-            .on("click", function () {
-                // Determine if current line is visible 
-                var active = d.active ? false : true,
-                    newOpacity = active ? 1 : 0.2;
-                // Hide or show the elements based on the ID
-                d3.select("#tag" + d.key.replace(/\s+/g, ''))
-                    .transition().duration(300)
-                    .ease("linear")
-                    .style("opacity", newOpacity);
-                d.active = active;
-            })
-            .text(d.key);
-            
-
-        // texto legenda 
-        svg.append("text")
-            .attr("x", (legendSpace / 2) + i * legendSpace) // space legend
-            //.attr("y", height + (margin.bottom/1.5)+ 5)
-            .attr("y", -20)
-            .attr("class", "legend")
-            //.style("fill", function () {return d.color = color(d.key);})
-            .style("fill", "#000");  
-    
-        //
-    chart.selectAll('.botoes')
-        .style('display', 'none');
 
 }
 
