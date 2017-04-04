@@ -60,7 +60,7 @@ var svg = d3.select("#chart")
                     ;
             });
 
-var corpo = d3.select("body")
+var corpo = d3.selectAll("text")
     .on("click", function (d) {
                 button.transition()
                     .delay(0)
