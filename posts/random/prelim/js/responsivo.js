@@ -230,7 +230,9 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             })
             .on("mouseleave", function (d) {
                 button.transition()
+                    .delay(0)
                     .duration(100)
+                    .style('pointer-events', 'none')
                     .style("opacity", 0);
             });
 
