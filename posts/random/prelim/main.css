@@ -205,7 +205,7 @@ a:hover {
     background-color: #a5e9fc;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 850px) {
     .chart {
         padding: 2%;
     }
@@ -269,5 +269,9 @@ a:hover {
     }
     .fonte{
         font-size: .8em;
+    }
+    svg {
+    position: absolute;
+    left: 0;
     }
 }
