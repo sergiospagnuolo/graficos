@@ -64,7 +64,7 @@ path {
     font-weight: 300;
     fill: #bbbbbb;
     font-family: TradeGothic;
-    stroke:#bbbbbb;
+    stroke:none;
 }
 
 div.tooltip {
@@ -251,7 +251,7 @@ a:hover {
         text-anchor: end;
     }
     .legend {
-    font-size: .8em;
+    font-size: .9em;
     text-anchor: middle;
     }
     .fonte{

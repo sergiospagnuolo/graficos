@@ -109,13 +109,12 @@ d3.tsv("dados/reject.tsv", function (error, data) {
 
         // legenda retangular
         //svg.append("rect")
-            //.attr("x", (legendSpace / 8) + i * legendSpace) // space legend
+            //.attr("x", height)
             //.attr("class", "legend")
-            //.style("text-anchor", "end")
-            //.attr("y", -38)
+            //.attr("y", -18)
             //.attr("width", 8)
             //.attr("height", 8)
-            //.style("fill", function() { return d.color = color(d.key); });
+           //.style("fill", function() { return d.color = color(d.key); });
 
         //linhas para anos
         //svg.selectAll("line").data(data).enter().append("line")       
@@ -152,7 +151,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .style("fill", function (d) {
                 return d.color = color(d.key);
             })
-            .style("opacity", ".05")
+            .style("opacity", ".0")
             .attr("id", 'dot' + d.key.replace(/\s+/g, ''))
             .on("mouseover", function (d) {
                 div.transition()
@@ -169,46 +168,45 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             });
         
         //rect botões
-        //svg.append("rect")
-            //.attr("x", (legendSpace / 5) + i * legendSpace) // space legend
-            //.attr("y", -38)
-            //.attr("rx", 4)
-            //.attr("class", "botoes")
-            //.style("fill", function () {
-                //return d.color = color(d.key);
-            //})
-           // .on("mouseover", function () {
-                //nota.transition()
-                    //.style("display", "block")
-                   // .style("opacity", "1");
-           // })
-           // .on("mouseout", function (d) {
-               // nota.transition()
-                 //   .style("opacity", .5);
-            //})
-           // .on("click", function () {
+        svg.append("rect")
+            .attr("x", (legendSpace / 5) + i * legendSpace) // space legend
+            .attr("y", -38)
+            .attr("rx", 4)
+            .attr("class", "botoes")
+            .style("fill", function () {
+                return d.color = color(d.key);
+            })
+            .on("mouseover", function () {
+                nota.transition()
+                    .style("display", "block")
+                    .style("opacity", "1");
+            })
+            .on("mouseout", function (d) {
+                nota.transition()
+                    .style("opacity", .5);
+            })
+            .on("click", function () {
                 // Determine if current line is visible 
-               // var active = d.active ? false : true,
-                    //newOpacity = active ? 1 : 0.2;
+                var active = d.active ? false : true,
+                    newOpacity = active ? 1 : 0.2;
                 // Hide or show the elements based on the ID
-               // d3.select("#tag" + d.key.replace(/\s+/g, ''))
-                    //.transition().duration(300)
-                    //.ease("linear")
-                   // .style("opacity", newOpacity);
-               // d.active = active;
-            //})
-           // .text(d.key);
+                d3.select("#tag" + d.key.replace(/\s+/g, ''))
+                    .transition().duration(300)
+                    .ease("linear")
+                    .style("opacity", newOpacity);
+                d.active = active;
+            })
+            .text(d.key);
             
 
         // texto legenda 
         svg.append("text")
             .attr("x", (legendSpace / 2) + i * legendSpace) // space legend
             //.attr("y", height + (margin.bottom/1.5)+ 5)
-            .attr("y", -30)
+            .attr("y", -20)
             .attr("class", "legend")
-            .style("stroke", "none")
-            .style("fill", function () {return d.color = color(d.key);})
-            //.style("fill", "#fff")
+            //.style("fill", function () {return d.color = color(d.key);})
+            .style("fill", "#fff")
             .on("mouseover", function () {
                 nota.transition()
                     .style("display", "block")
@@ -243,7 +241,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
     // eixo y
     svg.append("g")
         .attr("class", "y_axis")
-        .style("stroke", "none")
+        .style("stroke", "0")
         .call(yAxis);
 
     // Fonte
