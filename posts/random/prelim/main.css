@@ -182,7 +182,7 @@ svg {
     position: relative;
     margin: 0 auto;
     display: block;
-    left: 15%;
+    left: 17%;
 }
 
 /*
@@ -204,7 +204,7 @@ a:hover {
     background-color: #a5e9fc;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 890px) {
     .chart {
         padding: 2%;
     }
@@ -237,7 +237,14 @@ a:hover {
     }
     svg {
     position: absolute;
-    left: 0;
+    left: 17%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    svg {
+    position: absolute;
+    left: 5%;
     }
 }
 
