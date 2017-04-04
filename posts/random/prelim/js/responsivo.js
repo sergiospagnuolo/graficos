@@ -228,10 +228,9 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .style("left", d3.select(this).attr("cx") + "px")
                     .style("top", d3.select(this).attr("cy") + "px");
             })
-            .on("mouseout", function (d) {
+            .on("mouseleave", function (d) {
                 button.transition()
                     .duration(100)
-                    
                     .style("opacity", 0);
             });
 
