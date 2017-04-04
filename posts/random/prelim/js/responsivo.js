@@ -328,6 +328,10 @@ function resize() {
             .attr("class", "legend")
             //.style("fill", function () {return d.color = color(d.key);})
             .style("fill", "#000");  
+    
+        //
+    chart.selectAll('.botoes')
+        .style('display', 'none');
 
 }
 
