@@ -132,7 +132,14 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         var button = d3.select("#chart").append("button")
             .data(data)
             .attr("class", "tooltip")
-            .style("opacity", 0);
+            .style("opacity", 0)
+            .on("click", function (d) {
+                button.transition()
+                    .delay(0)
+                    .duration(200)
+                    .style("opacity", "0")
+                    .style("pointer-events", "none")
+                    ;
 
 
         // Formata data para tooltip
