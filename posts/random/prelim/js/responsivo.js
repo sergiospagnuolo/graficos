@@ -68,6 +68,7 @@ var corpo = d3.selectAll("text")
                     .style("opacity", "0")
                     .style("pointer-events", "none")
                     ;
+        
             });
 
 
@@ -240,7 +241,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .style("display", "block")
             .style("cursor", "pointer")
             .attr("id", 'key' + d.key.replace(/\s+/g, ''))
-            .on("mouseenter", function (d) {
+            .on("mouseover", function (d) {
                 button.transition()
                     .duration(200)
                     .style("cursor", "pointer")
@@ -249,12 +250,12 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .style("left", d3.select(this).attr("cx") + "px")
                     .style("top", d3.select(this).attr("cy") + "px");
             })
-            .on("mouseleave", function (d) {
-                button.transition()
+            .on("mouseout", function (d) {
+                button.interrupt().transition()
                     .delay(0)
                     .duration(200)
                     .style("opacity", "0")
-                    .style("pointer-events", "none")
+                    .style("pointer-events", "none");
                     ; tip.hide;
             })
             .on("click", function (d) {
