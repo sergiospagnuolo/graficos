@@ -60,6 +60,16 @@ var svg = d3.select("#chart")
                     ;
             });
 
+var corpo = d3.select("body")
+    .on("click", function (d) {
+                button.transition()
+                    .delay(0)
+                    .duration(200)
+                    .style("opacity", "0")
+                    .style("pointer-events", "none")
+                    ;
+            });
+
 
 // puxa os dados da tabela
 d3.tsv("dados/reject.tsv", function (error, data) {
