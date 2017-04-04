@@ -223,7 +223,6 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                 button.transition()
                     .duration(200)
                     .style("cursor", "pointer")
-                    .style("display", "block")
                     .style("opacity", 1);
                 button.html("<h4>Ano: " + d.key + "</h4> <br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
                     .style("left", d3.select(this).attr("cx") + "px")
@@ -232,9 +231,8 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .on("mouseout", function (d) {
                 button.transition()
                     .delay(0)
-                    .duration(100)
-                    .style("display", "none")
-                    tip.hide
+                    .style("opacity", "0")
+                    .style("pointer-events", "none")
                     ;
             })
 
