@@ -68,7 +68,7 @@ path {
 }
 
 button.tooltip {
-    position: relative;
+    position: absolute;
     text-align: left;
     min-width: 100px;
     max-width: 100%;
@@ -77,7 +77,8 @@ button.tooltip {
     border: 0px;
     border-radius: 5px;
     pointer-events: none;
-    background: rgba(255,255,255,.9); 
+    background: rgba(255,255,255,.9);
+    
 }
 
 
