@@ -241,7 +241,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
     svg.append("g")
         .attr("class", "x_axis")
         .attr("transform", "translate(0," + height + ")")
-        .style("stroke", "15px")
+        .style("stroke", "none")
         .call(xAxis);
 
     // eixo y
