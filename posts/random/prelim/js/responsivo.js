@@ -205,7 +205,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         svg.selectAll("dot")
             .data(data)
             .enter().append("circle")
-            .attr("r", 4)
+            .attr("r", 5)
             .attr("cx", function (d) {
                 return x(d.date);
             })
@@ -235,7 +235,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .duration(200)
                     .style("opacity", "0")
                     .style("pointer-events", "none")
-                    ;
+                    ; tip.hide;
             })
             .on("click", function (d) {
                 button.transition()
