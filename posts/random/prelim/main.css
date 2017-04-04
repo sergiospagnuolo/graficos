@@ -242,13 +242,80 @@ a:hover {
 }
 
 @media screen and (max-width: 750px) {
+    .chart {
+        padding: 2%;
+    }
+    .nota{
+        display: none;
+    }
+    .legend {
+    font-size: 1em;
+        text-anchor: middle;
+
+    }
+    .y_axis,
+    .x_axis {
+    font-size: 1.1em;
+    fill: #bbbbbb;
+    stroke:#bbbbbb;
+    }
+    button.tooltip{
+        position: absolute;
+    }
+    .botoes{
+        height: 27px;
+        width: 55px;
+        font-size: .9em;
+        text-anchor: middle;
+    }
+    .legend {
+    font-size: 1em;
+    color: inherit;
+    }
+    svg {
+    position: absolute;
+    left: 10%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .chart {
+        padding: 2%;
+    }
+    .nota{
+        display: none;
+    }
+    .legend {
+    font-size: 1em;
+        text-anchor: middle;
+
+    }
+    .y_axis,
+    .x_axis {
+    font-size: 1.1em;
+    fill: #bbbbbb;
+    stroke:#bbbbbb;
+    }
+    button.tooltip{
+        position: absolute;
+    }
+    .botoes{
+        height: 27px;
+        width: 55px;
+        font-size: .9em;
+        text-anchor: middle;
+    }
+    .legend {
+    font-size: 1em;
+    color: inherit;
+    }
     svg {
     position: absolute;
     left: 5%;
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 580px) {
     .botoes{
         height: 24px;
         width: 36px;
