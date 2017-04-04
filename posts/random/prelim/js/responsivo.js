@@ -217,6 +217,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             })
             .style("opacity", ".1")
             .classed("hidden", true)
+            .style("display", "block")
             .style("cursor", "pointer")
             .attr("id", 'key' + d.key.replace(/\s+/g, ''))
             .on("mouseenter", function (d) {
@@ -229,6 +230,14 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .style("top", d3.select(this).attr("cy") + "px");
             })
             .on("mouseleave", function (d) {
+                button.transition()
+                    .delay(0)
+                    .duration(200)
+                    .style("opacity", "0")
+                    .style("pointer-events", "none")
+                    ;
+            })
+            .on("click", function (d) {
                 button.transition()
                     .delay(0)
                     .duration(200)
