@@ -50,7 +50,15 @@ var svg = d3.select("#chart")
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+        "translate(" + margin.left + "," + margin.top + ")")
+    .on("click", function (d) {
+                button.transition()
+                    .delay(0)
+                    .duration(200)
+                    .style("opacity", "0")
+                    .style("pointer-events", "none")
+                    ;
+            });
 
 
 // puxa os dados da tabela
@@ -105,7 +113,8 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             })
             .attr("id", 'tag' + d.key.replace(/\s+/g, '')) // aplicar classe das linhas
             .attr("d", valueline(d.values))
-            .append("title");
+            .append("title")
+            ;
 
         // legenda retangular
         //svg.append("rect")
@@ -205,6 +214,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         svg.selectAll("dot")
             .data(data)
             .enter().append("circle")
+            .attr("class", "circulo")
             .attr("r", 5)
             .attr("cx", function (d) {
                 return x(d.date);
@@ -288,8 +298,6 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         .attr("x", width - 60)
         .attr("width", 60)
         .attr("height", 80);
-
-
 });
 
 function resize() {
