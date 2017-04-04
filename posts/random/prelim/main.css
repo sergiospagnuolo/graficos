@@ -64,6 +64,7 @@ path {
     font-weight: 300;
     fill: #bbbbbb;
     font-family: TradeGothic;
+    stroke:#bbbbbb;
 }
 
 div.tooltip {
@@ -220,6 +221,7 @@ a:hover {
     .x_axis {
     font-size: 1.1em;
     fill: #bbbbbb;
+    stroke:#bbbbbb;
     }
     div.tooltip{
         position: absolute;
