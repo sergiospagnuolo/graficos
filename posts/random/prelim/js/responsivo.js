@@ -137,36 +137,6 @@ d3.tsv("dados/reject.tsv", function (error, data) {
 
         // Formata data para tooltip
         var FormatDate = d3.time.format("%Y");
-
-        // Acrescenta os pontos pra tooltip
-        svg.selectAll("dot")
-            .data(data)
-            .enter().append("circle")
-            .attr("r", 5)
-            .attr("cx", function (d) {
-                return x(d.date);
-            })
-            .attr("cy", function (d) {
-                return y(d.value + 1);
-            })
-            .style("fill", function (d) {
-                return d.color = color(d.key);
-            })
-            .style("opacity", ".05")
-            .attr("id", 'dot' + d.key.replace(/\s+/g, ''))
-            .on("mouseover", function (d) {
-                div.transition()
-                    .duration(200)
-                    .style("opacity", 1);
-                div.html("<h4>Ano: " + d.key + "</h4> <br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
-                    .style("left", d3.select(this).attr("cx") + "px")
-                    .style("top", d3.select(this).attr("cy") + "px");
-            })
-            .on("mouseout", function (d) {
-                div.transition()
-                    .duration(1000)
-                    .style("opacity", 0);
-            });
         
         //rect botões
         //svg.append("rect")
@@ -210,12 +180,12 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .style("fill", function () {return d.color = color(d.key);})
             //.style("fill", "#fff")
             .on("mouseover", function () {
-                nota.transition()
+                dot.transition()
                     .style("display", "block")
                     .style("opacity", "1");
             })
             .on("mouseout", function (d) {
-                nota.transition()
+                dot.transition()
                     .style("opacity", .2);
             })
             .on("click", function () {
@@ -230,6 +200,36 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                 d.active = active;
             })
             .text(d.key);
+        
+         // Acrescenta os pontos pra tooltip
+        svg.selectAll("dot")
+            .data(data)
+            .enter().append("circle")
+            .attr("r", 4)
+            .attr("cx", function (d) {
+                return x(d.date);
+            })
+            .attr("cy", function (d) {
+                return y(d.value + 1);
+            })
+            .style("fill", function (d) {
+                return d.color = color(d.key);
+            })
+            .style("opacity", ".1")
+            .attr("id", 'key' + d.key.replace(/\s+/g, ''))
+            .on("mouseover", function (d) {
+                div.transition()
+                    .duration(200)
+                    .style("opacity", 1);
+                div.html("<h4>Ano: " + d.key + "</h4> <br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
+                    .style("left", d3.select(this).attr("cx") + "px")
+                    .style("top", d3.select(this).attr("cy") + "px");
+            })
+            .on("mouseout", function (d) {
+                div.transition()
+                    .duration(100)
+                    .style("opacity", 0);
+            });
 
     });
 
