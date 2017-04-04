@@ -1,4 +1,9 @@
-var margin = {top: 50, right: 62, bottom: 100, left: 50},
+var margin = {
+        top: 50,
+        right: 62,
+        bottom: 100,
+        left: 50
+    },
     dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
     width = dim - margin.left - margin.right,
     height = dim - margin.top - margin.bottom;
@@ -52,24 +57,22 @@ var svg = d3.select("#chart")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")")
     .on("click", function (d) {
-                button.transition()
-                    .delay(0)
-                    .duration(200)
-                    .style("opacity", "0")
-                    .style("pointer-events", "none")
-                    ;
-            });
+        button.transition()
+            .delay(0)
+            .duration(200)
+            .style("opacity", "0")
+            .style("pointer-events", "none");
+    });
 
 var corpo = d3.selectAll("text")
     .on("click", function (d) {
-                button.transition()
-                    .delay(0)
-                    .duration(200)
-                    .style("opacity", "0")
-                    .style("pointer-events", "none")
-                    ;
-        
-            });
+        button.transition()
+            .delay(0)
+            .duration(200)
+            .style("opacity", "0")
+            .style("pointer-events", "none");
+
+    });
 
 
 // puxa os dados da tabela
@@ -124,18 +127,17 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             })
             .attr("id", 'tag' + d.key.replace(/\s+/g, '')) // aplicar classe das linhas
             .attr("d", valueline(d.values))
-            .append("title")
-            ;
+            .append("title");
 
         // legenda retangular
         //svg.append("rect")
-            //.attr("x", (legendSpace / 8) + i * legendSpace) // space legend
-            //.attr("class", "legend")
-            //.style("text-anchor", "end")
-            //.attr("y", -38)
-            //.attr("width", 8)
-            //.attr("height", 8)
-            //.style("fill", function() { return d.color = color(d.key); });
+        //.attr("x", (legendSpace / 8) + i * legendSpace) // space legend
+        //.attr("class", "legend")
+        //.style("text-anchor", "end")
+        //.attr("y", -38)
+        //.attr("width", 8)
+        //.attr("height", 8)
+        //.style("fill", function() { return d.color = color(d.key); });
 
         //linhas para anos
         //svg.selectAll("line").data(data).enter().append("line")       
@@ -146,50 +148,48 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         //.style("stroke-width", 2)
         //.style("stroke", "gray")
         //.style("stroke-dasharray", ("2, 2"))
-        //.style("opacity",0);
-
-        // Define a div para tooltip
-        var button = d3.select("svg").append("button")
-            .data(data)
-            .attr("class", "tooltip")
-            .style("opacity", 0);
-
-            
+        //.style("opacity",0);  
         
+        // Define a div para tooltip
+var button = d3.select("#chart").append("button")
+    .data(data)
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
         // Formata data para tooltip
         var FormatDate = d3.time.format("%Y");
-        
+
         //rect botões
         //svg.append("rect")
-            //.attr("x", (legendSpace / 5) + i * legendSpace) // space legend
-            //.attr("y", -38)
-            //.attr("rx", 4)
-            //.attr("class", "botoes")
-            //.style("fill", function () {
-                //return d.color = color(d.key);
-            //})
-           // .on("mouseover", function () {
-                //nota.transition()
-                    //.style("display", "block")
-                   // .style("opacity", "1");
-           // })
-           // .on("mouseout", function (d) {
-               // nota.transition()
-                 //   .style("opacity", .5);
-            //})
-           // .on("click", function () {
-                // Determine if current line is visible 
-               // var active = d.active ? false : true,
-                    //newOpacity = active ? 1 : 0.2;
-                // Hide or show the elements based on the ID
-               // d3.select("#tag" + d.key.replace(/\s+/g, ''))
-                    //.transition().duration(300)
-                    //.ease("linear")
-                   // .style("opacity", newOpacity);
-               // d.active = active;
-            //})
-           // .text(d.key);
-            
+        //.attr("x", (legendSpace / 5) + i * legendSpace) // space legend
+        //.attr("y", -38)
+        //.attr("rx", 4)
+        //.attr("class", "botoes")
+        //.style("fill", function () {
+        //return d.color = color(d.key);
+        //})
+        // .on("mouseover", function () {
+        //nota.transition()
+        //.style("display", "block")
+        // .style("opacity", "1");
+        // })
+        // .on("mouseout", function (d) {
+        // nota.transition()
+        //   .style("opacity", .5);
+        //})
+        // .on("click", function () {
+        // Determine if current line is visible 
+        // var active = d.active ? false : true,
+        //newOpacity = active ? 1 : 0.2;
+        // Hide or show the elements based on the ID
+        // d3.select("#tag" + d.key.replace(/\s+/g, ''))
+        //.transition().duration(300)
+        //.ease("linear")
+        // .style("opacity", newOpacity);
+        // d.active = active;
+        //})
+        // .text(d.key);
+
 
         // texto legenda 
         svg.append("text")
@@ -198,7 +198,9 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .attr("y", -30)
             .attr("class", "legend")
             .style("stroke", "none")
-            .style("fill", function () {return d.color = color(d.key);})
+            .style("fill", function () {
+                return d.color = color(d.key);
+            })
             //.style("fill", "#fff")
             .on("mouseover", function () {
                 dot.transition()
@@ -221,8 +223,8 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                 d.active = active;
             })
             .text(d.key);
-        
-         // Acrescenta os pontos pra tooltip
+
+        // Acrescenta os pontos pra tooltip
         svg.selectAll("dot")
             .data(data)
             .enter().append("circle")
@@ -263,8 +265,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .delay(0)
                     .duration(200)
                     .style("opacity", "0")
-                    .style("pointer-events", "none")
-                    ;
+                    .style("pointer-events", "none");
             });
     });
 
@@ -313,15 +314,15 @@ d3.tsv("dados/reject.tsv", function (error, data) {
 
 function resize() {
 
-  var dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
-  width = dim - margin.left - margin.right,
-  height = dim - margin.top - margin.bottom;
+    var dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
+        width = dim - margin.left - margin.right,
+        height = dim - margin.top - margin.bottom;
 
-  console.log(dim);
+    console.log(dim);
 
-  // Update the range of the scale with new width/height
-  x.range([0, width]);
-  y.range([height, 0]);
+    // Update the range of the scale with new width/height
+    x.range([0, width]);
+    y.range([height, 0]);
 
 }
 
