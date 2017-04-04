@@ -1,14 +1,7 @@
-var margin = {
-        top: 50,
-        right: 0,
-        bottom: 0,
-        left: 50
-    },
-    width = parseInt(d3.select('#chart').style('width'), 10),
-    width = width - margin.left - margin.right,
-    width = 700,
-    height = 600;
-    //aspect = width / height;
+var margin = {top: 50, right: 60, bottom: 100, left: 50},
+    dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
+    width = dim - margin.left - margin.right,
+    height = dim - margin.top - margin.bottom;
 //width = 700 - margin.left - margin.right,
 //height = 700 - margin.top - margin.bottom;
 
@@ -53,10 +46,8 @@ var nota = d3.select(".nota")
 // acrescenta a canvas de svg
 var svg = d3.select("#chart")
     .append("svg")
-    //.attr("width", width + margin.left + margin.right)
-    //.attr("height", height + margin.top + margin.bottom)
-    .attr("viewBox", "0 0 800 750")
-    .attr("preserveAspectRatio", "xMaxYMid meet")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
@@ -104,7 +95,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             })
             //acrescenta linha dashed pra média
             .style('stroke-dasharray', function () {
-                return d.key === 'Média RIC' ? '4 4' : '';
+                return d.key === 'Média' ? '4 4' : '';
             })
             .style('opacity', function () {
                 if (d.key === 'Rússia') return '.1';
@@ -115,6 +106,26 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .attr("id", 'tag' + d.key.replace(/\s+/g, '')) // aplicar classe das linhas
             .attr("d", valueline(d.values))
             .append("title");
+
+        // legenda retangular
+        //svg.append("rect")
+            //.attr("x", height)
+            //.attr("class", "legend")
+            //.attr("y", -18)
+            //.attr("width", 8)
+            //.attr("height", 8)
+           //.style("fill", function() { return d.color = color(d.key); });
+
+        //linhas para anos
+        //svg.selectAll("line").data(data).enter().append("line")       
+        //.attr('x1',function(d) { return x(d.date); })
+        //.attr('y1',function(d) { return y(0); })
+        //.attr('x2',function(d) { return x(d.date); })
+        //.attr('y2',function(d) { return y(d.value); })
+        //.style("stroke-width", 2)
+        //.style("stroke", "gray")
+        //.style("stroke-dasharray", ("2, 2"))
+        //.style("opacity",0);
 
         // Define a div para tooltip
         var div = d3.select("#chart").append("div")
@@ -130,8 +141,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         svg.selectAll("dot")
             .data(data)
             .enter().append("circle")
-            .style("position", "relative")
-            .attr("r", 4)
+            .attr("r", 5)
             .attr("cx", function (d) {
                 return x(d.date);
             })
@@ -141,13 +151,13 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .style("fill", function (d) {
                 return d.color = color(d.key);
             })
-            .style("opacity", ".05")
+            .style("opacity", ".0")
             .attr("id", 'dot' + d.key.replace(/\s+/g, ''))
             .on("mouseover", function (d) {
                 div.transition()
                     .duration(200)
                     .style("opacity", 1);
-                div.html("<h4>País: <span style='colour:#222'>" + d.key + "</span></h4> <br>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
+                div.html("<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
                     .style("left", d3.select(this).attr("cx") + "px")
                     .style("top", d3.select(this).attr("cy") + "px");
             })
@@ -159,9 +169,9 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         
         //rect botões
         svg.append("rect")
-            .attr("x", (legendSpace / 5.3) + i * legendSpace) // space legend
-            .attr("y", -45)
-            .attr("rx", 5)
+            .attr("x", (legendSpace / 5) + i * legendSpace) // space legend
+            .attr("y", -38)
+            .attr("rx", 4)
             .attr("class", "botoes")
             .style("fill", function () {
                 return d.color = color(d.key);
@@ -173,13 +183,12 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             })
             .on("mouseout", function (d) {
                 nota.transition()
-                    .style("display", "none")
-                    .style("opacity", "0");
+                    .style("opacity", .5);
             })
             .on("click", function () {
                 // Determine if current line is visible 
                 var active = d.active ? false : true,
-                    newOpacity = active ? 1 : 0;
+                    newOpacity = active ? 1 : 0.2;
                 // Hide or show the elements based on the ID
                 d3.select("#tag" + d.key.replace(/\s+/g, ''))
                     .transition().duration(300)
@@ -205,12 +214,12 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             })
             .on("mouseout", function (d) {
                 nota.transition()
-                    .style("opacity", 0);
+                    .style("opacity", .2);
             })
             .on("click", function () {
                 // Determine if current line is visible 
                 var active = d.active ? false : true,
-                    newOpacity = active ? 1 : 0.05;
+                    newOpacity = active ? 1 : 0.2;
                 // Hide or show the elements based on the ID
                 d3.select("#tag" + d.key.replace(/\s+/g, ''))
                     .transition().duration(300)
@@ -237,10 +246,12 @@ d3.tsv("dados/reject.tsv", function (error, data) {
 
     // Fonte
     svg.append("text")
+        //.attr("y", 0 - margin.left)
+        //.attr("x",0 - (height / 2))
         .attr("transform", "rotate(0)")
         .attr("class", "fonte")
         .attr("y", height + 70)
-        .attr("x", 74)
+        .attr("x", 73)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .style("fill", "#bbb")
@@ -265,21 +276,61 @@ d3.tsv("dados/reject.tsv", function (error, data) {
 
 });
 
-d3.select(window).on('resize', resize); 
-
 function resize() {
-    // update width
-    width = parseInt(d3.select('#chart').style('width'), 10),
-    width = width - margin.left - margin.right,
-    
-    
-    legendSpace = width / dataNest.length;
-    
-    // reset x range
-    x.range([0, width]);
 
-    // do the actual resize...
+  var dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
+  width = dim - margin.left - margin.right,
+  height = dim - margin.top - margin.bottom;
+
+  console.log(dim);
+
+  // Update the range of the scale with new width/height
+  x.range([0, width]);
+  y.range([height, 0]);
     
-    chart.selectAll('rect')
-        .attr('width', width);
+  //rect botões
+        svg.append("rect")
+            .attr("x", (legendSpace / 4) + i * legendSpace) // space legend
+            .attr("y", -38)
+            .attr("rx", 4)
+            .attr("class", "botoes")
+            .style("fill", function () {
+                return d.color = color(d.key);
+            })
+            .on("mouseover", function () {
+                nota.transition()
+                    .style("display", "block")
+                    .style("opacity", "1");
+            })
+            .on("mouseout", function (d) {
+                nota.transition()
+                    .style("opacity", .5);
+            })
+            .on("click", function () {
+                // Determine if current line is visible 
+                var active = d.active ? false : true,
+                    newOpacity = active ? 1 : 0.2;
+                // Hide or show the elements based on the ID
+                d3.select("#tag" + d.key.replace(/\s+/g, ''))
+                    .transition().duration(300)
+                    .ease("linear")
+                    .style("opacity", newOpacity);
+                d.active = active;
+            })
+            .text(d.key);
+            
+
+        // texto legenda 
+        svg.append("text")
+            .attr("x", (legendSpace / 2) + i * legendSpace) // space legend
+            //.attr("y", height + (margin.bottom/1.5)+ 5)
+            .attr("y", -20)
+            .attr("class", "legend")
+            //.style("fill", function () {return d.color = color(d.key);})
+            .style("fill", "#000");  
+
 }
+
+d3.select(window).on('resize', resize);
+
+resize();

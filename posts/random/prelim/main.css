@@ -38,7 +38,7 @@ path {
 }
 
 .legend {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 700;
     text-anchor: middle;
     list-style-type: none;
@@ -47,8 +47,8 @@ path {
 
 .botoes {
     text-anchor: middle;
-    height: 35px;
-    width: 90px;
+    height: 25px;
+    width: 55px;
     margin: 0;
     cursor: pointer;
 }
@@ -163,7 +163,6 @@ li {
 .chart {
     max-width: 900px;
     margin: 0 auto;
-    
 }
 
 .texto {
@@ -171,21 +170,26 @@ li {
     margin: 0 auto;
 }
 
+#chart {
+  width: 100%;
+  height: 70%;
+  max-width: 700px;
+  min-height: 300px;
+  position: absolute;
+}
+
 svg {
+    position: relative;
     margin: 0 auto;
-    position: absolute; 
+    display: block;
+    left: 15%;
 }
 
-#chart{
-    width: 100%;
-    max-width: 900px;
+/*
+svg {
+    display: block;
     margin: 0 auto;
-    position: absolute;
-}
-
-#chart > svg {
-    width: 100%
-}
+}*/
 
 a {
     border-bottom: #a5e9fc solid 4px;
@@ -208,45 +212,59 @@ a:hover {
         display: none;
     }
     .legend {
-    font-size: 1.6em;
+    font-size: 1em;
+        text-anchor: middle;
+
     }
     .y_axis,
     .x_axis {
     font-size: 1.1em;
     fill: #bbbbbb;
     }
-    
-    /*
+    div.tooltip{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
     .botoes{
         height: 27px;
         width: 55px;
         font-size: .9em;
+        text-anchor: middle;
     }
     .legend {
     font-size: 1em;
     color: inherit;
-    } */
+    }
+    svg {
+    position: absolute;
+    left: 0;
+    }
 }
 
-/*
 @media screen and (max-width: 450px) {
     .botoes{
         height: 24px;
         width: 40px;
+        text-anchor: middle;
     }
     .legend {
     font-size: .8em;
-    padding-left: 100px
+    text-anchor: middle;
     }
     .fonte{
         font-size: .8em;
     }
     .chart {
-    max-width: 900px;
+    max-width: 700px;
     margin: 0 auto;
     }
     .y_axis,
     .x_axis {
     font-size: 11px;
     fill: #bbbbbb;
+    }
+    .fonte{
+        font-size: .8em;
+    }
 }
