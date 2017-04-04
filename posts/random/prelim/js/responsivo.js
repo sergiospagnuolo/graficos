@@ -229,13 +229,14 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .style("left", d3.select(this).attr("cx") + "px")
                     .style("top", d3.select(this).attr("cy") + "px");
             })
-            .on("mouseleave", function (d) {
+            .on("mouseout", function (d) {
                 button.transition()
                     .delay(0)
                     .duration(100)
                     .style("display", "none")
+                    tip.hide
                     ;
-            });
+            })
 
     });
 
