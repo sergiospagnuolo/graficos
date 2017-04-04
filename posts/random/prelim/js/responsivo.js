@@ -129,7 +129,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         //.style("opacity",0);
 
         // Define a div para tooltip
-        var div = d3.select("#chart").append("div")
+        var button = d3.select("#chart").append("button")
             .data(data)
             .attr("class", "tooltip")
             .style("opacity", 0);
@@ -219,16 +219,16 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .style("cursor", "pointer")
             .attr("id", 'key' + d.key.replace(/\s+/g, ''))
             .on("mouseover", function (d) {
-                div.transition()
+                button.transition()
                     .duration(200)
                     .style("cursor", "pointer")
                     .style("opacity", 1);
-                div.html("<h4>Ano: " + d.key + "</h4> <br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
+                button.html("<h4>Ano: " + d.key + "</h4> <br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
                     .style("left", d3.select(this).attr("cx") + "px")
                     .style("top", d3.select(this).attr("cy") + "px");
             })
             .on("mouseout", function (d) {
-                div.transition()
+                button.transition()
                     .duration(100)
                     .style("opacity", 0);
             });

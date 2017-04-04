@@ -67,7 +67,7 @@ path {
     stroke:none;
 }
 
-div.tooltip {
+button.tooltip {
     position: absolute;
     top: -100px;
     text-align: left;
@@ -223,7 +223,7 @@ a:hover {
     fill: #bbbbbb;
     stroke:#bbbbbb;
     }
-    div.tooltip{
+    button.tooltip{
         position: absolute;
         top: 0;
         left: 0;

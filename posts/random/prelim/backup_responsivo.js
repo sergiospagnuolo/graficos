@@ -61,7 +61,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
     });
 
 
-    // Scale the range of the data
+    // o range dos dados
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
@@ -69,7 +69,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         return d.value;
     })]);
 
-    // Nest the entries by key
+    // colocar os paises em nest
     var dataNest = d3.nest()
         .key(function (d) {
             return d.key;
@@ -109,12 +109,13 @@ d3.tsv("dados/reject.tsv", function (error, data) {
 
         // legenda retangular
         //svg.append("rect")
-            //.attr("x", height)
+            //.attr("x", (legendSpace / 8) + i * legendSpace) // space legend
             //.attr("class", "legend")
-            //.attr("y", -18)
+            //.style("text-anchor", "end")
+            //.attr("y", -38)
             //.attr("width", 8)
             //.attr("height", 8)
-           //.style("fill", function() { return d.color = color(d.key); });
+            //.style("fill", function() { return d.color = color(d.key); });
 
         //linhas para anos
         //svg.selectAll("line").data(data).enter().append("line")       
@@ -136,84 +137,55 @@ d3.tsv("dados/reject.tsv", function (error, data) {
 
         // Formata data para tooltip
         var FormatDate = d3.time.format("%Y");
-
-        // Acrescenta os pontos pra tooltip
-        svg.selectAll("dot")
-            .data(data)
-            .enter().append("circle")
-            .attr("r", 5)
-            .attr("cx", function (d) {
-                return x(d.date);
-            })
-            .attr("cy", function (d) {
-                return y(d.value + 1);
-            })
-            .style("fill", function (d) {
-                return d.color = color(d.key);
-            })
-            .style("opacity", ".0")
-            .attr("id", 'dot' + d.key.replace(/\s+/g, ''))
-            .on("mouseover", function (d) {
-                div.transition()
-                    .duration(200)
-                    .style("opacity", 1);
-                div.html("<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
-                    .style("left", d3.select(this).attr("cx") + "px")
-                    .style("top", d3.select(this).attr("cy") + "px");
-            })
-            .on("mouseout", function (d) {
-                div.transition()
-                    .duration(1000)
-                    .style("opacity", 0);
-            });
         
         //rect botões
-        svg.append("rect")
-            .attr("x", (legendSpace / 5) + i * legendSpace) // space legend
-            .attr("y", -38)
-            .attr("rx", 4)
-            .attr("class", "botoes")
-            .style("fill", function () {
-                return d.color = color(d.key);
-            })
-            .on("mouseover", function () {
-                nota.transition()
-                    .style("display", "block")
-                    .style("opacity", "1");
-            })
-            .on("mouseout", function (d) {
-                nota.transition()
-                    .style("opacity", .5);
-            })
-            .on("click", function () {
+        //svg.append("rect")
+            //.attr("x", (legendSpace / 5) + i * legendSpace) // space legend
+            //.attr("y", -38)
+            //.attr("rx", 4)
+            //.attr("class", "botoes")
+            //.style("fill", function () {
+                //return d.color = color(d.key);
+            //})
+           // .on("mouseover", function () {
+                //nota.transition()
+                    //.style("display", "block")
+                   // .style("opacity", "1");
+           // })
+           // .on("mouseout", function (d) {
+               // nota.transition()
+                 //   .style("opacity", .5);
+            //})
+           // .on("click", function () {
                 // Determine if current line is visible 
-                var active = d.active ? false : true,
-                    newOpacity = active ? 1 : 0.2;
+               // var active = d.active ? false : true,
+                    //newOpacity = active ? 1 : 0.2;
                 // Hide or show the elements based on the ID
-                d3.select("#tag" + d.key.replace(/\s+/g, ''))
-                    .transition().duration(300)
-                    .ease("linear")
-                    .style("opacity", newOpacity);
-                d.active = active;
-            })
-            .text(d.key);
+               // d3.select("#tag" + d.key.replace(/\s+/g, ''))
+                    //.transition().duration(300)
+                    //.ease("linear")
+                   // .style("opacity", newOpacity);
+               // d.active = active;
+            //})
+           // .text(d.key);
             
 
         // texto legenda 
         svg.append("text")
             .attr("x", (legendSpace / 2) + i * legendSpace) // space legend
             //.attr("y", height + (margin.bottom/1.5)+ 5)
-            .attr("y", -20)
+            .attr("y", -30)
             .attr("class", "legend")
-            //.style("fill", function () {return d.color = color(d.key);})
-            .style("fill", "#fff")
+            .style("stroke", "none")
+            .style("fill", function () {return d.color = color(d.key);})
+            //.style("fill", "#fff")
             .on("mouseover", function () {
-                nota.transition()
+                dot.transition()
                     .style("display", "block")
                     .style("opacity", "1");
             })
             .on("mouseout", function (d) {
-                nota.transition()
+                dot.transition()
                     .style("opacity", .2);
             })
             .on("click", function () {
@@ -228,6 +200,38 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                 d.active = active;
             })
             .text(d.key);
+        
+         // Acrescenta os pontos pra tooltip
+        svg.selectAll("dot")
+            .data(data)
+            .enter().append("circle")
+            .attr("r", 4)
+            .attr("cx", function (d) {
+                return x(d.date);
+            })
+            .attr("cy", function (d) {
+                return y(d.value + 1);
+            })
+            .style("fill", function (d) {
+                return d.color = color(d.key);
+            })
+            .style("opacity", ".1")
+            .style("cursor", "pointer")
+            .attr("id", 'key' + d.key.replace(/\s+/g, ''))
+            .on("mouseover", function (d) {
+                div.transition()
+                    .duration(200)
+                    .style("cursor", "pointer")
+                    .style("opacity", 1);
+                div.html("<h4>Ano: " + d.key + "</h4> <br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
+                    .style("left", d3.select(this).attr("cx") + "px")
+                    .style("top", d3.select(this).attr("cy") + "px");
+            })
+            .on("mouseout", function (d) {
+                div.transition()
+                    .duration(100)
+                    .style("opacity", 0);
+            });
 
     });
 
@@ -241,7 +245,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
     // eixo y
     svg.append("g")
         .attr("class", "y_axis")
-        .style("stroke", "0")
+        .style("stroke", "none")
         .call(yAxis);
 
     // Fonte
