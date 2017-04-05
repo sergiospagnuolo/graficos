@@ -269,13 +269,13 @@ var button = d3.select("#chart").append("button")
                     .style("opacity", "0")
                     .style("pointer-events", "none");
             })
-            .on("click", function (d) {
-                button.transition()
-                    .delay(0)
-                    .duration(200)
-                    .style("opacity", "0")
-                    .style("pointer-events", "none");
-            });
+            //.on("click", function (d) {
+               // button.transition()
+                //    .delay(0)
+                 //   .duration(200)
+                 //   .style("opacity", "0")
+                //    .style("pointer-events", "none");
+           // });
     });
 
     // eixo x
