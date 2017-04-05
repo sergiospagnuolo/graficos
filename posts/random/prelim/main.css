@@ -300,9 +300,6 @@ a:hover {
         position: absolute;
         left: 5%;
     }
-    button.tooltip{
-        position: relative;
-    }
 }
 
 @media screen and (max-width: 580px) {
@@ -314,9 +311,6 @@ a:hover {
     .legend {
         font-size: .8em;
         text-anchor: middle;
-    }
-    button.tooltip{
-        position: fixed;
     }
     .fonte {
         font-size: .8em;
@@ -335,7 +329,7 @@ a:hover {
         font-size: .7em;
     }
     svg {
-        position: relative;
+        position: absolute;
         left: 0;
     }
 }
