@@ -302,6 +302,7 @@ var button = d3.select("#chart").append("button")
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .style("fill", "#bbb")
+        .style("font-size", ".8em")
         .text("Fonte: Depto. de Estado dos EUA");
 
     svg.append("rect")
