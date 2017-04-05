@@ -283,6 +283,7 @@ a:hover {
     }
     .fonte {
         font-size: .7em;
+        position: relative;
         left: 0;
     }
     .desc{
@@ -335,6 +336,7 @@ a:hover {
         stroke: #bbbbbb !important;
     }
     .fonte {
+        position: relative;
         font-size: .7em;
         left: 0;
     }
