@@ -64,7 +64,7 @@ path {
     font-weight: 300;
     fill: #bbbbbb;
     font-family: TradeGothic;
-    stroke:none;
+    stroke: none;
 }
 
 button.tooltip {
@@ -77,7 +77,7 @@ button.tooltip {
     border: 0px;
     border-radius: 5px;
     pointer-events: none;
-    background: rgba(255,255,255,.9); 
+    background: rgba(255, 255, 255, .9);
 }
 
 
@@ -135,7 +135,6 @@ p {
     line-height: 1.4em;
 }
 
-
 li {
     padding-top: 10px;
 }
@@ -170,11 +169,11 @@ li {
 }
 
 #chart {
-  width: 100%;
-  height: 70%;
-  max-width: 700px;
-  min-height: 300px;
-  position: absolute;
+    width: 100%;
+    height: 70%;
+    max-width: 700px;
+    min-height: 300px;
+    position: absolute;
 }
 
 svg {
@@ -183,6 +182,7 @@ svg {
     display: block;
     left: 17%;
 }
+
 
 /*
 svg {
@@ -207,36 +207,35 @@ a:hover {
     .chart {
         padding: 2%;
     }
-    .nota{
+    .nota {
         display: none;
     }
     .legend {
-    font-size: 1em;
+        font-size: 1em;
         text-anchor: middle;
-
     }
     .y_axis,
     .x_axis {
-    font-size: 1.1em;
-    fill: #bbbbbb;
-    stroke:#bbbbbb;
+        font-size: 1.1em;
+        fill: #bbbbbb;
+        stroke: #bbbbbb;
     }
-    button.tooltip{
+    button.tooltip {
         position: absolute;
     }
-    .botoes{
+    .botoes {
         height: 27px;
         width: 55px;
         font-size: .9em;
         text-anchor: middle;
     }
     .legend {
-    font-size: 1em;
-    color: inherit;
+        font-size: 1em;
+        color: inherit;
     }
     svg {
-    position: absolute;
-    left: 17%;
+        position: absolute;
+        left: 17%;
     }
 }
 
@@ -244,36 +243,32 @@ a:hover {
     .chart {
         padding: 2%;
     }
-    .nota{
+    .nota {
         display: none;
     }
     .legend {
-    font-size: 1em;
+        font-size: .9em;
         text-anchor: middle;
-
+        color: inherit;
     }
     .y_axis,
     .x_axis {
-    font-size: 1.1em;
-    fill: #bbbbbb;
-    stroke:#bbbbbb;
+        font-size: 1.1em;
+        fill: #bbbbbb;
+        stroke: #bbbbbb;
     }
-    button.tooltip{
+    button.tooltip {
         position: absolute;
     }
-    .botoes{
+    .botoes {
         height: 27px;
         width: 55px;
         font-size: .9em;
         text-anchor: middle;
     }
-    .legend {
-    font-size: .9em;
-    color: inherit;
-    }
     svg {
-    position: absolute;
-    left: 10%;
+        position: absolute;
+        left: 10%;
     }
 }
 
@@ -281,67 +276,63 @@ a:hover {
     .chart {
         padding: 2%;
     }
-    .nota{
+    .nota {
         display: none;
     }
     .legend {
-    font-size: 1em;
+        font-size: 1em;
         text-anchor: middle;
-
     }
     .y_axis,
     .x_axis {
-    font-size: 1.1em;
-    fill: #bbbbbb;
-    stroke:#bbbbbb;
+        font-size: 1.1em;
+        fill: #bbbbbb;
+        stroke: #bbbbbb;
     }
-    button.tooltip{
-        position: absolute;
-    }
-    .botoes{
+    .botoes {
         height: 27px;
         width: 55px;
         font-size: .9em;
         text-anchor: middle;
     }
     .legend {
-    font-size: .8em;
-    color: inherit;
+        font-size: .8em;
+        color: inherit;
     }
     svg {
-    position: absolute;
-    left: 5%;
+        position: absolute;
+        left: 5%;
     }
 }
 
 @media screen and (max-width: 580px) {
-    .botoes{
+    .botoes {
         height: 24px;
         width: 36px;
         text-anchor: end;
     }
     .legend {
-    font-size: .9em;
-    text-anchor: middle;
+        font-size: .9em;
+        text-anchor: middle;
     }
-    .fonte{
+    .fonte {
         font-size: .8em;
     }
     .chart {
-    max-width: 700px;
-    margin: 0 auto;
+        max-width: 700px;
+        margin: 0 auto;
     }
     .y_axis,
     .x_axis {
-    font-size: 13px;
-    fill: #bbbbbb;
-    stroke: #bbbbbb;
+        font-size: 13px;
+        fill: #bbbbbb;
+        stroke: #bbbbbb;
     }
-    .fonte{
+    .fonte {
         font-size: .7em;
     }
     svg {
-    position: absolute;
-    left: 0;
+        position: absolute;
+        left: 0;
     }
 }
