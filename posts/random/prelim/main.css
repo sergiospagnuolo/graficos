@@ -202,7 +202,7 @@ a:hover {
 
 @media screen and (max-width: 890px) {
     .chart {
-        padding: 0;
+        padding: 1%;
     }
     .nota {
         display: none;
@@ -238,7 +238,7 @@ a:hover {
 
 @media screen and (max-width: 750px) {
     .chart {
-        padding: 0;
+        padding: 1%;
     }
     .nota {
         display: none;
@@ -271,7 +271,7 @@ a:hover {
 
 @media screen and (max-width: 620px) {
     .chart {
-        padding: 0;
+        padding: 1%;
     }
     .nota {
         display: none;
@@ -280,6 +280,10 @@ a:hover {
         font-size: .7em;
         text-anchor: middle;
         color: inherit;
+    }
+    .fonte {
+        font-size: .7em;
+        left: 0;
     }
     .y_axis,
     .x_axis {
@@ -297,6 +301,9 @@ a:hover {
         position: absolute;
         left: 3%;
     }
+    .chart {
+    padding: 1%;
+}
 }
 
 @media screen and (max-width: 580px) {
@@ -308,9 +315,6 @@ a:hover {
     .legend {
         font-size: .8em;
         text-anchor: middle;
-    }
-    .fonte {
-        font-size: .8em;
     }
     .chart {
         max-width: 700px;
@@ -324,6 +328,7 @@ a:hover {
     }
     .fonte {
         font-size: .7em;
+        left: 0;
     }
     svg {
         position: absolute;
