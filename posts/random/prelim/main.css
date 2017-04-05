@@ -280,8 +280,9 @@ a:hover {
         display: none;
     }
     .legend {
-        font-size: 1em;
+        font-size: .9em;
         text-anchor: middle;
+        color: inherit;
     }
     .y_axis,
     .x_axis {
@@ -295,13 +296,12 @@ a:hover {
         font-size: .9em;
         text-anchor: middle;
     }
-    .legend {
-        font-size: .8em;
-        color: inherit;
-    }
     svg {
         position: absolute;
         left: 5%;
+    }
+    button.tooltip{
+        position: relative;
     }
 }
 
@@ -312,8 +312,11 @@ a:hover {
         text-anchor: end;
     }
     .legend {
-        font-size: .9em;
+        font-size: .8em;
         text-anchor: middle;
+    }
+    button.tooltip{
+        position: fixed;
     }
     .fonte {
         font-size: .8em;
@@ -332,7 +335,7 @@ a:hover {
         font-size: .7em;
     }
     svg {
-        position: absolute;
+        position: relative;
         left: 0;
     }
 }
