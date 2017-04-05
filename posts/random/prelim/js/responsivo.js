@@ -55,7 +55,14 @@ var svg = d3.select("#chart")
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+        "translate(" + margin.left + "," + margin.top + ")")
+    .on("click", function (d) {
+        button.transition()
+            .delay(0)
+            .duration(200)
+            .style("opacity", "0")
+            .style("pointer-events", "none");
+    });
 
 var corpo = d3.selectAll("text")
     .on("click", function (d) {
@@ -142,12 +149,12 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         //.style("stroke", "gray")
         //.style("stroke-dasharray", ("2, 2"))
         //.style("opacity",0);  
-        
+
         // Define a div para tooltip
-var button = d3.select("#chart").append("button")
-    .data(data)
-    .attr("class", "tooltip")
-    .style("opacity", 0);
+        var button = d3.select("#chart").append("button")
+            .data(data)
+            .attr("class", "tooltip")
+            .style("opacity", 0);
 
         // Formata data para tooltip
         var FormatDate = d3.time.format("%Y");
@@ -196,13 +203,13 @@ var button = d3.select("#chart").append("button")
             })
             //.style("fill", "#fff")
             //.on("mouseover", function () {
-                //dot.transition()
-                    //.style("display", "block")
-                    //.style("opacity", "1");
+            //dot.transition()
+            //.style("display", "block")
+            //.style("opacity", "1");
             //})
             //.on("mouseout", function (d) {
-                //dot.transition()
-                    //.style("opacity", .2);
+            //dot.transition()
+            //.style("opacity", .2);
             //})
             .on("click", function () {
                 // Determine if current line is visible 
@@ -260,15 +267,6 @@ var button = d3.select("#chart").append("button")
                     .style("opacity", "0")
                     .style("pointer-events", "none");
             });
-    });
-    
-    svg.select("#chart")
-        .on("click", function (d) {
-        button.transition()
-            .delay(0)
-            .duration(200)
-            .style("opacity", "0")
-            .style("pointer-events", "none");
     });
 
     // eixo x
