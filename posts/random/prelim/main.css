@@ -312,6 +312,10 @@ a:hover {
         width: 36px;
         text-anchor: end;
     }
+    .desc{
+        max-width: 250px;
+        font-size: .9em;
+    }
     .legend {
         font-size: .8em;
         text-anchor: middle;
