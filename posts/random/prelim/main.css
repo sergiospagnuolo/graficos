@@ -240,6 +240,11 @@ a:hover {
         position: absolute;
         left: 17%;
     }
+    .fonte {
+        position: relative;
+        font-size: .8em;
+        left: 0;
+    }
 }
 
 @media screen and (max-width: 750px) {
@@ -250,6 +255,10 @@ a:hover {
         font-size: .8em;
         text-anchor: middle;
         color: inherit;
+    }
+    .claimer{
+        max-width: 290px;
+        font-size: 1.2em;
     }
     .y_axis,
     .x_axis {
@@ -270,6 +279,11 @@ a:hover {
         position: absolute;
         left: 10%;
     }
+    .fonte {
+        position: relative;
+        font-size: .8em;
+        left: 0;
+    }
 }
 
 @media screen and (max-width: 620px) {
@@ -277,13 +291,13 @@ a:hover {
         padding: 1%;
     }
     .claimer {
-    font-size: .9em;
+    font-size: .8em;
     text-align: center;
-    max-width: 280px;
+    max-width: 290px;
     margin: 20px auto;
     }
     .legend {
-        font-size: .7em;
+        font-size: .9em;
         text-anchor: middle;
         color: inherit;
     }
