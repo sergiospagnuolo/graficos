@@ -200,6 +200,12 @@ a:hover {
     background-color: #a5e9fc;
 }
 
+.fonte {
+        position: relative;
+        font-size: .8em;
+        left: 0;
+    }
+
 @media screen and (max-width: 890px) {
     .chart {
         padding: 1%;
@@ -282,7 +288,7 @@ a:hover {
         color: inherit;
     }
     .fonte {
-        font-size: .7em;
+        font-size: .8em;
         position: relative;
         left: 0;
     }
@@ -337,7 +343,7 @@ a:hover {
     }
     .fonte {
         position: relative;
-        font-size: .7em;
+        font-size: .8em;
         left: 0;
     }
     svg {
