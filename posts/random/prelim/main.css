@@ -27,22 +27,22 @@ path {
 }
 
 .x.axis line {
-    stroke: lightgrey;
+    stroke: lightgrey !important;
 }
 
 .axis path,
 .axis line {
-    fill: none;
-    stroke: none;
-    shape-rendering: crispEdges;
+    fill: none !important;
+    stroke: none !important;
+    shape-rendering: crispEdges !important;
 }
 
 .legend {
-    font-size: 1em;
-    font-weight: 700;
-    text-anchor: middle;
-    list-style-type: none;
-    cursor: pointer;
+    font-size: 1em !important;
+    font-weight: 700 !important;
+    text-anchor: middle !important;
+    list-style-type: none !important;
+    cursor: pointer !important;
 }
 
 .botoes {
@@ -54,17 +54,17 @@ path {
 }
 
 .tick line {
-    stroke: #bbbbbb;
-    opacity: .6;
+    stroke: #bbbbbb !important;
+    opacity: .6 !important;
 }
 
 .y_axis,
 .x_axis {
-    font-size: 14px;
-    font-weight: 300;
-    fill: #bbbbbb;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    fill: #bbbbbb !important;
     font-family: TradeGothic;
-    stroke: none;
+    stroke: none !important;
 }
 
 button.tooltip {
@@ -183,12 +183,9 @@ svg {
     left: 17%;
 }
 
-
-/*
-svg {
+.fechar{
     display: block;
-    margin: 0 auto;
-}*/
+}
 
 a {
     border-bottom: #a5e9fc solid 4px;
@@ -205,7 +202,7 @@ a:hover {
 
 @media screen and (max-width: 890px) {
     .chart {
-        padding: 2%;
+        padding: 0;
     }
     .nota {
         display: none;
@@ -216,9 +213,9 @@ a:hover {
     }
     .y_axis,
     .x_axis {
-        font-size: 1.1em;
-        fill: #bbbbbb;
-        stroke: #bbbbbb;
+        font-size: 1em !important;
+        fill: #bbbbbb !important;
+        stroke: #bbbbbb !important;
     }
     button.tooltip {
         position: absolute;
@@ -241,7 +238,7 @@ a:hover {
 
 @media screen and (max-width: 750px) {
     .chart {
-        padding: 2%;
+        padding: 0;
     }
     .nota {
         display: none;
@@ -253,9 +250,9 @@ a:hover {
     }
     .y_axis,
     .x_axis {
-        font-size: 1.1em;
-        fill: #bbbbbb;
-        stroke: #bbbbbb;
+        font-size: 1em !important;
+        fill: #bbbbbb !important;
+        stroke: #bbbbbb !important;
     }
     button.tooltip {
         position: absolute;
@@ -263,7 +260,7 @@ a:hover {
     .botoes {
         height: 27px;
         width: 55px;
-        font-size: .9em;
+        font-size: .8em;
         text-anchor: middle;
     }
     svg {
@@ -274,21 +271,21 @@ a:hover {
 
 @media screen and (max-width: 620px) {
     .chart {
-        padding: 2%;
+        padding: 0;
     }
     .nota {
         display: none;
     }
     .legend {
-        font-size: .9em;
+        font-size: .7em;
         text-anchor: middle;
         color: inherit;
     }
     .y_axis,
     .x_axis {
-        font-size: 1.1em;
-        fill: #bbbbbb;
-        stroke: #bbbbbb;
+        font-size: 1.1em !important;
+        fill: #bbbbbb !important;
+        stroke: #bbbbbb !important;
     }
     .botoes {
         height: 27px;
@@ -298,7 +295,7 @@ a:hover {
     }
     svg {
         position: absolute;
-        left: 5%;
+        left: 3%;
     }
 }
 
@@ -321,9 +318,9 @@ a:hover {
     }
     .y_axis,
     .x_axis {
-        font-size: 13px;
-        fill: #bbbbbb;
-        stroke: #bbbbbb;
+        font-size: 13px !important;
+        fill: #bbbbbb !important;
+        stroke: #bbbbbb !important;
     }
     .fonte {
         font-size: .7em;
