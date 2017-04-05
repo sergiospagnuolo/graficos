@@ -202,15 +202,15 @@ var button = d3.select("#chart").append("button")
                 return d.color = color(d.key);
             })
             //.style("fill", "#fff")
-            .on("mouseover", function () {
-                dot.transition()
-                    .style("display", "block")
-                    .style("opacity", "1");
-            })
-            .on("mouseout", function (d) {
-                dot.transition()
-                    .style("opacity", .2);
-            })
+            //.on("mouseover", function () {
+                //dot.transition()
+                    //.style("display", "block")
+                    //.style("opacity", "1");
+            //})
+            //.on("mouseout", function (d) {
+                //dot.transition()
+                    //.style("opacity", .2);
+            //})
             .on("click", function () {
                 // Determine if current line is visible 
                 var active = d.active ? false : true,
