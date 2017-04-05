@@ -57,11 +57,11 @@ var svg = d3.select("#chart")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")")
     .on("click", function (d) {
-        button.transition()
-            .delay(0)
-            .duration(200)
-            .style("opacity", "0")
-            .style("pointer-events", "none");
+        // button.transition()
+        //     .delay(0)
+        //     .duration(200)
+        //     .style("opacity", "0")
+        //     .style("pointer-events", "none");
     });
 
 var corpo = d3.selectAll("text")
@@ -149,12 +149,12 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         //.style("stroke", "gray")
         //.style("stroke-dasharray", ("2, 2"))
         //.style("opacity",0);  
-
+        
         // Define a div para tooltip
-        var button = d3.select("#chart").append("button")
-            .data(data)
-            .attr("class", "tooltip")
-            .style("opacity", 0);
+var button = d3.select("#chart").append("button")
+    .data(data)
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
         // Formata data para tooltip
         var FormatDate = d3.time.format("%Y");
@@ -202,15 +202,15 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                 return d.color = color(d.key);
             })
             //.style("fill", "#fff")
-            //.on("mouseover", function () {
-            //dot.transition()
-            //.style("display", "block")
-            //.style("opacity", "1");
-            //})
-            //.on("mouseout", function (d) {
-            //dot.transition()
-            //.style("opacity", .2);
-            //})
+            .on("mouseover", function () { 
+                dot.transition()
+                    .style("display", "block")
+                    .style("opacity", "1");
+            })
+            .on("mouseout", function (d) {
+                dot.transition()
+                    .style("opacity", .2);
+            })
             .on("click", function () {
                 // Determine if current line is visible 
                 var active = d.active ? false : true,
@@ -244,7 +244,16 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .style("display", "block")
             .style("cursor", "pointer")
             .attr("id", 'key' + d.key.replace(/\s+/g, ''))
-            .on("mouseover", function (d) {
+            .on("mouseover", function (d) {  
+                button.transition()
+                    .duration(200)
+                    .style("cursor", "pointer")
+                    .style("opacity", 1);
+                button.html("<h4>Ano: " + d.key + "</h4> <br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
+                    .style("left", d3.select(this).attr("cx") + "px")
+                    .style("top", d3.select(this).attr("cy") + "px");
+            })
+            .on("touchstart", function (d) {  
                 button.transition()
                     .duration(200)
                     .style("cursor", "pointer")
