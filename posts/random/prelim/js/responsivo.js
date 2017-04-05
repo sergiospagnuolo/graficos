@@ -55,14 +55,7 @@ var svg = d3.select("#chart")
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")")
-    .on("click", function (d) {
-        button.transition()
-            .delay(0)
-            .duration(200)
-            .style("opacity", "0")
-            .style("pointer-events", "none");
-    });
+        "translate(" + margin.left + "," + margin.top + ")");
 
 var corpo = d3.selectAll("text")
     .on("click", function (d) {
@@ -267,6 +260,15 @@ var button = d3.select("#chart").append("button")
                     .style("opacity", "0")
                     .style("pointer-events", "none");
             });
+    });
+    
+    svg.select("#chart")
+        .on("click", function (d) {
+        button.transition()
+            .delay(0)
+            .duration(200)
+            .style("opacity", "0")
+            .style("pointer-events", "none");
     });
 
     // eixo x
