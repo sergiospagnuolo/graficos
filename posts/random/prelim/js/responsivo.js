@@ -301,6 +301,10 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         // });
     });
 
+    d3.select("a")
+        .on("click", function (d) {
+    });
+    
     // eixo x
     svg.append("g")
         .attr("class", "x_axis")
