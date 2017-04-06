@@ -49,7 +49,7 @@ path {
 .botoes {
     text-anchor: middle;
     height: 25px;
-    width: 55px;
+    width: 85px;
     margin: 0;
     cursor: pointer;
 }
@@ -157,7 +157,7 @@ li {
 }
 
 #chart {
-    width: 100%;
+    width: 80%;
     min-height: 300px;
     margin: 0 auto;
     position: relative
@@ -193,12 +193,6 @@ a:hover {
     }
 
 @media screen and (max-width: 890px) {
-    .botoes {
-        height: 27px;
-        width: 55px;
-        font-size: .9em;
-        text-anchor: middle;
-    }
     .legend {
         font-size: 1em;
         color: inherit;
@@ -240,16 +234,20 @@ a:hover {
         position: relative;
         left: 0;
     }
+    #chart {
+    width: 100%;
+    min-height: 300px;
+    margin: 0 auto;
+    position: relative
+}
+    .botoes{
+        width: 55px;
+    }
 }
 
 @media screen and (max-width: 580px) {
-    .botoes {
-        height: 24px;
-        width: 36px;
-        text-anchor: end;
-    }
     .legend {
-        font-size: 11em;
+        font-size: .9em;
         text-anchor: middle;
     }
     .chart {
