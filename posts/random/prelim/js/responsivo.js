@@ -261,7 +261,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .duration(200)
                     .style("cursor", "pointer")
                     .style("opacity", 1);
-                button.html("<h3>" + d.key + "</h3>" + "<h4 style='float:right'><a href='#'>x Fechar</a></h4>" + "<br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
+                button.html("<h3>" + d.key + "</h3>" + "<h4 style='float:right;font-size:1em'><a href='#'>x</a></h4>" + "<br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
                     .style("left", d3.select(this).attr("cx") + "px")
                     //.style("left", "20px")
                     .style("top", d3.select(this).attr("cy") + "px")
@@ -272,7 +272,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .duration(200)
                     .style("cursor", "pointer")
                     .style("opacity", 1);
-                button.html("<h3>" + d.key + "</h3>" + "<h5 style='float:right;'><a href='#'>x Fechar</a></h5>" + "<br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
+                button.html("<h3>" + d.key + "</h3>" + "<p style='float:right;font-size:1em'><a href='#'>x</a></p>" + "<br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
                     .style("left", d3.select(this).attr("cx") + "px")
                     .style("top", d3.select(this).attr("cy") + "px");
             })
