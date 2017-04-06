@@ -61,11 +61,8 @@ var svg = d3.select("#chart")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")")
     .on("click", function (d) {
-        // button.transition()
-        //     .delay(0)
-        //     .duration(200)
-        //     .style("opacity", "0")
-        //     .style("pointer-events", "none");
+    })
+    .on("touchstart", function (d) {
     });
 
  // botão de fechar tooltip
@@ -85,6 +82,8 @@ var svg = d3.select("#chart")
 
 var corpo = d3.selectAll("text")
     .on("click", function (d) {
+    })
+    .on("touchstart", function (d) {
     });
 
 
