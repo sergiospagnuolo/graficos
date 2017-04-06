@@ -109,6 +109,11 @@ h2 {
     line-height: 1.2em;
 }
 
+h3{
+    margin: 0;
+    display: inline;
+    color: #222;
+}
 
 h4 {
     margin: 0;
@@ -265,5 +270,9 @@ a:hover {
     }
         .botoes{
         width: 55px;
+    }
+    button.tooltip {
+    position: static;
+
     }
 }
