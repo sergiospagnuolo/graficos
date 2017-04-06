@@ -46,8 +46,10 @@ var nota = d3.select(".nota")
     .attr("class", "nota")
     .style("opacity", "0");
 
-var svg = d3.select("body")
+var svgbody = d3.select("body")
         .on("click", function (d) {
+    })
+    .on("touchstart", function (d) {
     });
 
 // acrescenta a canvas de svg
@@ -80,7 +82,7 @@ var svg = d3.select("#chart")
     //});
 
 
-var corpo = d3.selectAll("text")
+var corpo = d3.selectAll(".chart")
     .on("click", function (d) {
     })
     .on("touchstart", function (d) {
