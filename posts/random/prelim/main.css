@@ -177,9 +177,6 @@ svg {
     display: block;
 }
 
-.fechar {
-    display: block;
-}
 
 a {
     border-bottom: #a5e9fc solid 4px;
@@ -198,14 +195,6 @@ a:hover {
     position: relative;
     font-size: .8em;
     left: 0;
-}
-
-.fechar{
-    display: none
-}
-
-#fechar{
-    display: none !important;
 }
 
 @media screen and (max-width: 890px) {
@@ -334,8 +323,5 @@ a:hover {
         display: block;
         text-anchor: middle;
         cursor: pointer;
-    }
-    .fechar{
-        display: none
     }
 }

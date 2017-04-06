@@ -47,10 +47,12 @@ var nota = d3.select(".nota")
     .style("opacity", "0");
 
 var svgbody = d3.select("body")
+.style("cursor", "pointer")
         .on("click", function (d) {
     })
     .on("touchstart", function (d) {
-    });
+    })
+    ;
 
 // acrescenta a canvas de svg
 var svg = d3.select("#chart")
@@ -62,25 +64,9 @@ var svg = d3.select("#chart")
     .append("g")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")")
-    .on("click", function (d) {
-    })
-    .on("touchstart", function (d) {
-    });
-
- // botão de fechar tooltip
-    //svg.append("text")
-       // .attr("transform", "rotate(0)")
-        //.attr("class", "fechar")
-        //.attr("y", 20)
-        //.attr("x", width - 80)
-       // .style("fill", "#222")
-       // .style("font-size", ".8em")
-        //.text("x Fechar")
-       //.on("click", function (d) {
-   // })
-       // .on("touchstart", function (d) {
-    //});
-
+    //.on("click", function (d) {})
+    //.on("touchstart", function (d) {})
+;
 
 var corpo = d3.selectAll(".chart")
     .on("click", function (d) {
@@ -286,7 +272,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .duration(200)
                     .style("cursor", "pointer")
                     .style("opacity", 1);
-                button.html("<h3>" + d.key + "</h3>" + "<h4 style='float:right'><a href='#'>x Fechar</a></h4>" + "<br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
+                button.html("<h3>" + d.key + "</h3>" + "<h5 style='float:right;'><a href='#'>x Fechar</a></h5>" + "<br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
                     .style("left", d3.select(this).attr("cx") + "px")
                     .style("top", d3.select(this).attr("cy") + "px");
             })
