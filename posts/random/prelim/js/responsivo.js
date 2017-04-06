@@ -13,7 +13,7 @@ var margin = {
     //height = 700 - margin.top - margin.bottom;
     width = parseInt(d3.select('#chart').style('width'), 10)
   , width = width - margin.left - margin.right,
-    height = 500;
+    height = 300;
 
 var parseDate = d3.time.format("%Y").parse;
 
