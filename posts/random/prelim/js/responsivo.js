@@ -46,6 +46,10 @@ var nota = d3.select(".nota")
     .attr("class", "nota")
     .style("opacity", "0");
 
+var svg = d3.select("body")
+        .on("click", function (d) {
+    });
+
 // acrescenta a canvas de svg
 var svg = d3.select("#chart")
     .append("svg")
@@ -301,7 +305,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         // });
     });
 
-    d3.select("a")
+    d3.select("#fechar")
         .on("click", function (d) {
     });
     

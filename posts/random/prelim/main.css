@@ -336,6 +336,6 @@ a:hover {
         cursor: pointer;
     }
     .fechar{
-        display: inline
+        display: none
     }
 }
