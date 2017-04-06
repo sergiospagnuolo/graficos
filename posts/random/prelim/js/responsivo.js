@@ -120,10 +120,10 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                 return d.key === 'Média' ? '4 4' : '';
             })
             .style('opacity', function () {
-                if (d.key === 'Rússia') return '.1';
-                if (d.key === 'China') return '.1'
-                if (d.key === 'Índia') return '.1'
-                if (d.key === 'Média') return '.1'
+                if (d.key === 'Rússia') return '.05';
+                if (d.key === 'China') return '.05'
+                if (d.key === 'Índia') return '.05'
+                if (d.key === 'Média') return '.05'
             })
             .attr("id", 'tag' + d.key.replace(/\s+/g, '')) // aplicar classe das linhas
             .attr("d", valueline(d.values))
@@ -241,7 +241,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             .data(data)
             .enter().append("circle")
             .attr("class", "circulo")
-            .attr("r", 5)
+            .attr("r", 4)
             .attr("cx", function (d) {
                 return x(d.date);
             })
