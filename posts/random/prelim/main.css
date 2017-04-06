@@ -215,6 +215,9 @@ a:hover {
         position: relative;
         font-size: .8em;
     }
+    .botoes{
+        width: 65px;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -240,8 +243,9 @@ a:hover {
     margin: 0 auto;
     position: relative
 }
+
     .botoes{
-        width: 55px;
+        width: 65px;
     }
 }
 
@@ -258,5 +262,8 @@ a:hover {
         position: relative;
         font-size: .8em;
         left: 0;
+    }
+        .botoes{
+        width: 55px;
     }
 }
