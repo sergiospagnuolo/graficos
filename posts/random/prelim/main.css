@@ -320,6 +320,7 @@ a:hover {
     button.tooltip {
         left: 20px !important;
         top:60px !important;
+        background-color:rgba(255, 255, 255, .5) !important;
     }
     .legenda_mobile {
         display: block;

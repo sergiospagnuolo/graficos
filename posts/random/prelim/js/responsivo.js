@@ -272,7 +272,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                     .duration(200)
                     .style("cursor", "pointer")
                     .style("opacity", 1);
-                button.html("<h4>Ano: " + d.key + "</h4> <br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
+                button.html("<h3>" + d.key + "</h3> <br/>" + "<h4>Ano: </h4>" + FormatDate(d.date) + "<br/>" + "<h4>Taxa de rejeição: </h4> " + d.value + "%<br/>" + "<hr/>" + "<h4>Total de vistos concedidos: </h4>" + d.vistos + "<br/>" + "<h4>Turismo/Negócios: </h4>" + d.v_pct + "<br/>" + "<h4>Trabalho/Estudos: </h4>" + d.t_pct + "<br/>" + "<h4>Outros tipos: </h4>" + d.o_pct)
                     .style("left", d3.select(this).attr("cx") + "px")
                     .style("top", d3.select(this).attr("cy") + "px");
             })
@@ -318,6 +318,20 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         .style("fill", "#bbb")
         .style("font-size", ".8em")
         .text("Fonte: Depto. de Estado dos EUA");
+    
+    // botão de fechar tooltip
+    svg.append("text")
+        //.attr("y", 0 - margin.left)
+        //.attr("x",0 - (height / 2))
+        .attr("transform", "rotate(0)")
+        .attr("class", "fonte")
+        .attr("y", 20)
+        .attr("x", width - 80)
+        .style("fill", "#222")
+        .style("font-size", "1.5em")
+        .text("X")
+        .on("click", function (d) {
+    });;
 
     svg.append("rect")
         //.attr("x",0 - (height / 2))
