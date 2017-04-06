@@ -200,6 +200,14 @@ a:hover {
     left: 0;
 }
 
+.fechar{
+    display: none
+}
+
+#fechar{
+    display: none !important;
+}
+
 @media screen and (max-width: 890px) {
     .legend {
         font-size: 1em;
@@ -326,5 +334,8 @@ a:hover {
         display: block;
         text-anchor: middle;
         cursor: pointer;
+    }
+    .fechar{
+        display: inline
     }
 }
