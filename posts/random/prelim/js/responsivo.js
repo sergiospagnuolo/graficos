@@ -202,6 +202,39 @@ d3.tsv("dados/reject.tsv", function (error, data) {
                 d.active = active;
             })
             .text(d.key);
+        
+         // texto legenda 
+        svg.append("text")
+            .attr("x", (legendSpace / 2) + i * legendSpace) // space legend
+            //.attr("y", height + (margin.bottom/1.5)+ 5)
+            .attr("y", -30)
+            .attr("class", "legenda_mobile")
+            .style("stroke", "none")
+            .style("font-weight", "300")
+            .style("fill", function () {
+                return d.color = color(d.key);
+            })
+            .on("mouseover", function () {
+                dot.transition()
+                    .style("display", "block")
+                    .style("opacity", "1");
+            })
+            .on("mouseout", function (d) {
+                dot.transition()
+                    .style("opacity", .2);
+            })
+            .on("click", function () {
+                // Determine if current line is visible 
+                var active = d.active ? false : true,
+                    newOpacity = active ? 1 : 0.2;
+                // Hide or show the elements based on the ID
+                d3.select("#tag" + d.key.replace(/\s+/g, ''))
+                    .transition().duration(300)
+                    .ease("linear")
+                    .style("opacity", newOpacity);
+                d.active = active;
+            })
+            .text(d.key);
 
         // Acrescenta os pontos pra tooltip
         svg.selectAll("dot")
