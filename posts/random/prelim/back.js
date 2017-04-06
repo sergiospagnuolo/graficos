@@ -1,19 +1,14 @@
 var margin = {
-        top: 70,
-        right: 50,
-        bottom: 85,
-        left: 45    
+        top: 50,
+        right: 62,
+        bottom: 100,
+        left: 50
     },
-    //dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
-    //width = dim,
-    //height = dim;
-    //width = dim - margin.left - margin.right,
-    //height = dim - margin.top - margin.bottom;
-    //width = 700 - margin.left - margin.right,
-    //height = 700 - margin.top - margin.bottom;
-    width = parseInt(d3.select('#chart').style('width'), 10)
-  , width = width - margin.left - margin.right,
-    height = 500;
+    dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
+    width = dim - margin.left - margin.right,
+    height = dim - margin.top - margin.bottom;
+//width = 700 - margin.left - margin.right,
+//height = 700 - margin.top - margin.bottom;
 
 var parseDate = d3.time.format("%Y").parse;
 
@@ -58,8 +53,6 @@ var svg = d3.select("#chart")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    //.attr("viewBox", "0 0 850 700")
-    //.attr("preserveAspectRatio", "xMinYMin")
     .append("g")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")")
@@ -305,7 +298,7 @@ var button = d3.select("#chart").append("button")
         .attr("transform", "rotate(0)")
         .attr("class", "fonte")
         .attr("y", height + 70)
-        .attr("x", 55)
+        .attr("x", margin.right)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .style("fill", "#bbb")
@@ -329,15 +322,20 @@ var button = d3.select("#chart").append("button")
         .attr("height", 80);
 });
 
-d3.select(window).on('resize', resize); 
-
 function resize() {
-    // update width
-    width = parseInt(d3.select('#chart').style('width'), 10);
-    width = width - margin.left - margin.right;
 
-    // reset x range
+    var dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
+        width = dim - margin.left - margin.right,
+        height = dim - margin.top - margin.bottom;
+
+    console.log(dim);
+
+    // Update the range of the scale with new width/height
     x.range([0, width]);
+    y.range([height, 0]);
 
-    // do the actual resize...
 }
+
+d3.select(window).on('resize', resize);
+
+resize();
