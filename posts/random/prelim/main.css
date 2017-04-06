@@ -46,7 +46,7 @@ path {
     cursor: pointer !important;
 }
 
-.legenda_mobile{
+.legenda_mobile {
     display: none;
 }
 
@@ -113,7 +113,7 @@ h2 {
     line-height: 1.2em;
 }
 
-h3{
+h3 {
     margin: 0;
     display: inline;
     color: #222;
@@ -124,7 +124,6 @@ h4 {
     display: inline;
     color: #7d7d7d;
 }
-
 
 p {
     font-size: 1.5em;
@@ -178,7 +177,7 @@ svg {
     display: block;
 }
 
-.fechar{
+.fechar {
     display: block;
 }
 
@@ -196,10 +195,10 @@ a:hover {
 }
 
 .fonte {
-        position: relative;
-        font-size: .8em;
-        left: 0;
-    }
+    position: relative;
+    font-size: .8em;
+    left: 0;
+}
 
 @media screen and (max-width: 890px) {
     .legend {
@@ -210,10 +209,10 @@ a:hover {
         position: relative;
         font-size: .8em;
     }
-    .legenda_mobile{
-    display: none;
-}
-    .botoes{
+    .legenda_mobile {
+        display: none;
+    }
+    .botoes {
         width: 75px;
     }
 }
@@ -222,7 +221,7 @@ a:hover {
     .legend {
         font-size: .8em;
     }
-    .claimer{
+    .claimer {
         max-width: 290px;
         font-size: .8em;
     }
@@ -230,20 +229,20 @@ a:hover {
         position: relative;
         font-size: .8em;
     }
-    .botoes{
+    .botoes {
         width: 65px;
     }
-    .legenda_mobile{
-    display: none;
-}
+    .legenda_mobile {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 700px) {
     .claimer {
-    font-size: .8em;
-    text-align: center;
-    max-width: 290px;
-    margin: 20px auto;
+        font-size: .8em;
+        text-align: center;
+        max-width: 290px;
+        margin: 20px auto;
     }
     .legend {
         font-size: .9em;
@@ -256,25 +255,25 @@ a:hover {
         left: 0;
     }
     #chart {
-    width: 100%;
-    min-height: 300px;
-    margin: 0 auto;
-    position: relative
-}
-    .botoes{
+        width: 100%;
+        min-height: 300px;
+        margin: 0 auto;
+        position: relative
+    }
+    .botoes {
         width: 65px;
     }
-    .legenda_mobile{
-    display: none;
-}
+    .legenda_mobile {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 700px) {
     .claimer {
-    font-size: .8em;
-    text-align: center;
-    max-width: 290px;
-    margin: 20px auto;
+        font-size: .8em;
+        text-align: center;
+        max-width: 290px;
+        margin: 20px auto;
     }
     .legend {
         font-size: .9em;
@@ -287,17 +286,17 @@ a:hover {
         left: 0;
     }
     #chart {
-    width: 100%;
-    min-height: 300px;
-    margin: 0 auto;
-    position: relative
-}
-    .botoes{
+        width: 100%;
+        min-height: 300px;
+        margin: 0 auto;
+        position: relative
+    }
+    .botoes {
         width: 55px;
     }
-    .legenda_mobile{
-    display: none;
-}
+    .legenda_mobile {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 580px) {
@@ -315,15 +314,16 @@ a:hover {
         font-size: .8em;
         left: 0;
     }
-        .botoes{
+    .botoes {
         display: none;
     }
     button.tooltip {
-    position: static;
+        left: 20px !important;
+        top:60px !important;
     }
-    .legenda_mobile{
-    display: block;
+    .legenda_mobile {
+        display: block;
         text-anchor: middle;
         cursor: pointer;
-}
+    }
 }
