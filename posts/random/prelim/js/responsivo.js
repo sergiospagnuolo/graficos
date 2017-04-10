@@ -99,7 +99,7 @@ d3.tsv("dados/reject.tsv", function (error, data) {
         .entries(data);
 
 
-    var piaui = ["#7bad65", "#777", "#5ea4ab", "#eabf54", "#d94f30"]
+    var piaui = ["#777", "#7bad65", "#5ea4ab", "#eabf54", "#d94f30"]
 
     var color = d3.scale.ordinal()
         .range(piaui)
@@ -117,13 +117,13 @@ d3.tsv("dados/reject.tsv", function (error, data) {
             })
             //acrescenta linha dashed pra média
             .style('stroke-dasharray', function () {
-                return d.key === 'Média' ? '4 4' : '';
+                return d.key === 'BRIC' ? '4 4' : '';
             })
             .style('opacity', function () {
                 if (d.key === 'Rússia') return '.05';
                 if (d.key === 'China') return '.05'
                 if (d.key === 'Índia') return '.05'
-                if (d.key === 'Média') return '.05'
+                if (d.key === 'BRIC') return '.05'
             })
             .attr("id", 'tag' + d.key.replace(/\s+/g, '')) // aplicar classe das linhas
             .attr("d", valueline(d.values))
