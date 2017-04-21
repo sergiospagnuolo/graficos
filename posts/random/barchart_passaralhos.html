@@ -8,9 +8,9 @@
 </head>
 
 <body>
-  
+
   <div id="grafico"></div>
-  
+
   <script>
 var json = (function () {
         var json = null;
@@ -44,7 +44,7 @@ var json = (function () {
     .x({"value" : "jornalistas", "grid": false})
     .y({"scale": "discrete", "value" : "veiculo","grid": false})
     .order({"value": "jornalistas", "sort":"asc"})
-    .color({"value": "jornalistas"})
+    .color({{"heatmap": ['#9ecae1','#6baed6','#4292c6','#2171b5','#08519c'], "value": "jornalistas"}})
     .size("jornalistas")
     .format("pt_BR")
     .margin( "0px 10px" )
@@ -62,5 +62,5 @@ var json = (function () {
     ])
     .draw();
   </script>
-  
+
 </body>
