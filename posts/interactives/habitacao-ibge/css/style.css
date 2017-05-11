@@ -27,6 +27,14 @@ p {
   margin-top: 0
 }
 
+h5 {
+  margin: 0 20px 0 0;
+}
+
+.nota {
+    max-width: 500px
+}
+
 path {
     stroke: #ccc;
     stroke-width: 3;
@@ -50,7 +58,8 @@ path {
 }
 #legend{
 	width:90px;
-  height: 30px;
+  padding-top: 5px;
+  height: 40px;
 }
 .legend {
     font-size: 16px;

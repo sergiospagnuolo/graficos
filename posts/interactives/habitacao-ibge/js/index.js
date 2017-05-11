@@ -119,7 +119,7 @@ function updateGraph(data) {
     })
   ]);
 
-  // Nest
+  // Nest 
   dataNest = d3
     .nest()
     .key(function(d) {
@@ -216,7 +216,7 @@ function updateGraph(data) {
       .exit()
       .remove();
   });
-
+  
   svg.append("g")
     .attr("class", "yAxis")
     .append("rect")
