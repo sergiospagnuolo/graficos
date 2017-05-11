@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>line chart - habitação - ibge</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <meta charset="utf-8">
+<div class="tudo">
+  <h1>Mais Habitável? </h1>
+  <p>Variação mensal do IPCA acumulada em 12 meses para o índice geral, de jan.2012 a abr.2017, com destaque para variação de habitação no Brasil e em grandes centros urbanos.</p>
+  <span>Selecione a região e clique sobre os quadrados para destacar uma variável</span>
+  <select class="caixa" id="inds">
+		<option value="bra" selected="selected">Brasil</option>
+		<option value="bel">Belém (PA)</option>
+    <option value="bho">Belo Horizonte (MG)</option>
+    <option value="bsb">Brasília (DF)</option>
+    <option value="cag">Campo Grande (MS)</option>
+    <option value="cwb">Curitiba (PR)</option>
+    <option value="for">Fortaleza (CE)</option>
+    <option value="goi">Goiânia (GO)</option>
+    <option value="gvi">Grande Vitória (ES)</option>
+    <option value="poa">Porto Alegre (RS)</option>
+    <option value="rec">Recife (PE)</option>
+    <option value="rjo">Rio de Janeiro (RJ)</option>
+    <option value="sal">Salvador (BA)</option>
+    <option value="sao">São Paulo (SP)</option>
+</select>
+<div id="legendContainer" class="legendContainer">
+	<svg id="legend"></svg>
+</div>
+  
+  <!--
+<div id="showAll">
+	<input name="showAllButton"
+	 type="button"
+	 value="Todos"
+	 onclick="showAll()" />
+</div>
+<div id="clearAll">
+	<input name="clearAllButton"
+	 type="button"
+	 value="Limpar"
+	 onclick="clearAll()" />
+</div>
+-->
+  
+<div id="chart" class="svg-container"></div>
+  <h5>Fonte: IBGE <img id="logo" src="http://static1.squarespace.com/static/551da417e4b05f67005d6abe/t/58f8173a1e5b6ca0cc4339f0/1494013620118/?format=1500w" alt="logo"></h5>
+  
+</div>
+<script src="https://cdn.rawgit.com/voltdatalab/graficos/gh-pages/posts/random/prelim/js/d3.custom.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

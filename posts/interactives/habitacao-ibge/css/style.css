@@ -1,0 +1,203 @@
+@import 'https://fonts.googleapis.com/css?family=Inconsolata';
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700');
+
+body { 
+   font-family: Inconsolata, sans serif;
+  background-color: #f4f4f4;
+  color: #222
+  }
+
+.tudo {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+span {
+  color: #777;
+  font-size: .8em
+}
+
+h1 {
+  font-family: 'Merriweather Sans', sans serif;
+  margin-bottom: 0
+}
+
+p {
+  font-family: 'Merriweather Sans', sans serif;
+  margin-top: 0
+}
+
+path {
+    stroke: #ccc;
+    stroke-width: 3;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #cbcbcb;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+#legendContainer{
+	position:relative;
+	top:10px;
+	overflow: auto;
+	width:110px;
+  margin: 0;
+  padding: 0
+}
+#legend{
+	width:90px;
+  height: 30px;
+}
+.legend {
+    font-size: 16px;
+    font-weight: normal;
+    text-anchor: left;
+    color: #222
+}
+.legendcheckbox{
+	cursor: pointer;
+}
+
+/*
+#showAll{
+	position:absolute;
+	top:600px;
+	left:880px;
+}
+#clearAll{
+	position:absolute;
+	top:600px;
+	left:950px;
+}
+
+input{
+	border-radius:5px;
+	padding:5px 10px;
+	background:#999;
+	border:0;
+	color:#fff;
+}
+*/
+
+#logo {
+  width: 60px;
+  float: right;
+  margin-right: 15px;
+  position: relative
+}
+.caixa {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 0px solid #222;
+  font-size: 16px;
+  height: 34px;
+  width: 178px;
+  background-color: #f0027f;
+  color: #fff;
+  float: left;
+  margin: 3% 3% 0 0;
+}
+
+
+/*
+body {
+  font-family: Inconsolata, sans-serif;
+  margin: 0 10px;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+div {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+p {
+  margin-bottom: 14px;
+  line-height: 1.2em;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+h5 {
+  margin: 0.3em
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+#legendContainer{
+	position:absolute;
+	top:60px;
+	left:10px;
+	overflow: auto;
+	height:490px;
+	width:110px;
+}
+#legend{
+	width:90px;
+	height:200px;
+}
+.legend {
+    font-size: 12px;
+    font-weight: normal;
+    text-anchor: left;
+}
+.legendcheckbox{
+	cursor: pointer;
+}
+#showAll{
+	position:absolute;
+	top:600px;
+	left:880px;
+}
+#clearAll{
+	position:absolute;
+	top:600px;
+	left:950px;
+}
+input{
+	border-radius:5px;
+	padding:5px 10px;
+	background:#999;
+	border:0;
+	color:#fff;
+}
+#inds{
+	position:absolute;
+	top:10px;
+	left:10px;
+}
+
+.caixa {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 0px solid #222;
+  font-size: 16px;
+  height: 34px;
+  width: 168px;
+  background-color: #f0027f;
+  color: #fff;
+  float: left;
+  margin-right: 3%;
+}
+
+#logo {
+  width: 60px;
+  float: right;
+  margin-right: 15px;
+  position: relative
+}
