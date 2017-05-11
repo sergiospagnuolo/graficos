@@ -10,24 +10,23 @@ function filterJSON(json, key, value) {
   return result;
 }
 
-// Set the dimensions of the canvas / graph
+// dimensões
 var margin = {
     top: 20,
     right: 20,
     bottom: 30,
-    left: 10
+    left: 30
   },
   width = 700 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
-// Parse the date / time
+// ajusta formado de data
 var parseDate = d3.time.format("%m-%d-%Y").parse;
 
-// Set the ranges
 var x = d3.time.scale().range([0, width]);
 var y = d3.scale.linear().range([height, 0]);
 
-// Define the axes
+// eixos
 var xAxis = d3.svg.axis().scale(x)
 .orient("bottom")
 .ticks(5)
@@ -38,15 +37,15 @@ var xAxis = d3.svg.axis().scale(x)
 var yAxis = d3.svg.axis().scale(y)
 .orient("left")
 .ticks(5)
-//.tickFormat("%")
+.tickFormat(function(d) { return d + "%"; })
 .innerTickSize(-width)
 .tickValues(data)
 .outerTickSize(0);
 
-// Define the line
+// linha
 var stateline = d3.svg
 .line()
-.interpolate("cardinal")
+.interpolate("monotone")
 .x(function(d) {
   return x(d.date);
 })
@@ -54,7 +53,7 @@ var stateline = d3.svg
   return y(d.value);
 });
 
-// Adds the svg canvas
+// canvas
 var svg = d3
 .select("#chart")
 .append("svg")
@@ -65,7 +64,7 @@ var svg = d3
 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var data;
-// Get the data
+// data
 d3.json(
   "https://raw.githubusercontent.com/voltdatalab/dados/master/economia/ipca_habit_date",
   function(error, json) {
@@ -96,7 +95,7 @@ d3.json(
       jQuery("h1.page-header").html(section);
     });
 
-    // generate initial graph
+    // grafico inicial
     data = filterJSON(json, "uf", "bra");
     updateGraph(data);
   }
@@ -105,7 +104,7 @@ d3.json(
 var color = d3.scale.ordinal().range(["#f0027f", "#386cb0"]);
 
 function updateGraph(data) {
-  // Scale the range of the data
+  // escala
   x.domain(
     d3.extent(data, function(d) {
       return d.date;
@@ -120,7 +119,7 @@ function updateGraph(data) {
     })
   ]);
 
-  // Nest the entries by state
+  // Nest
   dataNest = d3
     .nest()
     .key(function(d) {
@@ -170,7 +169,7 @@ function updateGraph(data) {
     .attr("x", 0)
     .attr("y", function(d, i) {
     return 0 + i * 15;
-  }) // spacing
+  }) // espacamento
     .attr("fill", function(d) {
     return color(d.key);
   })
@@ -217,16 +216,7 @@ function updateGraph(data) {
       .exit()
       .remove();
   });
-  
-  svg.append("g")
-    .attr("class", "yAxis")
-    .append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 6)
-    .attr("dy", ".71em")
-    .style("text-anchor", "end")
-    .text("Em %");
-  
+
   svg.append("g")
     .attr("class", "yAxis")
     .append("rect")
