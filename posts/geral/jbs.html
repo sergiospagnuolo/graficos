@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>jbs - results</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+<style>
+@import 'https://fonts.googleapis.com/css?family=Inconsolata';
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700');
+
+body { 
+   font-family: Inconsolata, sans serif;
+  background-color: #f4f4f4;
+  color: #222;
+  font-size: 1.1em
+  }
+
+h1 {
+  font-family: 'Merriweather Sans', sans serif;
+  margin-bottom: 0
+}
+
+p {
+  font-family: 'Merriweather Sans', sans serif;
+  margin-top: 0
+}
+
+h5 {
+  margin: 20px 0 0 25px;
+}
+
+.nota {
+    max-width: 500px
+}
+
+div{
+  max-width: 700px;
+  margin:0 auto;
+}
+
+span {
+  color: #777;
+  font-size: .8em
+}
+
+.xAxis path,
+.yAxis path,
+.xAxis line,
+.yAxis line {
+  fill: none;
+  stroke: #cbcbcb;
+  shape-rendering: crispEdges
+}
+
+.line {
+  fill: none;
+  stroke: #386cb0;
+  stroke-width: 2.5px
+}
+
+.caixa {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 0px solid #222;
+  font-size: 16px;
+  height: 34px;
+  width: 200px;
+  background-color: #f0027f;
+  color: #fff;
+  float: left;
+  margin: 3% 3% 0 0;
+}
+
+#logo {
+  width: 60px;
+  float: right;
+  margin-right: 1px;
+  position: relative
+}
+</style>
+  
+</head>
+
+<body>
+  <meta charset="utf-8">
+<div>
+  <h1>Do boi à boiada</h1>
+  <p>Evolução de indicadores financeiros da JBS desde 2011, considerando ativos, receita líquida, lucro bruto, lucro líquido e empréstimos/financiamentos captados.</p>
+  <span>Selecione o indicador </span>
+<div id="chart" class="svg-container"></div>
+  <h5>Fonte: Econoinfo <img id="logo" src="http://static1.squarespace.com/static/551da417e4b05f67005d6abe/t/58f8173a1e5b6ca0cc4339f0/1494013620118/?format=1500w" alt="logo"></h5>
+</div>
+<script src="https://cdn.rawgit.com/voltdatalab/graficos/gh-pages/posts/random/prelim/js/d3.custom.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+    <script>
+    var div = d3.select('#chart').append('div')
+var margin = {
+    top: 20,
+    right: 20,
+    bottom: 30,
+    left: 78
+  },
+  width = 700 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
+
+//var parseDate = d3.time.format("%m-%d-%Y").parse;
+var parseDate = d3.time.format("%Y").parse;
+//var formatnumero = d3.format('g');
+
+var x = d3.time.scale().range([0, width]);
+ 
+var y = d3.scale.linear()
+.range([height, 0]);
+
+var xAxis = d3.svg.axis()
+.scale(x)
+.orient("bottom")
+.innerTickSize(-height);
+
+var yAxis = d3.svg.axis().scale(y)
+.tickFormat(function(d) { return "R$" + d + ""; })
+.tickPadding(10)
+.orient("left")
+.ticks(6)
+.innerTickSize(-width);
+
+var line = d3.svg.line().x(function(d) {
+  return x(d.ano);
+}).y(function(d) {
+  return y(d.valor);
+});
+var svg = d3.select("#chart")
+.append("svg")
+.attr("viewBox", "0 0 700 500")
+//.attr("width", width + margin.left + margin.right)
+//.attr("height", height + margin.top + margin.bottom)
+.append("g")
+.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var dataFiltered = {}
+var dataNested = {}
+d3.json("https://raw.githubusercontent.com/voltdatalab/dados/master/economia/jsb_results.json", function(error, data) {
+  data.forEach(function(d) {
+    d.ano = parseDate(d.ano);
+    d.valor = +d.valor;
+    d.tipo = d.tipo;
+  });
+  var dataNested = d3.nest().key(function(d) {
+    return d.tipo
+  }).entries(data)
+  div.append('select')
+    .attr('id', 'variableSelect')
+    .attr('class', 'caixa')
+    .on('change', variableChange)
+    .selectAll('option')
+    .data(dataNested)
+    .enter()
+    .append('option')
+    .attr('value', function(d) {
+    return d.key
+  }).text(function(d) {
+    return d.key
+  })
+  var dataFiltered = dataNested.filter(function(d) {
+    return d.key === d3.select('#variableSelect')
+      .property('value')
+  })
+  x.domain(d3.extent(dataFiltered[0].values, function(d) {
+    return d.ano;
+  }));
+  y.domain(d3.extent(dataFiltered[0].values, function(d) {
+    return d.valor;
+  }));
+  
+  svg.append("g")
+    .attr("class", "xAxis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+  
+  svg.append("g")
+    .attr("class", "yAxis")
+    .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Em bilhões");
+  
+  svg.append("path")
+    .datum(dataFiltered[0].values)
+    .attr("class", "line")
+    .attr("d", line);
+
+
+  function variableChange() {
+    var value = this.value
+    var dataFiltered = dataNested.filter(function(d) {
+      return d.key === value
+    })
+    x.domain(d3.extent(dataFiltered[0].values, function(d) {
+      return d.ano;
+    }));
+    y.domain(d3.extent(dataFiltered[0].values, function(d) {
+      return d.valor;
+    }));
+    d3.select('.xAxis').transition().duration(1000).call(xAxis)
+    d3.select('.yAxis').transition().duration(1000).call(yAxis)
+    d3.select('.line').datum(dataFiltered[0].values).attr('d', line)
+  }
+});
+    </script>
+
+</body>
+</html>
