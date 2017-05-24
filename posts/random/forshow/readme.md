@@ -1,0 +1,1 @@
+Bogus graphic for show
