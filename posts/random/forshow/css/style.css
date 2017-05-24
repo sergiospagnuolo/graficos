@@ -1,0 +1,47 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
+@import url(https://fonts.googleapis.com/css?family=Merriweather+Sans:400,300);
+
+body {
+  font-family: 'Inconsolata', sans-serif;
+  margin: 0 5%;
+    font-weight: 400;
+  -webkit-font-smoothing:antialiased;
+  line-height: 1.3em;
+  background-color: #f4f4f4
+}
+
+.graphico {
+  margin: 0 auto;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: none;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 11px 'Inconsolata';
+}
+
+.cells path {
+  fill: none;
+  pointer-events: all;
+}
+
+.cells{
+  fill:#386cb0;
+}
+
+.cells :hover circle {
+  fill: #f0027f;
+}
+
+.graphico{
+  max-width: 900px;
+}
+
+a {
+  color: #000;
+}
