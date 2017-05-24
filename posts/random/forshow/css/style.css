@@ -22,7 +22,7 @@ body {
 }
 
 .axis text {
-  font: 11px 'Inconsolata';
+  fill: none
 }
 
 .cells path {
