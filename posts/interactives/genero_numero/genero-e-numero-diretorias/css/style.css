@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400,700');
+
+body {
+  font-family: Merriweather sans, sans-serif;
+  background-color: #f4f4f4;
+  font-size: 1em
+}
+
+h1,h2,h3,h4,h5,p {
+  margin: 0 0 .2em;
+  line-height: 1.4em
+}
+
+p {
+  font-weight: 400
+}
+
+h5{
+  font-weight: 300
+}
+
+span{
+  font-weight: 300;
+  font-size: .8em
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #999;
+}
+
+.dot {
+  stroke: #fff;
+}
+
+.tooltip {
+  position: absolute;
+  width: 230px;
+  height: 65px;
+  pointer-events: none;
+  font-size: .8em
+}
+
+#scatter{
+  max-width: 800px;
+  min-widh: 500px;
+  margin: 0 auto;
+}
+
+#bigtitle{
+  text-transform: ;
+}
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#logo {
+  width: 30px;
+  float: right;
+}
